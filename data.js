@@ -80,9 +80,51 @@ window.PLAN = {
         { text: "Carve: legs off, thighs and drums apart, then each breast off whole and slice crosswise." }
       ],
       notes: [
-        "Gravy: drippings from this mild brine are fine to use. Just use UNSALTED butter and low/no-sodium broth, and don’t add any salt until you’ve tasted it at the end.",
+        "For gravy, use the drippings with UNSALTED butter and low/no-sodium broth. Even a mild brine can make drippings salty, so add them gradually and taste before adding salt.",
         "If the turkey runs long, see the Plan B note on the Kitchen map."
       ]
+    },
+    {
+      id: "gravy", name: "Turkey Drippings Gravy", color: "#91603f",
+      summary: "Simple pan-drippings gravy, made while the turkey rests.",
+      yield: "About 3 cups", activeTime: "20 min", totalTime: "20–25 min",
+      ingredients: [
+        { group: "Gravy", items: [
+          "Turkey pan drippings, strained and separated (add to taste)",
+          "4 tbsp turkey fat and/or unsalted butter, total",
+          "4 tbsp all-purpose flour",
+          "Low- or no-sodium turkey or chicken broth, enough to make 3 cups liquid with the defatted drippings",
+          "Black pepper; salt only if needed after tasting"
+        ]},
+        { group: "Gear", items: ["Saucepan, whisk, strainer and measuring cup or fat separator"] }
+      ],
+      ahead: ["Have the flour, unsalted butter and low- or no-sodium broth ready before the turkey comes out."],
+      steps: [
+        { text: "Once the turkey is cooked and resting, carefully pour its hot pan drippings through a strainer into a measuring cup. Let the fat rise; spoon it off and reserve it separately." },
+        { text: "Put 4 tbsp reserved turkey fat and/or unsalted butter in a saucepan over medium heat. Whisk in 4 tbsp flour and cook, stirring, for 2 minutes.", timer: { label: "Gravy roux", min: 2 } },
+        { text: "Slowly whisk in a little defatted drippings and low- or no-sodium broth, working up to 3 cups total liquid. Start with a modest amount of drippings: brined turkey juices can be salty." },
+        { text: "Bring to a simmer and whisk until smooth and thickened, about 5–10 minutes. Add more broth if too thick.", timer: { label: "Gravy simmer", min: 7 } },
+        { text: "Taste. Add more drippings if desired and pepper to taste; add salt only if needed. If too salty, dilute with unsalted broth and simmer again. Hold on low at 140°F or hotter until serving, stirring occasionally." }
+      ],
+      notes: ["Turkey running late or no usable drippings? Start with unsalted butter and 3 cups low- or no-sodium broth; add cooked turkey drippings later if available."]
+    },
+    {
+      id: "corn", name: "Corn Casserole", color: "#d2a52c",
+      summary: "Recipe coming — ingredients and timing are not set yet.",
+      yield: "To be determined", activeTime: "TBD", totalTime: "TBD",
+      ingredients: [], ahead: [], steps: [{ text: "Waiting for your corn casserole recipe." }], notes: ["Not scheduled until the recipe arrives."]
+    },
+    {
+      id: "crab", name: "Crab Dip", color: "#b85d4d",
+      summary: "Recipe coming — ingredients and timing are not set yet.",
+      yield: "To be determined", activeTime: "TBD", totalTime: "TBD",
+      ingredients: [], ahead: [], steps: [{ text: "Waiting for your crab dip recipe." }], notes: ["Not scheduled until the recipe arrives."]
+    },
+    {
+      id: "baguette", name: "Baguette", color: "#ae7941",
+      summary: "Recipe coming — ingredients and timing are not set yet.",
+      yield: "To be determined", activeTime: "TBD", totalTime: "TBD",
+      ingredients: [], ahead: [], steps: [{ text: "Waiting for your baguette recipe." }], notes: ["Not scheduled until the recipe arrives."]
     },
     {
       id: "potatoes", name: "Yukon Gold Mashed Potatoes", color: "#c9962b",
@@ -269,6 +311,7 @@ window.PLAN = {
     { id: "potboil",  dish: "potatoes", t: -80,  dur: 35,  where: "big1",   title: "Potatoes on to boil", detail: "Cold water start, salted. Boil then strong simmer until tender.", timer: { label: "Potatoes boil + simmer", min: 30 } },
     { id: "stuffmix", dish: "stuffing", t: -75,  dur: 20,  where: "big2",   title: "Make stuffing", detail: "Butter + onion, add broth, fold in stuffing, into buttered dish, foil on.", timer: { label: "Sauté onion", min: 7 } },
     { id: "tkout",    dish: "turkey",   t: -60,  dur: 45,  where: "counter", title: "Turkey out — rest, tented", detail: "Target: breast 160°F. Rest 30–45 min.", timer: { label: "Turkey rest", min: 40 } },
+    { id: "gravycook",dish: "gravy",    t: -55,  dur: 55,  where: "big2", title: "Make gravy, then hold warm", detail: "Separate drippings, make roux, whisk in drippings and low-sodium broth. If turkey is late, start with broth. Taste before salting; hold at 140°F or hotter." },
     { id: "oven375",  dish: null,       t: -60,  dur: 10,  where: "oven", title: "Oven to 375°F, set two racks", detail: "Racks at upper-middle and middle." },
     { id: "macpasta", dish: "mac",      t: -125, dur: 15,  where: "big2",   title: "Mac: boil the pasta", detail: "2 min under box time. Drain.", timer: { label: "Pasta (box time − 2)", min: 6 } },
     { id: "macsauce", dish: "mac",      t: -120, dur: 25,  where: "big1",   title: "Mac: make the cheese sauce, assemble", detail: "Roux, milk, cheese, fold in pasta, into buttered dish. Holds on the counter till the oven’s free." },
@@ -293,6 +336,8 @@ window.PLAN = {
     { group: "Stuffing", items: ["Pepperidge Farm stuffing ×2", "Onions ×2 medium", "Chicken broth (4 cups — one 32-oz carton)"] },
     { group: "Green beans", items: ["2 lb green beans", "Lemon"] },
     { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (shared with mac)", "Flaky salt (optional)"] },
-    { group: "Butter total", items: ["About 1¼ lb — 5 sticks (rolls ~6 tbsp, turkey 4 tbsp, potatoes 1 stick, mac 4 tbsp+, stuffing 1 stick, beans 2 tbsp)"] }
+    { group: "Butter total", items: ["About 1¼ lb — 5 sticks (rolls ~6 tbsp, turkey 4 tbsp, potatoes 1 stick, mac 4 tbsp+, stuffing 1 stick, beans 2 tbsp, gravy up to 4 tbsp unsalted)"] },
+    { group: "Gravy", items: ["Low- or no-sodium turkey or chicken broth — up to 3 cups (in addition to stuffing broth)", "All-purpose flour — 4 tbsp (shared with mac)", "Unsalted butter — up to 4 tbsp (included in butter total)"] },
+    { group: "Recipes still coming", items: ["Corn casserole — ingredients TBD", "Crab dip — ingredients TBD", "Baguette — ingredients TBD"] }
   ]
 };
