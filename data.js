@@ -35,7 +35,7 @@ window.PLAN = {
       ingredients: [
         { group: "Brine (2 gallons)", items: [
           "2 gallons water (half hot, half ice/cold)",
-          "2 cups Diamond Crystal kosher salt — or 1¼ cups Morton kosher (not both)",
+          "1¼ cups Diamond Crystal kosher salt — or ¾ cup Morton kosher (not both). Milder on purpose for a 24-hour brine.",
           "½ cup brown sugar (optional, helps browning)",
           "2 tbsp black peppercorns, lightly cracked",
           "2 lemons, halved",
@@ -58,16 +58,16 @@ window.PLAN = {
         ]}
       ],
       ahead: [
-        "Sunday: if frozen, move to the fridge NOW (≈1 day per 4–5 lb → 3 days)",
-        "Wednesday morning: make brine, chill completely",
-        "Wednesday ~6 PM: turkey into brine (14–18 hr total)",
-        "Thursday ~9 AM: out of brine, rinse, pat dry, fridge uncovered for crisp skin"
+        "Sunday: if frozen, move to the fridge NOW. It must be fully thawed by Tuesday evening — if the cavity is still icy, finish it in cold water (change the water every 30 min).",
+        "Tuesday morning: make brine, chill completely",
+        "Tuesday ~6 PM: turkey into brine (24 hours)",
+        "Wednesday ~6 PM: out of brine, rinse, pat dry, fridge UNCOVERED overnight — dry skin = crisp skin"
       ],
       steps: [
-        { text: "Make brine: heat ½ gallon water with the salt, sugar, peppercorns, garlic and bay just until salt dissolves. Squeeze in lemons, drop in the halves and herbs. Steep 10 minutes.", timer: { label: "Brine steep", min: 10 } },
+        { text: "Make brine: heat ½ gallon water with the salt, sugar, peppercorns, garlic and bay just until salt dissolves. Squeeze in lemons, drop in the halves and herbs. Steep 10 minutes. (Tuesday morning.)", timer: { label: "Brine steep", min: 10 } },
         { text: "Add 1½ gallons ice/cold water. Brine must be fridge-cold (under 40°F) before the turkey goes in." },
-        { text: "Turkey into brine, breast-down, fully submerged (weigh down with a plate if needed). Fridge 14–18 hours." },
-        { text: "Thursday morning: remove, rinse inside and out, pat VERY dry. Back in the fridge on a rack, uncovered, until roast time." },
+        { text: "Tuesday ~6 PM: turkey into brine, breast-down, fully submerged (weigh down with a plate if needed). Fridge 24 hours — no longer." },
+        { text: "Wednesday ~6 PM: remove, rinse inside and out, pat VERY dry. Into the fridge on a rack set in a sheet pan, uncovered, until roast time Thursday. The skin will look dry and a little tight — that’s what you want." },
         { text: "45 min before roasting: take turkey out. Rub butter all over and under the breast skin, pepper. Stuff cavity loosely with lemon, onion, herbs. Tuck wing tips, tie legs loosely." },
         { text: "Preheat oven to 425°F with a rack in the LOWEST position.", timer: { label: "Preheat 425°F", min: 20 } },
         { text: "Roast at 425°F for 30 minutes to start browning.", timer: { label: "Turkey @ 425°F", min: 30 } },
@@ -95,11 +95,11 @@ window.PLAN = {
         ]}
       ],
       ahead: [
-        "Wednesday: peel and cut into 2-inch chunks, cover with cold water, refrigerate.",
+        "Wednesday: peel and cut into 2-inch chunks, cover completely with cold water (no salt), refrigerate. Any potato above the water can turn gray.",
         "Day-of: hold mashed potatoes covered on the small burner on LOW for up to an hour."
       ],
       steps: [
-        { text: "Drain the potatoes from their overnight water. Put in big pot, cover with cold water by 1 inch, add 1 tbsp salt." },
+        { text: "Drain off the overnight water completely (it’s starchy) and rinse once. Cover with FRESH cold water by 1 inch, add 1 tbsp salt. Always start cold — hot-water starts give mushy outsides and hard centers." },
         { text: "Bring to a boil on a BIG burner, then lower to a strong simmer.", timer: { label: "Potato water to boil", min: 12 } },
         { text: "Simmer until a knife slides through with no resistance.", timer: { label: "Potatoes simmer", min: 18 } },
         { text: "Warm the cream and butter together (microwave is fine)." },
@@ -204,14 +204,15 @@ window.PLAN = {
   EVENTS: [
     // Ahead of time (fixed clock times)
     { id: "thaw",     dish: "turkey",   day: -4, clock: "10:00", where: "fridge",  title: "Move turkey to the fridge to thaw", detail: "Only if frozen. 11 lb needs ~3 days in the fridge. Put it on a tray." },
-    { id: "shop",     dish: null,       day: -2, clock: "12:00", where: "counter", title: "Final shopping + clear fridge space", detail: "Room for the brine bag/bucket, the mac dish, and potatoes in water." },
-    { id: "brine",    dish: "turkey",   day: -1, clock: "10:00", where: "big1",    title: "Make brine, then chill it", detail: "Dissolve salt & aromatics in ½ gal hot water, add 1½ gal cold. Fridge until cold.", dur: 20 },
+    { id: "shop",     dish: null,       day: -3, clock: "12:00", where: "counter", title: "Final shopping + clear fridge space", detail: "Before brining Tuesday. Room for the brine bag/bucket, the mac dish, and potatoes in water." },
+    { id: "brine",    dish: "turkey",   day: -2, clock: "10:00", where: "big1",    title: "Make brine, then chill it", detail: "Dissolve salt & aromatics in ½ gal hot water, add 1½ gal cold. Fridge until cold.", dur: 20 },
     { id: "macmake",  dish: "mac",      day: -1, clock: "14:00", where: "big1",    title: "Make & assemble mac and cheese", detail: "Uses both big burners (pasta + sauce). Cool, cover, fridge.", dur: 45 },
     { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop celery & onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
-    { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, fridge.", dur: 30 },
+    { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, no salt, fridge. Thursday: drain, fresh cold water to cook.", dur: 30 },
     { id: "dishes",   dish: null,       day: -1, clock: "16:00", where: "counter", title: "Set out pans, dishes, serving bowls, thermometer", detail: "Roasting pan + rack, 9×13 for stuffing, steamer basket, carving board & knife.", dur: 15 },
-    { id: "brinein",  dish: "turkey",   day: -1, clock: "18:00", where: "fridge",  title: "Turkey into the brine", detail: "Fully submerged, breast-down. 14–18 hours." },
-    { id: "brineout", dish: "turkey",   day: 0,  clock: "09:00", where: "fridge",  title: "Turkey out of brine — rinse, pat dry", detail: "Back in fridge on a rack, uncovered, for crisp skin." },
+    { id: "thawchk",  dish: "turkey",   day: -2, clock: "16:00", where: "fridge",  title: "Check turkey is fully thawed", detail: "Reach into the cavity. Icy? Finish in a sink of cold water, changing it every 30 min." },
+    { id: "brinein",  dish: "turkey",   day: -2, clock: "18:00", where: "fridge",  title: "Turkey into the brine", detail: "Fully submerged, breast-down. 24 hours." },
+    { id: "brineout", dish: "turkey",   day: -1, clock: "18:00", where: "fridge",  title: "Turkey out of brine — rinse, pat dry", detail: "Fridge overnight on a rack over a sheet pan, UNCOVERED, to dry the skin." },
 
     // Day-of (relative to dinner)
     { id: "tkprep",   dish: "turkey",   t: -225, dur: 20,  where: "counter", title: "Turkey out of fridge — butter & aromatics", detail: "Butter under the skin, pepper, lemon/onion/herbs in cavity. Pull the mac out of the fridge too." },

@@ -473,7 +473,7 @@ $('#setBtn').onclick = () => {
     <p class="muted">Every Thanksgiving Day step shifts with this. Wednesday prep stays where it is.</p>
     <input type="time" id="dt" value="${cur}" style="font:600 32px var(--serif);padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff">
     <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn primary" id="saveDt">Save</button><button class="btn" id="resetDt">Reset to 4:00 PM</button><button class="btn ghost" id="resetAll">Clear all checkmarks</button></div>
-    <p class="muted small" style="margin-top:18px">Turkey goes in about 3 hours before dinner. Brine timing assumes dinner between 1 PM and 7 PM.</p></div>`;
+    <p class="muted small" style="margin-top:18px">Turkey goes in about 3 hours before dinner. The brine runs Tue 6 PM → Wed 6 PM whatever time dinner is.</p></div>`;
   $('#sheet').classList.add('open');
   $('#closeR').onclick = closeRecipe;
   $('#saveDt').onclick = () => { const [h,m] = $('#dt').value.split(':').map(Number); const d = new Date(P.dinnerDefault); d.setHours(h,m,0,0);
