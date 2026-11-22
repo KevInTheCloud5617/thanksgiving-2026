@@ -64,13 +64,13 @@ window.PLAN = {
       ahead: [
         "Tuesday morning: make brine, chill completely",
         "Tuesday ~6 PM: turkey into brine (24 hours)",
-        "Wednesday ~6 PM: out of brine, rinse, pat dry, fridge UNCOVERED overnight — dry skin = crisp skin"
+        "Wednesday ~6 PM: out of brine, let it drain, pat dry (no rinse), fridge UNCOVERED overnight — dry skin = crisp skin"
       ],
       steps: [
         { text: "Make brine: heat ½ gallon water with the salt, sugar, peppercorns, garlic and bay just until salt dissolves. Squeeze in lemons, drop in the halves and herbs. Steep 10 minutes. (Tuesday morning.)", timer: { label: "Brine steep", min: 10 } },
         { text: "Add 1½ gallons ice/cold water. Brine must be fridge-cold (under 40°F) before the turkey goes in." },
         { text: "Tuesday ~6 PM: turkey into brine, breast-down, fully submerged (weigh down with a plate if needed). Fridge 24 hours — no longer." },
-        { text: "Wednesday ~6 PM: remove, rinse inside and out, pat VERY dry. Into the fridge on a rack set in a sheet pan, uncovered, until roast time Thursday. The skin will look dry and a little tight — that’s what you want." },
+        { text: "Wednesday ~6 PM: lift out and let the brine drain from the cavity over the bag/bucket. No rinse — just pat VERY dry with paper towels, inside and out. Into the fridge on a rack set in a sheet pan, uncovered, until roast time Thursday. The skin will look dry and a little tight — that’s what you want." },
         { text: "45 min before roasting: take turkey out. Rub butter all over and under the breast skin, pepper. Stuff cavity loosely with lemon, onion, herbs. Tuck wing tips, tie legs loosely." },
         { text: "Preheat oven to 425°F with a rack in the LOWEST position.", timer: { label: "Preheat 425°F", min: 20 } },
         { text: "Roast at 425°F for 30 minutes to start browning.", timer: { label: "Turkey @ 425°F", min: 30 } },
@@ -80,7 +80,7 @@ window.PLAN = {
         { text: "Carve: legs off, thighs and drums apart, then each breast off whole and slice crosswise." }
       ],
       notes: [
-        "Brined drippings are salty — taste before using for gravy.",
+        "Gravy: drippings from this mild brine are fine to use. Just use UNSALTED butter and low/no-sodium broth, and don’t add any salt until you’ve tasted it at the end.",
         "If the turkey runs long, see the Plan B note on the Kitchen map."
       ]
     },
@@ -255,7 +255,7 @@ window.PLAN = {
     { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, no salt, fridge. Thursday: drain, fresh cold water to cook.", dur: 30 },
     { id: "dishes",   dish: null,       day: -1, clock: "16:00", where: "counter", title: "Set out pans, dishes, serving bowls, thermometer", detail: "Roasting pan + rack, 9×13 for stuffing, steamer basket, carving board & knife.", dur: 15 },
     { id: "brinein",  dish: "turkey",   day: -2, clock: "18:00", where: "fridge",  title: "Turkey into the brine", detail: "Fully submerged, breast-down. 24 hours." },
-    { id: "brineout", dish: "turkey",   day: -1, clock: "18:00", where: "fridge",  title: "Turkey out of brine — rinse, pat dry", detail: "Fridge overnight on a rack over a sheet pan, UNCOVERED, to dry the skin." },
+    { id: "brineout", dish: "turkey",   day: -1, clock: "18:00", where: "fridge",  title: "Turkey out of brine — drain, pat dry (no rinse)", detail: "Fridge overnight on a rack over a sheet pan, UNCOVERED, to dry the skin." },
 
     // Day-of (relative to dinner)
     { id: "rollproof",dish: "rolls",    t: -480, dur: 135, where: "counter", title: "Rolls out of fridge to proof", detail: "Somewhere warm until puffy and touching, 2–3 hr.", timer: { label: "Rolls proof", min: 120 } },

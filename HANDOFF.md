@@ -22,14 +22,14 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 - **Turkey:** 11 lb, **already thawed**. 2-gallon wet brine with 1¼ cups Diamond or ¾ cup Morton (mild because it's a 24-hr brine), plus brown sugar, peppercorns, lemon, garlic, herbs and bay.
   - Tue 10 AM: make brine, chill.
   - Tue 6 PM: turkey into brine.
-  - Wed 6 PM: out, rinse, pat dry, fridge **uncovered** overnight.
+  - Wed 6 PM: out, drain, pat dry — **no rinse** (Kevin's call; mild brine + USDA says don't rinse raw poultry) — fridge **uncovered** overnight.
   - Thu: 425°F 30 min, then 350°F. Pull at 160°F breast / 170–175°F thigh, rest 30–45 min.
 - **Mashed potatoes:** 5 lb Yukon Gold, butter and a little cream only. Peeled Wed into cold unsalted water in the fridge. Thu: drain, rinse, **fresh cold salted water**, cook, mash, hold on a small burner on LOW.
 - **Mac & cheese:** made **fresh Thursday**, not ahead. **Meg is sending her recipe.** The current one is a labeled placeholder (roux-based). Swap ingredients and steps when it arrives; the schedule can stay (pasta on big R at T−125, sauce on big L at T−120, bake uncovered at 375°F on the upper rack T−35 to T−10).
 - **Stuffing:** 2 bags of Pepperidge Farm. Package recipe **per bag: 4 tbsp butter, 1 cup onion, 2 cups chicken broth** (so 1 stick, 2 cups onion, 4 cups broth). No celery. Mixed on big R at T−75, baked covered at 375°F on the middle rack T−50, uncovered T−25. Kevin's message cut off at "we have 2 bags of…", so the stuffing variety is still unconfirmed.
 - **Green beans:** steamed on a small burner at T−20, then butter, salt and lemon.
 - **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. Thu: proof from 8 AM, bake 375°F about 22 min at ~10:30 (oven is free then). Rewarm under foil at T−10 after the sides come out. Assumes Kevin has an active starter; that hasn't been confirmed.
-- **Gravy:** not in the plan (Kevin didn't ask). Note: brined drippings are salty.
+- **Gravy:** not in the plan yet. The brine is mild (~2.3%), so the drippings can be used: unsalted butter, low-sodium broth, salt only after tasting.
 
 ## Thursday oven sequence (dinner 4 PM)
 - 10:15 AM: 375°F for the rolls; they come out about 10:52
