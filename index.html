@@ -344,7 +344,7 @@ function renderTimeline(){
 }
 
 // ================= KITCHEN =================
-const DAY_MIN = -240, DAY_MAX = 5;
+const DAY_MIN = -480, DAY_MAX = 5;
 let scrubT = null;
 function renderKitchen(){
   const D = dinner(), n = now();
@@ -354,11 +354,11 @@ function renderKitchen(){
   const act = at(scrubT);
   let temp = null; P.ovenTemps.forEach(o => { if (o.t <= scrubT) temp = o; });
   const ovenOn = temp && temp.temp > 0;
-  const rackHtml = r => act.filter(e=>e.where==='oven' && e.rack===r).map(e=>`<div class="dishchip" style="background:${colorOf(e)}" data-recipe="${e.dish}">${esc(dishById[e.dish].name.replace(/^(Brined Roast |Baked |Pepperidge Farm )/,''))}</div>`).join('');
+  const rackHtml = r => act.filter(e=>e.where==='oven' && e.rack===r).map(e=>`<div class="dishchip" style="background:${colorOf(e)}" data-recipe="${e.dish}">${esc(dishById[e.dish].name.replace(/^(Brined Roast |Baked |Pepperidge Farm |Sourdough )/,''))}</div>`).join('');
   const burner = k => { const e = act.find(x=>x.where===k); const b = P.burners[k];
     return `<div class="burner ${b.size==='small'?'small':''} ${e?'on':''}" ${e&&e.dish?`data-recipe="${e.dish}"`:''}>${e?`<div><b>${esc(e.title)}</b></div>`:'off'}<div class="bn">${b.name}</div></div>`; };
   const counter = act.filter(e=>e.where==='counter');
-  const ticks = []; for (let t=DAY_MIN; t<=0; t+=30) ticks.push(t);
+  const ticks = []; for (let t=DAY_MIN; t<=0; t+=60) ticks.push(t);
   const pct = t => (t-DAY_MIN)/(DAY_MAX-DAY_MIN)*100;
   const lanes = [['oven','Oven'],['big1','Big L'],['big2','Big R'],['small1','Small L'],['small2','Small R'],['counter','Counter']];
   const atTime = new Date(D.getTime()+scrubT*60000);

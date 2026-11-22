@@ -13,11 +13,15 @@ window.PLAN = {
 
   // Oven temperature over the day (t = minutes from dinner)
   ovenTemps: [
+    { t: -345, temp: 375, label: "Rolls — preheat" },
+    { t: -330, temp: 375, label: "Baking rolls" },
+    { t: -305, temp: 0, label: "Off" },
     { t: -205, temp: 425, label: "Preheating" },
     { t: -185, temp: 425, label: "Turkey blast" },
     { t: -155, temp: 350, label: "Turkey roast" },
     { t: -60,  temp: 375, label: "Sides" },
-    { t: -10,  temp: 0,   label: "Off" }
+    { t: -10,  temp: 375, label: "Rewarming rolls" },
+    { t: -2,   temp: 0,   label: "Off" }
   ],
 
   burners: {
@@ -197,6 +201,51 @@ window.PLAN = {
         { text: "Into a serving bowl with butter, salt, lemon. Toss. Serve right away." }
       ],
       notes: []
+    },
+    {
+      id: "rolls", name: "Sourdough Dinner Rolls", color: "#8a5a3c",
+      summary: "Soft, buttery pull-apart rolls. Dough Wednesday, cold rise overnight, baked Thursday morning before the turkey.",
+      yield: "16 rolls (one 9×13)", activeTime: "40 min", totalTime: "~24 hr, mostly hands-off",
+      ingredients: [
+        { group: "Dough", items: [
+          "100 g active sourdough starter (fed, bubbly, at its peak)",
+          "500 g bread flour",
+          "240 g whole milk, lukewarm",
+          "1 large egg",
+          "30 g honey or sugar",
+          "60 g butter, very soft",
+          "10 g fine salt"
+        ]},
+        { group: "Finish", items: [
+          "1 egg + 1 tbsp milk (egg wash)",
+          "2 tbsp melted butter for brushing after baking",
+          "Flaky salt (optional)"
+        ]},
+        { group: "Gear", items: ["Kitchen scale", "Buttered 9×13 pan", "Plastic wrap or a lid"] }
+      ],
+      ahead: [
+        "Wednesday 8 AM: feed the starter so it peaks around noon.",
+        "Wednesday noon: mix dough; let it rise on the counter ~5 hr.",
+        "Wednesday ~5:30 PM: shape 16 rolls into the pan, cover, fridge overnight.",
+        "Thursday 8 AM: out of the fridge to proof; bake ~10:30 AM while the oven is still free.",
+        "Thursday right before dinner: rewarm 5–8 min in the hot oven after the sides come out."
+      ],
+      steps: [
+        { text: "Wednesday 8 AM: feed your starter (equal weights flour and water). It should double and be bubbly by about noon." },
+        { text: "Noon: mix starter, milk, egg and honey. Add flour, mix to a shaggy dough. Rest 20 minutes.", timer: { label: "Rolls dough rest", min: 20 } },
+        { text: "Add salt, then knead in the soft butter a bit at a time. Knead 8–10 minutes until smooth and stretchy (or 6–8 min in a stand mixer on medium-low).", timer: { label: "Knead", min: 8 } },
+        { text: "Cover and rise at warm room temp until about 1½× bigger and puffy. Usually 4–6 hours; enriched sourdough is slow.", timer: { label: "Bulk rise — first check", min: 240 } },
+        { text: "~5:30 PM: divide into 16 pieces (~60 g each). Shape tight balls and place in buttered 9×13, 4 × 4. Cover tightly and refrigerate overnight." },
+        { text: "Thursday 8 AM: take the pan out of the fridge. Proof somewhere warm until puffy and touching, 2–3 hours.", timer: { label: "Rolls proof", min: 120 } },
+        { text: "Preheat to 375°F, middle rack. Brush rolls with egg wash.", timer: { label: "Preheat 375°F", min: 15 } },
+        { text: "Bake until deep golden and 190°F inside.", timer: { label: "Bake rolls", min: 22 } },
+        { text: "Brush with melted butter, flaky salt if you like. Cool in the pan, then cover loosely with foil." },
+        { text: "Dinner: when the mac and stuffing come out, put the foil-covered rolls in the hot oven 5–8 minutes, then turn the oven off.", timer: { label: "Rewarm rolls", min: 6 } }
+      ],
+      notes: [
+        "Starter sluggish? Give the bulk rise more time rather than rushing it. Dough should feel airy, not dense.",
+        "Behind schedule Thursday? The rolls can bake as late as 11:30 AM and still be out before the turkey preheat."
+      ]
     }
   ],
 
@@ -206,6 +255,9 @@ window.PLAN = {
     { id: "thaw",     dish: "turkey",   day: -4, clock: "10:00", where: "fridge",  title: "Move turkey to the fridge to thaw", detail: "Only if frozen. 11 lb needs ~3 days in the fridge. Put it on a tray." },
     { id: "shop",     dish: null,       day: -3, clock: "12:00", where: "counter", title: "Final shopping + clear fridge space", detail: "Before brining Tuesday. Room for the brine bag/bucket, the mac dish, and potatoes in water." },
     { id: "brine",    dish: "turkey",   day: -2, clock: "10:00", where: "big1",    title: "Make brine, then chill it", detail: "Dissolve salt & aromatics in ½ gal hot water, add 1½ gal cold. Fridge until cold.", dur: 20 },
+    { id: "starter",  dish: "rolls",    day: -1, clock: "08:00", where: "counter", title: "Feed sourdough starter", detail: "So it peaks around noon." },
+    { id: "rollmix",  dish: "rolls",    day: -1, clock: "12:00", where: "counter", title: "Mix & knead roll dough, start bulk rise", detail: "~40 min hands-on, then 4–6 hr rise on the counter.", dur: 40 },
+    { id: "rollshape",dish: "rolls",    day: -1, clock: "17:30", where: "counter", title: "Shape 16 rolls, cover, fridge overnight", detail: "Into buttered 9×13, 4 × 4.", dur: 20 },
     { id: "macmake",  dish: "mac",      day: -1, clock: "14:00", where: "big1",    title: "Make & assemble mac and cheese", detail: "Uses both big burners (pasta + sauce). Cool, cover, fridge.", dur: 45 },
     { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop celery & onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
     { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, no salt, fridge. Thursday: drain, fresh cold water to cook.", dur: 30 },
@@ -215,6 +267,9 @@ window.PLAN = {
     { id: "brineout", dish: "turkey",   day: -1, clock: "18:00", where: "fridge",  title: "Turkey out of brine — rinse, pat dry", detail: "Fridge overnight on a rack over a sheet pan, UNCOVERED, to dry the skin." },
 
     // Day-of (relative to dinner)
+    { id: "rollproof",dish: "rolls",    t: -480, dur: 135, where: "counter", title: "Rolls out of fridge to proof", detail: "Somewhere warm until puffy and touching, 2–3 hr.", timer: { label: "Rolls proof", min: 120 } },
+    { id: "rollheat", dish: "rolls",    t: -345, dur: 15,  where: "oven", rack: "middle", title: "Preheat oven to 375°F for rolls", detail: "Middle rack. Egg-wash the rolls.", timer: { label: "Preheat 375°F", min: 15 } },
+    { id: "rollbake", dish: "rolls",    t: -330, dur: 22,  where: "oven", rack: "middle", title: "Bake rolls", detail: "Deep golden, 190°F inside. Butter the tops, cool, foil over.", timer: { label: "Bake rolls", min: 22 } },
     { id: "tkprep",   dish: "turkey",   t: -225, dur: 20,  where: "counter", title: "Turkey out of fridge — butter & aromatics", detail: "Butter under the skin, pepper, lemon/onion/herbs in cavity. Pull the mac out of the fridge too." },
     { id: "preheat",  dish: "turkey",   t: -205, dur: 20,  where: "oven", rack: "lower", title: "Preheat oven to 425°F", detail: "One rack at the LOWEST position. Remove the others or move to top.", timer: { label: "Preheat 425°F", min: 20 } },
     { id: "tk425",    dish: "turkey",   t: -185, dur: 30,  where: "oven", rack: "lower", title: "Turkey in at 425°F", detail: "30 minutes to brown.", timer: { label: "Turkey @ 425°F", min: 30 } },
@@ -231,7 +286,8 @@ window.PLAN = {
     { id: "uncover",  dish: "mac",      t: -25,  dur: 0,   where: "oven",   title: "Uncover mac & stuffing", detail: "Mac 15 more min, stuffing 10.", timer: { label: "Mac uncovered", min: 15 } },
     { id: "beanwater",dish: "beans",    t: -20,  dur: 20,  where: "small2", title: "Green beans: water on, then steam", detail: "1 inch of water, basket, lid. Beans in once boiling, 5–7 min.", timer: { label: "Steam beans", min: 6 } },
     { id: "carve",    dish: "turkey",   t: -15,  dur: 15,  where: "counter", title: "Carve the turkey", detail: "Legs, thighs, drums, then breasts whole and sliced." },
-    { id: "sidesout", dish: null,       t: -10,  dur: 0,   where: "oven",   title: "Mac & stuffing out — oven off", detail: "Everything to the table." },
+    { id: "sidesout", dish: null,       t: -10,  dur: 0,   where: "oven",   title: "Mac & stuffing out", detail: "To the table." },
+    { id: "rollwarm", dish: "rolls",    t: -10,  dur: 8,   where: "oven", rack: "middle", title: "Rolls in to rewarm (foil on), then oven off", detail: "5–8 minutes.", timer: { label: "Rewarm rolls", min: 6 } },
     { id: "dinner",   dish: null,       t: 0,    dur: 0,   where: "counter", title: "Dinner!", detail: "Happy Thanksgiving." }
   ],
 
@@ -243,6 +299,7 @@ window.PLAN = {
     { group: "Mac & cheese", items: ["1 lb elbows", "Whole milk (½ gallon)", "1 lb sharp cheddar block", "4 oz Gruyère/Jack (optional)", "Dry mustard", "Paprika", "Flour", "Panko (optional)"] },
     { group: "Stuffing", items: ["Pepperidge Farm Herb Seasoned ×2", "Celery", "Onion ×1 large", "Chicken broth (5 cups — two 32-oz cartons)"] },
     { group: "Green beans", items: ["2 lb green beans", "Lemon"] },
-    { group: "Butter total", items: ["About 1¼ lb — 5 sticks (turkey 4 tbsp, potatoes 1 stick, mac 4 tbsp+, stuffing 2 sticks, beans 2 tbsp)"] }
+    { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (shared with mac)", "Flaky salt (optional)"] },
+    { group: "Butter total", items: ["About 1½ lb — 6 sticks (rolls ~6 tbsp, turkey 4 tbsp, potatoes 1 stick, mac 4 tbsp+, stuffing 2 sticks, beans 2 tbsp)"] }
   ]
 };
