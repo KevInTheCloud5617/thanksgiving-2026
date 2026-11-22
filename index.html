@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Thanksgiving">
+<meta name="theme-color" content="#f6efe4">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23b4532a'/%3E%3Ctext x='32' y='44' font-family='Georgia' font-size='34' text-anchor='middle' fill='%23fff6e8'%3ET%3C/text%3E%3C/svg%3E">
+<title>Thanksgiving 2026</title>
+<style>
+:root{
+  --paper:#f6efe4; --card:#fffaf2; --line:#e6d9c4; --ink:#2b211a; --muted:#7a6a5a;
+  --rust:#b4532a; --rust-soft:#f3dccd; --olive:#5d6b2c; --gold:#c9962b;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"SF Pro Text","Segoe UI",Roboto,sans-serif;
+  --r:14px; --tabh:64px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.45 var(--sans);-webkit-text-size-adjust:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.01em;margin:0}
+.muted{color:var(--muted)}
+.small{font-size:13px}
+
+/* ---------- header ---------- */
+header{position:sticky;top:0;z-index:20;background:rgba(246,239,228,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line);padding:calc(env(safe-area-inset-top) + 10px) 18px 10px}
+.hrow{display:flex;align-items:center;gap:14px}
+.brand h1{font-size:22px}
+.brand .sub{font-size:13px;color:var(--muted)}
+.clock{margin-left:auto;text-align:right}
+.clock .t{font:600 22px/1 var(--serif);font-variant-numeric:tabular-nums}
+.clock .d{font-size:12px;color:var(--muted)}
+.hbtn{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:7px 12px;font-size:13px;white-space:nowrap}
+.hbtn.on{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+nav.tabs{display:flex;gap:4px;margin-top:10px;overflow-x:auto;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{border:0;background:transparent;padding:8px 14px;border-radius:999px;font-weight:500;color:var(--muted);white-space:nowrap}
+nav.tabs button.active{background:var(--ink);color:var(--paper)}
+
+/* ---------- layout ---------- */
+.shell{display:grid;grid-template-columns:1fr 340px;gap:20px;padding:20px;max-width:1400px;margin:0 auto}
+main section{display:none}
+main section.active{display:block}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.stack>*+*{margin-top:14px}
+.eyebrow{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+
+/* ---------- now ---------- */
+.hero{padding:22px 24px;border-left:6px solid var(--rust)}
+.hero .when{font:600 15px var(--sans);color:var(--rust)}
+.hero h2{font-size:32px;margin:6px 0 8px;line-height:1.1}
+.hero .count{font:600 44px/1 var(--serif);font-variant-numeric:tabular-nums;margin-top:12px}
+.hero .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.btn{border:1px solid var(--line);background:#fff;border-radius:10px;padding:10px 14px;font-weight:600;font-size:15px}
+.btn.primary{background:var(--rust);border-color:var(--rust);color:#fff}
+.btn.ghost{background:transparent}
+.btn.sm{padding:6px 10px;font-size:13px;border-radius:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mini{display:flex;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid var(--line)}
+.mini:first-of-type{border-top:0}
+.mini .tm{font:600 15px var(--serif);min-width:72px;font-variant-numeric:tabular-nums}
+.mini .ti{font-weight:600}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;background:var(--rust-soft);color:var(--rust)}
+.pill.where{background:#ece4d6;color:#5b4c3d}
+.progress{height:8px;background:#ece4d6;border-radius:99px;overflow:hidden}
+.progress>div{height:100%;background:var(--rust)}
+
+/* ---------- timeline ---------- */
+.day{margin-bottom:22px}
+.day h3{font-size:20px;margin:0 0 8px}
+.ev{display:grid;grid-template-columns:76px 14px 1fr auto;gap:12px;align-items:start;padding:12px 14px;border-radius:12px;background:var(--card);border:1px solid var(--line);margin-bottom:8px}
+.ev .tm{font:600 16px var(--serif);font-variant-numeric:tabular-nums;padding-top:1px}
+.ev .tm small{display:block;font:500 11px var(--sans);color:var(--muted)}
+.ev .dot{width:12px;height:12px;border-radius:50%;margin-top:6px}
+.ev .ti{font-weight:600}
+.ev .de{color:var(--muted);font-size:14px;margin-top:2px}
+.ev .meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.ev .side{display:flex;flex-direction:column;gap:6px;align-items:flex-end}
+.ev.now{border-color:var(--rust);box-shadow:0 0 0 2px var(--rust) inset;background:#fff6ee}
+.ev.done{opacity:.45}
+.ev.done .ti{text-decoration:line-through}
+.check{width:30px;height:30px;border-radius:8px;border:2px solid #cbb9a0;background:#fff;display:grid;place-items:center;padding:0}
+.check.on{background:var(--olive);border-color:var(--olive);color:#fff}
+.nowline{display:flex;align-items:center;gap:8px;margin:6px 0 14px;color:var(--rust);font-weight:700;font-size:13px}
+.nowline:after{content:"";flex:1;height:2px;background:var(--rust)}
+
+/* ---------- kitchen ---------- */
+.kgrid{display:grid;grid-template-columns:1.1fr 1fr;gap:16px}
+.scrub{display:flex;align-items:center;gap:12px}
+.scrub input{flex:1;accent-color:var(--rust);height:30px}
+.scrub .st{font:600 22px var(--serif);min-width:110px;font-variant-numeric:tabular-nums}
+.oven{background:#2d2520;border-radius:18px;padding:14px;color:#f6efe4}
+.oven .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.oven .temp{font:600 30px var(--serif);font-variant-numeric:tabular-nums}
+.oven .temp.hot{color:#ffb27a}
+.ovenbox{background:#1a1411;border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:10px;min-height:250px;position:relative;box-shadow:inset 0 0 0 2px #3c312a}
+.ovenbox.lit{box-shadow:inset 0 0 0 2px #7a3c1d, inset 0 0 40px rgba(255,120,40,.18)}
+.rack{flex:1;border-bottom:3px solid #5b4c41;display:flex;align-items:flex-end;gap:8px;padding:4px 6px;min-height:62px;position:relative}
+.rack .rl{position:absolute;left:6px;top:2px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#8a7a6c}
+.dishchip{border-radius:10px;padding:8px 10px;font-size:13px;font-weight:600;color:#fff;line-height:1.2;cursor:pointer}
+.stove{background:#202022;border-radius:18px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.burner{aspect-ratio:1;border-radius:50%;border:3px solid #3e3e42;display:grid;place-items:center;text-align:center;padding:12px;color:#9b9ba2;font-size:12px;position:relative;cursor:default}
+.burner.small{width:72%;justify-self:center;align-self:center}
+.burner.on{border-color:#ff6a2b;box-shadow:0 0 0 4px rgba(255,106,43,.18),0 0 26px rgba(255,106,43,.35);color:#fff}
+.burner b{display:block;font-size:13px;color:inherit}
+.burner .bn{position:absolute;bottom:-18px;font-size:10px;color:#77777d;left:0;right:0}
+.counter{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+.gantt{position:relative;margin-top:8px}
+.lane{display:grid;grid-template-columns:110px 1fr;align-items:center;min-height:38px;border-top:1px solid var(--line)}
+.lane .ln{font-size:13px;font-weight:600;color:var(--muted)}
+.lane .track{position:relative;height:38px}
+.bar{position:absolute;top:6px;height:26px;border-radius:7px;color:#fff;font-size:11.5px;font-weight:600;padding:5px 7px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;cursor:pointer}
+.bar.pt{width:4px!important;padding:0;border-radius:2px}
+.axis{display:grid;grid-template-columns:110px 1fr;font-size:11px;color:var(--muted)}
+.axis .ticks{position:relative;height:18px}
+.axis .ticks span{position:absolute;transform:translateX(-50%)}
+.scrubline{position:absolute;top:0;bottom:0;width:2px;background:var(--rust);pointer-events:none}
+.planb{border-left:4px solid var(--gold);background:#fbf3e1}
+
+/* ---------- recipes ---------- */
+.rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px}
+.rcard{text-align:left;border:1px solid var(--line);background:var(--card);border-radius:var(--r);padding:0;overflow:hidden}
+.rcard .sw{height:8px}
+.rcard .b{padding:16px}
+.rcard h3{font-size:20px}
+.sheet{position:fixed;inset:0;z-index:50;background:rgba(43,33,26,.45);display:none;align-items:flex-end;justify-content:center}
+.sheet.open{display:flex}
+.sheet .panel{background:var(--paper);width:min(860px,100%);max-height:92vh;overflow:auto;border-radius:20px 20px 0 0;padding:0 0 calc(env(safe-area-inset-bottom) + 30px)}
+@media(min-width:900px){.sheet{align-items:center}.sheet .panel{border-radius:20px;max-height:88vh}}
+.panel .phead{position:sticky;top:0;background:var(--paper);padding:18px 22px 12px;border-bottom:1px solid var(--line);display:flex;align-items:flex-start;gap:12px;z-index:2}
+.panel .phead h2{font-size:28px}
+.panel .pbody{padding:18px 22px}
+.facts{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+.cols{display:grid;grid-template-columns:1fr 1.4fr;gap:20px}
+.ing h4,.steps h4{font:600 13px var(--sans);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:16px 0 6px}
+.cl{list-style:none;margin:0;padding:0}
+.cl li{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.cl li .bx{flex:none;width:22px;height:22px;border-radius:6px;border:2px solid #cbb9a0;margin-top:1px;display:grid;place-items:center;font-size:13px;color:#fff}
+.cl li.on .bx{background:var(--olive);border-color:var(--olive)}
+.cl li.on span{color:var(--muted);text-decoration:line-through}
+ol.st{margin:0;padding:0;list-style:none;counter-reset:s}
+ol.st li{counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)}
+ol.st li:before{content:counter(s);position:absolute;left:0;top:11px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:600 14px var(--serif)}
+ol.st li .btn{margin-top:8px}
+.aheadbox{background:#eef0e2;border-radius:12px;padding:12px 14px;margin-top:14px}
+.aheadbox ul{margin:6px 0 0;padding-left:18px}
+
+/* ---------- timers ---------- */
+.timers{position:sticky;top:130px;align-self:start}
+.timers .card{padding:14px}
+.tmr{border:1px solid var(--line);background:#fff;border-radius:12px;padding:12px;margin-top:10px}
+.tmr .row{display:flex;align-items:center;gap:8px}
+.tmr .lbl{font-weight:600;font-size:14px;flex:1;min-width:0}
+.tmr .rem{font:600 30px/1 var(--serif);font-variant-numeric:tabular-nums;margin:8px 0}
+.tmr.done{border-color:var(--rust);background:#fff1e8}
+.tmr.done .rem{color:var(--rust)}
+.tmr.paused .rem{color:var(--muted)}
+.quick{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.alarm{position:fixed;inset:0;z-index:80;background:var(--rust);color:#fff;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:30px}
+.alarm.open{display:flex;animation:pulse 1s infinite alternate}
+@keyframes pulse{from{background:#b4532a}to{background:#8f3c19}}
+.alarm h2{font-size:44px;margin:10px 0 26px}
+.alarm .btn{font-size:22px;padding:16px 40px;background:#fff;color:var(--rust);border:0}
+
+/* ---------- phone ---------- */
+.tbar,.tfab{display:none}
+@media(max-width:899px){
+  .shell{grid-template-columns:1fr;padding:14px 12px calc(var(--tabh) + env(safe-area-inset-bottom) + 70px)}
+  nav.tabs{display:none}
+  .tbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:rgba(255,250,242,.97);border-top:1px solid var(--line);padding:6px 4px calc(env(safe-area-inset-bottom) + 6px)}
+  .tbar button{flex:1;border:0;background:none;font-size:11px;font-weight:600;color:var(--muted);padding:6px 0;display:flex;flex-direction:column;align-items:center;gap:3px}
+  .tbar button svg{width:22px;height:22px}
+  .tbar button.active{color:var(--rust)}
+  .timers{position:fixed;left:0;right:0;bottom:calc(var(--tabh) + env(safe-area-inset-bottom));z-index:29;top:auto;transform:translateY(calc(100% - 0px));transition:transform .25s;max-height:70vh;overflow:auto}
+  .timers.open{transform:none}
+  .timers .card{border-radius:18px 18px 0 0;box-shadow:0 -8px 30px rgba(0,0,0,.12)}
+  .tfab{display:flex;position:fixed;right:12px;bottom:calc(var(--tabh) + env(safe-area-inset-bottom) + 10px);z-index:31;background:var(--ink);color:var(--paper);border:0;border-radius:999px;padding:10px 16px;font-weight:700;gap:8px;align-items:center;box-shadow:0 6px 20px rgba(0,0,0,.2)}
+  .tfab.alert{background:var(--rust)}
+  .grid2,.kgrid,.cols{grid-template-columns:1fr}
+  .hero h2{font-size:26px}
+  .hero .count{font-size:36px}
+  .ev{grid-template-columns:60px 10px 1fr;padding:12px}
+  .ev .side{grid-column:1/-1;flex-direction:row;justify-content:flex-end}
+  .brand h1{font-size:19px}
+  .hrow .hbtn.wl{display:none}
+  .lane{grid-template-columns:70px 1fr}.axis{grid-template-columns:70px 1fr}
+  .lane .ln{font-size:11px}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="hrow">
+    <div class="brand"><h1>Thanksgiving 2026</h1><div class="sub" id="dinnerLbl"></div></div>
+    <div class="clock"><div class="t" id="clk"></div><div class="d" id="clkd"></div></div>
+    <button class="hbtn wl" id="wlBtn" title="Keep the screen from sleeping">Keep screen on</button>
+    <button class="hbtn" id="setBtn">Dinner time</button>
+  </div>
+  <nav class="tabs" id="tabs"></nav>
+</header>
+
+<div class="shell">
+  <main>
+    <section id="v-now"></section>
+    <section id="v-timeline"></section>
+    <section id="v-kitchen"></section>
+    <section id="v-recipes"></section>
+    <section id="v-ahead"></section>
+    <section id="v-shop"></section>
+  </main>
+  <aside class="timers" id="timers"><div class="card">
+    <div style="display:flex;align-items:center;gap:8px"><h3 style="font-size:20px;flex:1">Timers</h3><button class="btn sm" id="tCustom">+ Custom</button><button class="btn sm ghost tclose" id="tClose" style="display:none">Close</button></div>
+    <div id="tList"></div>
+    <div class="quick" id="tQuick"></div>
+  </div></aside>
+</div>
+
+<button class="tfab" id="tfab">Timers</button>
+<div class="tbar" id="tbar"></div>
+
+<div class="sheet" id="sheet"><div class="panel" id="panel"></div></div>
+<div class="alarm" id="alarm"><div class="eyebrow" style="color:#ffe3d2">Timer done</div><h2 id="alarmT"></h2><button class="btn" id="alarmOk">Got it</button></div>
+
+<script src="data.js"></script>
+<script>
+(function(){
+const P = window.PLAN;
+const $ = s => document.querySelector(s);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const LS = {
+  get(k, d){ try{ const v = localStorage.getItem('tg26.'+k); return v==null?d:JSON.parse(v);}catch(e){return d;} },
+  set(k, v){ localStorage.setItem('tg26.'+k, JSON.stringify(v)); }
+};
+const dishById = Object.fromEntries(P.DISHES.map(d => [d.id, d]));
+const colorOf = e => e.dish ? dishById[e.dish].color : '#6b5a4a';
+const WHERE = { oven:'Oven', big1:'Big burner L', big2:'Big burner R', small1:'Small burner L', small2:'Small burner R', counter:'Counter', fridge:'Fridge' };
+
+// ---- clock (supports ?at=2026-11-26T13:30 for previewing) ----
+const qs = new URLSearchParams(location.search);
+const clockOffset = qs.get('at') ? (new Date(qs.get('at')).getTime() - Date.now()) : 0;
+const now = () => new Date(Date.now() + clockOffset);
+
+// ---- times ----
+function dinner(){ return new Date(LS.get('dinner', P.dinnerDefault)); }
+function startOf(e){
+  const D = dinner();
+  if (e.t != null) return new Date(D.getTime() + e.t*60000);
+  const d = new Date(D); d.setDate(d.getDate() + e.day);
+  const [h, m] = e.clock.split(':').map(Number); d.setHours(h, m, 0, 0); return d;
+}
+const endOf = e => new Date(startOf(e).getTime() + (e.dur||0)*60000);
+const fmtT = d => d.toLocaleTimeString([], {hour:'numeric', minute:'2-digit'});
+const fmtDay = d => d.toLocaleDateString([], {weekday:'long', month:'short', day:'numeric'});
+const sorted = () => P.EVENTS.slice().sort((a,b) => startOf(a)-startOf(b) || (a.t??0)-(b.t??0));
+function relLabel(e){ if (e.t==null) return ''; if (e.t===0) return 'Dinner'; const m=-e.t; return `T−${Math.floor(m/60)?Math.floor(m/60)+'h ':''}${m%60?m%60+'m':''}`.trim(); }
+function dur(ms){ ms=Math.max(0,ms); const s=Math.floor(ms/1000), h=Math.floor(s/3600), m=Math.floor(s%3600/60), x=s%60;
+  if (h>=24){ const d=Math.floor(h/24); return `${d}d ${h%24}h`; }
+  return h ? `${h}:${String(m).padStart(2,'0')}:${String(x).padStart(2,'0')}` : `${m}:${String(x).padStart(2,'0')}`; }
+
+let done = new Set(LS.get('done', []));
+const toggleDone = id => { done.has(id)?done.delete(id):done.add(id); LS.set('done',[...done]); renderAll(); };
+
+// ---- tabs ----
+const TABS = [
+  ['now','Now','<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>'],
+  ['timeline','Timeline','<path d="M5 4v16M5 7h12M5 12h9M5 17h13"/>'],
+  ['kitchen','Kitchen','<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M4 9h16"/><circle cx="8.5" cy="6" r=".8"/><circle cx="12" cy="6" r=".8"/>'],
+  ['recipes','Recipes','<path d="M6 3h11a1 1 0 0 1 1 1v17l-3-2-3 2-3-2-3 2V4a1 1 0 0 1 1-1z"/><path d="M9 8h6M9 12h6"/>'],
+  ['ahead','Ahead','<path d="M4 12l5 5L20 6"/>'],
+  ['shop','Shopping','<path d="M5 7h14l-1.5 12h-11z"/><path d="M9 7a3 3 0 0 1 6 0"/>']
+];
+let tab = (location.hash.match(/^#(\w+)/)||[])[1];
+if (!TABS.some(t=>t[0]===tab)) tab = 'now';
+function setTab(t){ tab=t; if(!location.hash.startsWith('#recipe')) history.replaceState(null,'','#'+t); document.querySelectorAll('main section').forEach(s=>s.classList.toggle('active', s.id==='v-'+t));
+  document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active', b.dataset.tab===t)); render(t); window.scrollTo(0,0); }
+$('#tabs').innerHTML = TABS.map(([k,l])=>`<button data-tab="${k}">${l}</button>`).join('');
+$('#tbar').innerHTML = TABS.map(([k,l,i])=>`<button data-tab="${k}"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${i}</svg>${l}</button>`).join('');
+document.addEventListener('click', e => { const b = e.target.closest('[data-tab]'); if (b) setTab(b.dataset.tab); });
+
+// ---- shared bits ----
+const checkBtn = id => `<button class="check ${done.has(id)?'on':''}" data-done="${id}" aria-label="Mark done">${done.has(id)?'✓':''}</button>`;
+const timerBtn = e => e.timer ? `<button class="btn sm" data-timer="${esc(e.timer.label)}|${e.timer.min}">Start ${e.timer.min} min</button>` : '';
+const recipeBtn = e => e.dish ? `<button class="btn sm ghost" data-recipe="${e.dish}">Recipe</button>` : '';
+document.addEventListener('click', e => {
+  const d = e.target.closest('[data-done]'); if (d){ toggleDone(d.dataset.done); return; }
+  const t = e.target.closest('[data-timer]'); if (t){ const [l,m]=t.dataset.timer.split('|'); startTimer(l, +m); return; }
+  const r = e.target.closest('[data-recipe]'); if (r){ openRecipe(r.dataset.recipe); return; }
+});
+
+// ================= NOW =================
+function renderNow(){
+  const n = now(), evs = sorted();
+  const active = evs.filter(e => !done.has(e.id) && startOf(e) <= n && endOf(e) > n && e.dur);
+  const missed = evs.filter(e => !done.has(e.id) && endOf(e) <= n && (startOf(e) > n - 36*3600e3));
+  const upcoming = evs.filter(e => !done.has(e.id) && startOf(e) > n);
+  const next = upcoming[0];
+  const D = dinner();
+  let html = '';
+  if (next){
+    html += `<div class="card hero" style="border-left-color:${colorOf(next)}">
+      <div class="when">Up next · ${fmtDay(startOf(next))} at ${fmtT(startOf(next))}${next.t!=null?' · '+relLabel(next):''}</div>
+      <h2>${esc(next.title)}</h2><div class="muted">${esc(next.detail||'')}</div>
+      <div class="meta" style="margin-top:10px"><span class="pill where">${WHERE[next.where]}${next.rack?' · '+next.rack+' rack':''}</span></div>
+      <div class="count" data-count="${startOf(next).getTime()}">${dur(startOf(next)-n)}</div><div class="muted small">until it starts</div>
+      <div class="actions">${timerBtn(next).replace('btn sm','btn primary')}${recipeBtn(next).replace('btn sm ghost','btn')}<button class="btn ghost" data-done="${next.id}">Mark done</button></div></div>`;
+  } else {
+    html += `<div class="card hero"><h2>All done. Eat.</h2></div>`;
+  }
+  html += `<div class="grid2" style="margin-top:14px">`;
+  html += `<div class="card"><div class="eyebrow">Happening now</div>${active.length ? active.map(e=>{
+      const p = (n-startOf(e))/(endOf(e)-startOf(e))*100;
+      return `<div class="mini"><div class="tm">${fmtT(endOf(e))}<div class="muted small">ends</div></div><div style="flex:1"><div class="ti">${esc(e.title)}</div><div class="progress" style="margin:8px 0"><div style="width:${p}%;background:${colorOf(e)}"></div></div><span class="pill where">${WHERE[e.where]}</span></div>${checkBtn(e.id)}</div>`;}).join('') : '<p class="muted">Nothing in progress.</p>'}</div>`;
+  html += `<div class="card"><div class="eyebrow">Then</div>${upcoming.slice(1,6).map(e=>`<div class="mini"><div class="tm">${fmtT(startOf(e))}<div class="muted small">${startOf(e).toDateString()===n.toDateString()?'':fmtDay(startOf(e)).split(',')[0]}</div></div><div style="flex:1"><div class="ti">${esc(e.title)}</div><span class="pill where">${WHERE[e.where]}</span></div></div>`).join('') || '<p class="muted">Nothing after this.</p>'}</div>`;
+  html += `</div>`;
+  if (missed.length) html += `<div class="card" style="margin-top:14px;border-color:#e3b9a0"><div class="eyebrow" style="color:var(--rust)">Not checked off yet</div>${missed.map(e=>`<div class="mini"><div class="tm">${fmtT(startOf(e))}</div><div style="flex:1"><div class="ti">${esc(e.title)}</div></div>${checkBtn(e.id)}</div>`).join('')}</div>`;
+  html += `<div class="card" style="margin-top:14px;display:flex;align-items:center;gap:16px"><div style="flex:1"><div class="eyebrow">Dinner</div><div style="font:600 22px var(--serif)">${fmtDay(D)} · ${fmtT(D)}</div></div><div style="text-align:right"><div class="count" data-count="${D.getTime()}" style="font:600 26px var(--serif);font-variant-numeric:tabular-nums">${dur(D-n)}</div><div class="muted small">to go</div></div></div>`;
+  $('#v-now').innerHTML = html;
+}
+
+// ================= TIMELINE =================
+function renderTimeline(){
+  const n = now(); const groups = {};
+  sorted().forEach(e => { const k = startOf(e).toDateString(); (groups[k] ||= []).push(e); });
+  let html = `<div class="card" style="margin-bottom:16px"><div class="muted">Day-of times move with your dinner time (tap <b>Dinner time</b>). Tap a box to check off.</div></div>`;
+  for (const [k, evs] of Object.entries(groups)){
+    html += `<div class="day"><h3>${fmtDay(new Date(k))}</h3>`;
+    let lineDone = false;
+    evs.forEach(e => {
+      if (!lineDone && startOf(e) > n && new Date(k).toDateString()===n.toDateString()){ html += `<div class="nowline">NOW · ${fmtT(n)}</div>`; lineDone = true; }
+      const isNow = startOf(e) <= n && endOf(e) > n && e.dur;
+      html += `<div class="ev ${isNow?'now':''} ${done.has(e.id)?'done':''}" id="ev-${e.id}">
+        <div class="tm">${fmtT(startOf(e))}<small>${e.t!=null?relLabel(e):''}${e.dur?` · ${e.dur}m`:''}</small></div>
+        <div class="dot" style="background:${colorOf(e)}"></div>
+        <div><div class="ti">${esc(e.title)}</div><div class="de">${esc(e.detail||'')}</div>
+          <div class="meta"><span class="pill where">${WHERE[e.where]}${e.rack?' · '+e.rack+' rack':''}</span>${e.dish?`<span class="pill" style="background:${colorOf(e)}22;color:${colorOf(e)}">${esc(dishById[e.dish].name)}</span>`:''}</div></div>
+        <div class="side">${checkBtn(e.id)}${timerBtn(e)}${recipeBtn(e)}</div></div>`;
+    });
+    html += `</div>`;
+  }
+  $('#v-timeline').innerHTML = html;
+}
+
+// ================= KITCHEN =================
+const DAY_MIN = -240, DAY_MAX = 5;
+let scrubT = null;
+function renderKitchen(){
+  const D = dinner(), n = now();
+  if (scrubT == null){ const rel = Math.round((n - D)/60000/5)*5; scrubT = Math.min(DAY_MAX, Math.max(DAY_MIN, rel)); }
+  const dayEv = P.EVENTS.filter(e => e.t != null);
+  const at = t => dayEv.filter(e => e.dur && e.t <= t && e.t + e.dur > t);
+  const act = at(scrubT);
+  let temp = null; P.ovenTemps.forEach(o => { if (o.t <= scrubT) temp = o; });
+  const ovenOn = temp && temp.temp > 0;
+  const rackHtml = r => act.filter(e=>e.where==='oven' && e.rack===r).map(e=>`<div class="dishchip" style="background:${colorOf(e)}" data-recipe="${e.dish}">${esc(dishById[e.dish].name.replace(/^(Brined Roast |Baked |Pepperidge Farm )/,''))}</div>`).join('');
+  const burner = k => { const e = act.find(x=>x.where===k); const b = P.burners[k];
+    return `<div class="burner ${b.size==='small'?'small':''} ${e?'on':''}" ${e&&e.dish?`data-recipe="${e.dish}"`:''}>${e?`<div><b>${esc(e.title)}</b></div>`:'off'}<div class="bn">${b.name}</div></div>`; };
+  const counter = act.filter(e=>e.where==='counter');
+  const ticks = []; for (let t=DAY_MIN; t<=0; t+=30) ticks.push(t);
+  const pct = t => (t-DAY_MIN)/(DAY_MAX-DAY_MIN)*100;
+  const lanes = [['oven','Oven'],['big1','Big L'],['big2','Big R'],['small1','Small L'],['small2','Small R'],['counter','Counter']];
+  const atTime = new Date(D.getTime()+scrubT*60000);
+  $('#v-kitchen').innerHTML = `
+  <div class="card"><div class="eyebrow">Scrub through Thanksgiving Day</div>
+    <div class="scrub"><div class="st">${fmtT(atTime)}</div><input type="range" id="scrub" min="${DAY_MIN}" max="${DAY_MAX}" step="5" value="${scrubT}"><button class="btn sm" id="scrubNow">Now</button></div>
+    <div class="muted small">${scrubT<0?`${relLabel({t:scrubT})} before dinner`:'Dinner time'}</div></div>
+  <div class="kgrid" style="margin-top:14px">
+    <div class="oven"><div class="top"><div><div class="eyebrow" style="color:#a8978a">Oven</div><div class="small" style="color:#c9b8aa">${temp?temp.label:'Off'}</div></div><div class="temp ${ovenOn?'hot':''}">${ovenOn?temp.temp+'°F':'Off'}</div></div>
+      <div class="ovenbox ${ovenOn?'lit':''}">
+        <div class="rack"><span class="rl">Upper-middle</span>${rackHtml('upper')}</div>
+        <div class="rack"><span class="rl">Middle</span>${rackHtml('middle')}</div>
+        <div class="rack"><span class="rl">Lowest</span>${rackHtml('lower')}</div>
+      </div></div>
+    <div><div class="stove">${burner('big1')}${burner('big2')}${burner('small1')}${burner('small2')}</div>
+      <div class="counter">${counter.length?counter.map(e=>`<span class="pill" style="background:${colorOf(e)};color:#fff;padding:6px 10px">Counter: ${esc(e.title)}</span>`).join(''):'<span class="muted small">Counter clear</span>'}</div></div>
+  </div>
+  <div class="card" style="margin-top:14px"><div class="eyebrow">Whole day at a glance</div>
+    <div class="gantt">${lanes.map(([k,l])=>`<div class="lane"><div class="ln">${l}</div><div class="track">${dayEv.filter(e=>e.where===k).map(e=>`<div class="bar ${e.dur?'':'pt'}" title="${esc(e.title)}" style="left:${pct(e.t)}%;width:${e.dur/(DAY_MAX-DAY_MIN)*100}%;background:${colorOf(e)}" ${e.dish?`data-recipe="${e.dish}"`:''}>${e.dur?esc(e.title):''}</div>`).join('')}<div class="scrubline" style="left:${pct(scrubT)}%"></div></div></div>`).join('')}
+    <div class="axis"><div></div><div class="ticks">${ticks.map(t=>`<span style="left:${pct(t)}%">${fmtT(new Date(D.getTime()+t*60000)).replace(/:00/,'').replace(' ','')}</span>`).join('')}</div></div></div></div>
+  <div class="card planb" style="margin-top:14px"><div class="eyebrow" style="color:#8a6a14">Plan B — turkey running long</div><p style="margin:6px 0 0">${esc(P.planB)}</p></div>`;
+  $('#scrub').oninput = e => { scrubT = +e.target.value; renderKitchen(); $('#scrub').focus(); };
+  $('#scrubNow').onclick = () => { scrubT = null; renderKitchen(); };
+}
+
+// ================= RECIPES =================
+function renderRecipes(){
+  $('#v-recipes').innerHTML = `<div class="rgrid">${P.DISHES.map(d=>`<button class="rcard" data-recipe="${d.id}"><div class="sw" style="background:${d.color}"></div><div class="b"><h3>${esc(d.name)}</h3><p class="muted" style="margin:6px 0 10px">${esc(d.summary)}</p><div class="facts"><span class="pill where">${esc(d.yield)}</span><span class="pill where">${esc(d.totalTime)}</span></div></div></button>`).join('')}</div>`;
+}
+let ingDone = new Set(LS.get('ing', []));
+function openRecipe(id){
+  const d = dishById[id]; if (!d) return;
+  if (location.hash !== '#recipe/'+id) history.pushState(null,'','#recipe/'+id);
+  const evs = sorted().filter(e=>e.dish===id);
+  $('#panel').innerHTML = `<div class="phead"><div style="width:8px;align-self:stretch;border-radius:4px;background:${d.color}"></div><div style="flex:1"><h2>${esc(d.name)}</h2><div class="muted">${esc(d.summary)}</div><div class="facts"><span class="pill where">${esc(d.yield)}</span><span class="pill where">Active ${esc(d.activeTime)}</span><span class="pill where">${esc(d.totalTime)}</span></div></div><button class="btn sm" id="closeR">Close</button></div>
+  <div class="pbody"><div class="cols">
+    <div class="ing">${d.ingredients.map((g,gi)=>`<h4>${esc(g.group)}</h4><ul class="cl">${g.items.map((it,ii)=>{const k=`${id}.${gi}.${ii}`;return `<li class="${ingDone.has(k)?'on':''}" data-ing="${k}"><div class="bx">${ingDone.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul>`).join('')}
+      ${d.ahead.length?`<div class="aheadbox"><div class="eyebrow" style="color:var(--olive)">Make ahead</div><ul>${d.ahead.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div>`:''}
+      <h4>When (with your dinner time)</h4><ul class="cl">${evs.map(e=>`<li style="cursor:default"><b style="min-width:110px;font-variant-numeric:tabular-nums">${fmtDay(startOf(e)).split(',')[0].slice(0,3)} ${fmtT(startOf(e))}</b><span>${esc(e.title)}</span></li>`).join('')}</ul></div>
+    <div class="steps"><h4>Steps</h4><ol class="st">${d.steps.map(s=>`<li>${esc(s.text)}${s.timer?`<div><button class="btn sm" data-timer="${esc(s.timer.label)}|${s.timer.min}">Start ${s.timer.min} min timer</button></div>`:''}</li>`).join('')}</ol>
+      ${d.notes.length?`<h4>Notes</h4><ul style="padding-left:18px;margin:0">${d.notes.map(x=>`<li style="margin:6px 0">${esc(x)}</li>`).join('')}</ul>`:''}</div>
+  </div></div>`;
+  $('#sheet').classList.add('open'); $('#panel').scrollTop = 0;
+  $('#closeR').onclick = closeRecipe;
+}
+function closeRecipe(){ $('#sheet').classList.remove('open'); if (location.hash.startsWith('#recipe')) history.replaceState(null,'','#'+tab); }
+$('#sheet').addEventListener('click', e => { if (e.target.id==='sheet') closeRecipe(); });
+$('#panel').addEventListener('click', e => { const li = e.target.closest('[data-ing]'); if (!li) return; const k=li.dataset.ing; ingDone.has(k)?ingDone.delete(k):ingDone.add(k); LS.set('ing',[...ingDone]); li.classList.toggle('on'); li.querySelector('.bx').textContent = ingDone.has(k)?'✓':''; });
+window.addEventListener('popstate', () => { const m = location.hash.match(/^#recipe\/(\w+)/); if (m) openRecipe(m[1]); else $('#sheet').classList.remove('open'); });
+
+// ================= AHEAD =================
+function renderAhead(){
+  const D = dinner();
+  const ahead = sorted().filter(e => e.t == null);
+  $('#v-ahead').innerHTML = `<div class="card"><h2 style="font-size:24px">Do-ahead checklist</h2><p class="muted" style="margin:4px 0 0">Everything that can be done before Thursday, so the day-of is mostly oven shuffling.</p>
+    <div style="margin-top:10px">${ahead.map(e=>`<div class="mini ${done.has(e.id)?'done':''}"><div class="tm">${fmtDay(startOf(e)).split(',')[0].slice(0,3)}<div class="muted small">${fmtT(startOf(e))}</div></div><div style="flex:1"><div class="ti" style="${done.has(e.id)?'text-decoration:line-through;opacity:.5':''}">${esc(e.title)}</div><div class="muted small">${esc(e.detail||'')}</div><div style="margin-top:6px">${recipeBtn(e)}</div></div>${checkBtn(e.id)}</div>`).join('')}</div></div>
+  <div class="rgrid" style="margin-top:14px">${P.DISHES.map(d=>`<div class="card" style="border-top:5px solid ${d.color}"><h3 style="font-size:18px">${esc(d.name)}</h3><ul style="padding-left:18px;margin:8px 0 0">${d.ahead.map(a=>`<li style="margin:4px 0">${esc(a)}</li>`).join('')}</ul></div>`).join('')}</div>`;
+}
+
+// ================= SHOPPING =================
+let shop = new Set(LS.get('shop', []));
+function renderShop(){
+  $('#v-shop').innerHTML = `<div class="rgrid">${P.SHOPPING.map((g,gi)=>`<div class="card"><h3 style="font-size:18px">${esc(g.group)}</h3><ul class="cl">${g.items.map((it,ii)=>{const k=gi+'.'+ii;return `<li class="${shop.has(k)?'on':''}" data-shop="${k}"><div class="bx">${shop.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul></div>`).join('')}</div>`;
+}
+$('#v-shop').addEventListener('click', e => { const li = e.target.closest('[data-shop]'); if(!li) return; const k=li.dataset.shop; shop.has(k)?shop.delete(k):shop.add(k); LS.set('shop',[...shop]); renderShop(); });
+
+// ================= TIMERS =================
+let timers = LS.get('timers', []);
+const saveT = () => LS.set('timers', timers);
+let actx = null;
+function unlockAudio(){ try{ if (navigator.audioSession) navigator.audioSession.type = 'playback'; if (!actx) actx = new (window.AudioContext||window.webkitAudioContext)(); if (actx.state==='suspended') actx.resume(); }catch(e){} }
+document.addEventListener('pointerdown', unlockAudio, {passive:true});
+function beep(){ if (!actx) return; const t0 = actx.currentTime;
+  [0,0.25,0.5].forEach(o => { const os = actx.createOscillator(), g = actx.createGain(); os.type='square'; os.frequency.value = 880; g.gain.setValueAtTime(0.0001,t0+o); g.gain.exponentialRampToValueAtTime(0.35,t0+o+0.02); g.gain.exponentialRampToValueAtTime(0.0001,t0+o+0.2); os.connect(g).connect(actx.destination); os.start(t0+o); os.stop(t0+o+0.22); }); }
+function startTimer(label, min){ unlockAudio(); timers.push({ id: Date.now()+Math.random(), label, total: min*60000, end: Date.now()+min*60000, paused: null, ack: false }); saveT(); renderTimers(); openTimersPhone(); }
+function remaining(t){ return t.paused!=null ? t.paused : t.end - Date.now(); }
+function renderTimers(){
+  $('#tList').innerHTML = timers.length ? timers.map(t => { const r = remaining(t), fin = r<=0;
+    return `<div class="tmr ${fin?'done':''} ${t.paused!=null?'paused':''}" data-tid="${t.id}"><div class="row"><div class="lbl">${esc(t.label)}</div><button class="btn sm ghost" data-tact="x">✕</button></div>
+      <div class="rem" data-rem="${t.id}">${fin?'Done':dur(r)}</div><div class="progress"><div data-bar="${t.id}" style="width:${Math.min(100,(1-r/t.total)*100)}%"></div></div>
+      <div class="row" style="margin-top:10px">${fin?'':`<button class="btn sm" data-tact="p">${t.paused!=null?'Resume':'Pause'}</button>`}<button class="btn sm" data-tact="+1">+1 min</button><button class="btn sm" data-tact="+5">+5 min</button></div></div>`; }).join('') : '<p class="muted small" style="margin:10px 0 0">No timers running. Start one from any step, or use a quick timer.</p>';
+  $('#tQuick').innerHTML = [1,2,5,10,15,20,30].map(m=>`<button class="btn sm" data-timer="${m} min timer|${m}">${m}m</button>`).join('');
+  updateFab();
+}
+$('#tList').addEventListener('click', e => { const b = e.target.closest('[data-tact]'); if (!b) return; const id = +b.closest('[data-tid]').dataset.tid; const t = timers.find(x=>x.id===id); if (!t) return;
+  const a = b.dataset.tact;
+  if (a==='x') timers = timers.filter(x=>x.id!==id);
+  if (a==='p'){ if (t.paused!=null){ t.end = Date.now()+t.paused; t.paused=null; } else t.paused = t.end-Date.now(); }
+  if (a[0]==='+'){ const add = +a.slice(1)*60000; if (remaining(t)<=0){ t.end = Date.now()+add; t.total = add; t.ack=false; } else if (t.paused!=null) t.paused+=add; else t.end+=add; t.total+=0; }
+  saveT(); renderTimers(); });
+$('#tCustom').onclick = () => { const v = prompt('Minutes?', '10'); if (!v || isNaN(+v)) return; const l = prompt('Label?', `${v} min timer`) || `${v} min timer`; startTimer(l, +v); };
+function updateFab(){ const run = timers.filter(t=>remaining(t)>0 && t.paused==null).sort((a,b)=>remaining(a)-remaining(b)); const fin = timers.some(t=>remaining(t)<=0);
+  $('#tfab').classList.toggle('alert', fin);
+  $('#tfab').textContent = fin ? 'Timer done' : run.length ? `${run.length} timer${run.length>1?'s':''} · ${dur(remaining(run[0]))}` : 'Timers'; }
+function openTimersPhone(){ if (innerWidth<900) { $('#timers').classList.add('open'); $('#tClose').style.display=''; } }
+$('#tfab').onclick = () => { const o = $('#timers').classList.toggle('open'); $('#tClose').style.display = o?'':'none'; };
+$('#tClose').onclick = () => { $('#timers').classList.remove('open'); $('#tClose').style.display='none'; };
+let alarmFor = null;
+function tickTimers(){
+  timers.forEach(t => { const r = remaining(t); const el = document.querySelector(`[data-rem="${t.id}"]`); if (el) el.textContent = r<=0?'Done':dur(r);
+    const bar = document.querySelector(`[data-bar="${t.id}"]`); if (bar) bar.style.width = Math.min(100,(1-r/t.total)*100)+'%';
+    if (r<=0 && !t.ack && t.paused==null){ if (!document.querySelector(`[data-tid="${t.id}"].done`)) renderTimers(); if (!alarmFor){ alarmFor = t.id; $('#alarmT').textContent = t.label; $('#alarm').classList.add('open'); } } });
+  if (alarmFor){ beep(); if (navigator.vibrate) navigator.vibrate([300,150,300]); }
+  updateFab();
+}
+$('#alarmOk').onclick = () => { const t = timers.find(x=>x.id===alarmFor); if (t) t.ack = true; alarmFor = null; saveT(); $('#alarm').classList.remove('open'); renderTimers(); };
+
+// ================= SETTINGS / WAKE LOCK =================
+$('#setBtn').onclick = () => {
+  const D = dinner(); const cur = `${String(D.getHours()).padStart(2,'0')}:${String(D.getMinutes()).padStart(2,'0')}`;
+  $('#panel').innerHTML = `<div class="phead"><h2 style="flex:1">Dinner time</h2><button class="btn sm" id="closeR">Close</button></div><div class="pbody">
+    <p class="muted">Every Thanksgiving Day step shifts with this. Wednesday prep stays where it is.</p>
+    <input type="time" id="dt" value="${cur}" style="font:600 32px var(--serif);padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff">
+    <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn primary" id="saveDt">Save</button><button class="btn" id="resetDt">Reset to 4:00 PM</button><button class="btn ghost" id="resetAll">Clear all checkmarks</button></div>
+    <p class="muted small" style="margin-top:18px">Turkey goes in about 3 hours before dinner. Brine timing assumes dinner between 1 PM and 7 PM.</p></div>`;
+  $('#sheet').classList.add('open');
+  $('#closeR').onclick = closeRecipe;
+  $('#saveDt').onclick = () => { const [h,m] = $('#dt').value.split(':').map(Number); const d = new Date(P.dinnerDefault); d.setHours(h,m,0,0);
+    LS.set('dinner', `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}T${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`); scrubT=null; closeRecipe(); renderAll(); };
+  $('#resetDt').onclick = () => { localStorage.removeItem('tg26.dinner'); scrubT=null; closeRecipe(); renderAll(); };
+  $('#resetAll').onclick = () => { if (confirm('Clear every checkmark (steps, ingredients, shopping)?')){ done.clear(); ingDone.clear(); shop.clear(); LS.set('done',[]); LS.set('ing',[]); LS.set('shop',[]); closeRecipe(); renderAll(); } };
+};
+let wl = null;
+async function wakeOn(){ try{ wl = await navigator.wakeLock.request('screen'); $('#wlBtn').classList.add('on'); $('#wlBtn').textContent='Screen stays on'; wl.addEventListener('release',()=>{ if(!document.hidden){ $('#wlBtn').classList.remove('on'); $('#wlBtn').textContent='Keep screen on'; } }); }catch(e){ alert('This browser can’t keep the screen on. Set Auto-Lock to Never in Settings → Display & Brightness.'); } }
+$('#wlBtn').onclick = () => { if (wl && !wl.released){ wl.release(); wl=null; $('#wlBtn').classList.remove('on'); $('#wlBtn').textContent='Keep screen on'; LS.set('wl',false); } else { LS.set('wl',true); wakeOn(); } };
+document.addEventListener('visibilitychange', () => { if (!document.hidden && LS.get('wl',false)) wakeOn(); });
+if (!('wakeLock' in navigator)) $('#wlBtn').style.display='none';
+
+// ================= LOOP =================
+function render(t){ ({now:renderNow,timeline:renderTimeline,kitchen:renderKitchen,recipes:renderRecipes,ahead:renderAhead,shop:renderShop})[t](); }
+function renderAll(){ const D = dinner(); $('#dinnerLbl').textContent = `Dinner ${fmtDay(D)} · ${fmtT(D)}`; render(tab); renderTimers(); }
+let lastMin = -1;
+setInterval(() => {
+  const n = now(); $('#clk').textContent = fmtT(n); $('#clkd').textContent = n.toLocaleDateString([], {weekday:'short', month:'short', day:'numeric'});
+  document.querySelectorAll('[data-count]').forEach(el => el.textContent = dur(+el.dataset.count - n));
+  if (n.getMinutes() !== lastMin){ lastMin = n.getMinutes(); if (tab==='now'||tab==='timeline') render(tab); }
+  tickTimers();
+}, 500);
+setTab(tab); renderAll();
+const m = location.hash.match(/^#recipe\/(\w+)/); if (m) openRecipe(m[1]);
+})();
+</script>
+</body>
+</html>
