@@ -155,24 +155,23 @@ window.PLAN = {
     },
     {
       id: "stuffing", name: "Pepperidge Farm Stuffing", color: "#7a8b3a",
-      summary: "2 bags (14 oz each) of herb-seasoned, baked in a dish.",
+      summary: "2 bags, baked in a dish. Per bag: 4 tbsp butter, 1 cup onion, 2 cups broth.",
       yield: "Serves 10–12", activeTime: "20 min", totalTime: "~55 min",
       ingredients: [
         { group: "For 2 bags", items: [
           "2 bags (14 oz) Pepperidge Farm Herb Seasoned Stuffing",
-          "2 sticks (1 cup) butter, plus a little for the dish",
-          "2 cups celery, chopped (about 4 ribs)",
-          "1 cup onion, chopped (1 large)",
-          "5 cups chicken broth (low sodium recommended)"
+          "8 tbsp (1 stick) butter, plus a little for the dish  (4 tbsp per bag)",
+          "2 cups onion, chopped (about 2 medium)  (1 cup per bag)",
+          "4 cups chicken broth, low sodium recommended  (2 cups per bag)"
         ]}
       ],
       ahead: [
-        "Wednesday: chop celery and onion, bag together, refrigerate.",
+        "Wednesday: chop the onion, bag it, refrigerate.",
         "Don’t mix with the bread ahead of time — it goes soggy."
       ],
       steps: [
         { text: "Butter a deep 9×13 (or a 4-qt dish). Two bags fill it — use two smaller dishes if needed." },
-        { text: "Big burner, medium: melt butter, cook celery and onion until tender.", timer: { label: "Sauté celery & onion", min: 8 } },
+        { text: "Big burner, medium: melt butter, cook onion until soft.", timer: { label: "Sauté onion", min: 7 } },
         { text: "Add broth, bring just to a simmer. Take off heat." },
         { text: "Add stuffing and fold gently until evenly moistened. Don’t mash it." },
         { text: "Into the buttered dish, cover with foil." },
@@ -259,7 +258,7 @@ window.PLAN = {
     { id: "rollmix",  dish: "rolls",    day: -1, clock: "12:00", where: "counter", title: "Mix & knead roll dough, start bulk rise", detail: "~40 min hands-on, then 4–6 hr rise on the counter.", dur: 40 },
     { id: "rollshape",dish: "rolls",    day: -1, clock: "17:30", where: "counter", title: "Shape 16 rolls, cover, fridge overnight", detail: "Into buttered 9×13, 4 × 4.", dur: 20 },
     { id: "macmake",  dish: "mac",      day: -1, clock: "14:00", where: "big1",    title: "Make & assemble mac and cheese", detail: "Uses both big burners (pasta + sauce). Cool, cover, fridge.", dur: 45 },
-    { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop celery & onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
+    { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
     { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, no salt, fridge. Thursday: drain, fresh cold water to cook.", dur: 30 },
     { id: "dishes",   dish: null,       day: -1, clock: "16:00", where: "counter", title: "Set out pans, dishes, serving bowls, thermometer", detail: "Roasting pan + rack, 9×13 for stuffing, steamer basket, carving board & knife.", dur: 15 },
     { id: "thawchk",  dish: "turkey",   day: -2, clock: "16:00", where: "fridge",  title: "Check turkey is fully thawed", detail: "Reach into the cavity. Icy? Finish in a sink of cold water, changing it every 30 min." },
@@ -276,7 +275,7 @@ window.PLAN = {
     { id: "tk350",    dish: "turkey",   t: -155, dur: 95,  where: "oven", rack: "lower", title: "Drop to 350°F — keep roasting", detail: "Tent the breast with foil if it browns too fast.", timer: { label: "Turkey — first temp check", min: 65 } },
     { id: "tkcheck",  dish: "turkey",   t: -90,  dur: 0,   where: "oven", title: "Start checking turkey temp", detail: "Breast 160°F, thigh 170–175°F. Check every 10–15 min." },
     { id: "potboil",  dish: "potatoes", t: -80,  dur: 35,  where: "big1",   title: "Potatoes on to boil", detail: "Cold water start, salted. Boil then strong simmer until tender.", timer: { label: "Potatoes boil + simmer", min: 30 } },
-    { id: "stuffmix", dish: "stuffing", t: -75,  dur: 20,  where: "big2",   title: "Make stuffing", detail: "Butter + celery + onion, add broth, fold in stuffing, into buttered dish, foil on.", timer: { label: "Sauté celery & onion", min: 8 } },
+    { id: "stuffmix", dish: "stuffing", t: -75,  dur: 20,  where: "big2",   title: "Make stuffing", detail: "Butter + onion, add broth, fold in stuffing, into buttered dish, foil on.", timer: { label: "Sauté onion", min: 7 } },
     { id: "tkout",    dish: "turkey",   t: -60,  dur: 45,  where: "counter", title: "Turkey out — rest, tented", detail: "Target: breast 160°F. Rest 30–45 min.", timer: { label: "Turkey rest", min: 40 } },
     { id: "oven375",  dish: null,       t: -60,  dur: 10,  where: "oven", title: "Oven to 375°F, set two racks", detail: "Racks at upper-middle and middle." },
     { id: "macbake",  dish: "mac",      t: -50,  dur: 40,  where: "oven", rack: "upper", title: "Mac & cheese in (covered)", detail: "Covered 25 min, then uncover 15.", timer: { label: "Mac covered", min: 25 } },
@@ -297,9 +296,9 @@ window.PLAN = {
     { group: "Turkey", items: ["11 lb turkey", "Kosher salt (Diamond or Morton)", "Brown sugar", "Black peppercorns", "Lemons ×4", "Garlic (1 head)", "Rosemary, thyme, sage", "Bay leaves", "Onion ×1 (cavity)", "Brining bag", "Foil"] },
     { group: "Potatoes", items: ["5 lb Yukon Gold", "Heavy cream (pint covers potatoes)", "Butter"] },
     { group: "Mac & cheese", items: ["1 lb elbows", "Whole milk (½ gallon)", "1 lb sharp cheddar block", "4 oz Gruyère/Jack (optional)", "Dry mustard", "Paprika", "Flour", "Panko (optional)"] },
-    { group: "Stuffing", items: ["Pepperidge Farm Herb Seasoned ×2", "Celery", "Onion ×1 large", "Chicken broth (5 cups — two 32-oz cartons)"] },
+    { group: "Stuffing", items: ["Pepperidge Farm stuffing ×2", "Onions ×2 medium", "Chicken broth (4 cups — one 32-oz carton)"] },
     { group: "Green beans", items: ["2 lb green beans", "Lemon"] },
     { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (shared with mac)", "Flaky salt (optional)"] },
-    { group: "Butter total", items: ["About 1½ lb — 6 sticks (rolls ~6 tbsp, turkey 4 tbsp, potatoes 1 stick, mac 4 tbsp+, stuffing 2 sticks, beans 2 tbsp)"] }
+    { group: "Butter total", items: ["About 1¼ lb — 5 sticks (rolls ~6 tbsp, turkey 4 tbsp, potatoes 1 stick, mac 4 tbsp+, stuffing 1 stick, beans 2 tbsp)"] }
   ]
 };

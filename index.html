@@ -101,12 +101,18 @@ main section.active{display:block}
 .rack{flex:1;border-bottom:3px solid #5b4c41;display:flex;align-items:flex-end;gap:8px;padding:4px 6px;min-height:62px;position:relative}
 .rack .rl{position:absolute;left:6px;top:2px;font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:#8a7a6c}
 .dishchip{border-radius:10px;padding:8px 10px;font-size:13px;font-weight:600;color:#fff;line-height:1.2;cursor:pointer}
-.stove{background:#202022;border-radius:18px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.burner{aspect-ratio:1;border-radius:50%;border:3px solid #3e3e42;display:grid;place-items:center;text-align:center;padding:12px;color:#9b9ba2;font-size:12px;position:relative;cursor:default}
-.burner.small{width:72%;justify-self:center;align-self:center}
-.burner.on{border-color:#ff6a2b;box-shadow:0 0 0 4px rgba(255,106,43,.18),0 0 26px rgba(255,106,43,.35);color:#fff}
-.burner b{display:block;font-size:13px;color:inherit}
-.burner .bn{position:absolute;bottom:-18px;font-size:10px;color:#77777d;left:0;right:0}
+.stove{background:#202022;border-radius:18px;padding:16px 16px 10px;display:flex;flex-direction:column;gap:10px}
+.srow{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:center}
+.bslot{display:flex;flex-direction:column;align-items:center;gap:6px}
+.burner{border-radius:50%;border:3px solid #3e3e42;display:flex;align-items:center;justify-content:center;text-align:center;color:#9b9ba2;font-size:11.5px;line-height:1.25;overflow:hidden;transition:border-color .15s,box-shadow .15s,color .15s;cursor:default}
+.burner.big{width:min(100%,180px);aspect-ratio:1;padding:14px}
+.burner.small{width:min(68%,120px);aspect-ratio:1;padding:10px}
+.burner .bt{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.burner.on{border-color:#ff6a2b;box-shadow:0 0 0 4px rgba(255,106,43,.18),0 0 26px rgba(255,106,43,.35);color:#fff;cursor:pointer}
+.burner b{display:block;font-size:13px;color:#ffb27a;margin-bottom:2px}
+.bn{font-size:10px;color:#77777d;text-align:center}
+.sfront{text-align:center;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#5d5d63;border-top:1px dashed #3a3a3f;padding-top:6px}
+.rk{display:flex;gap:8px;align-items:flex-end;width:100%;min-height:40px}
 .counter{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
 .gantt{position:relative;margin-top:8px}
 .lane{display:grid;grid-template-columns:110px 1fr;align-items:center;min-height:38px;border-top:1px solid var(--line)}
@@ -345,44 +351,64 @@ function renderTimeline(){
 
 // ================= KITCHEN =================
 const DAY_MIN = -480, DAY_MAX = 5;
-let scrubT = null;
-function renderKitchen(){
-  const D = dinner(), n = now();
-  if (scrubT == null){ const rel = Math.round((n - D)/60000/5)*5; scrubT = Math.min(DAY_MAX, Math.max(DAY_MIN, rel)); }
+let scrubT = null, kBuilt = false;
+const shortName = d => dishById[d].name.replace(/^(Brined Roast |Baked |Pepperidge Farm |Sourdough |Yukon Gold |Steamed )/,'');
+function buildKitchen(){
+  const D = dinner();
   const dayEv = P.EVENTS.filter(e => e.t != null);
-  const at = t => dayEv.filter(e => e.dur && e.t <= t && e.t + e.dur > t);
-  const act = at(scrubT);
-  let temp = null; P.ovenTemps.forEach(o => { if (o.t <= scrubT) temp = o; });
-  const ovenOn = temp && temp.temp > 0;
-  const rackHtml = r => act.filter(e=>e.where==='oven' && e.rack===r).map(e=>`<div class="dishchip" style="background:${colorOf(e)}" data-recipe="${e.dish}">${esc(dishById[e.dish].name.replace(/^(Brined Roast |Baked |Pepperidge Farm |Sourdough )/,''))}</div>`).join('');
-  const burner = k => { const e = act.find(x=>x.where===k); const b = P.burners[k];
-    return `<div class="burner ${b.size==='small'?'small':''} ${e?'on':''}" ${e&&e.dish?`data-recipe="${e.dish}"`:''}>${e?`<div><b>${esc(e.title)}</b></div>`:'off'}<div class="bn">${b.name}</div></div>`; };
-  const counter = act.filter(e=>e.where==='counter');
   const ticks = []; for (let t=DAY_MIN; t<=0; t+=60) ticks.push(t);
   const pct = t => (t-DAY_MIN)/(DAY_MAX-DAY_MIN)*100;
   const lanes = [['oven','Oven'],['big1','Big L'],['big2','Big R'],['small1','Small L'],['small2','Small R'],['counter','Counter']];
-  const atTime = new Date(D.getTime()+scrubT*60000);
+  const burner = k => `<div class="bslot ${P.burners[k].size}"><div class="burner ${P.burners[k].size}" id="b-${k}"><div class="bt"></div></div><div class="bn">${P.burners[k].name}</div></div>`;
   $('#v-kitchen').innerHTML = `
   <div class="card"><div class="eyebrow">Scrub through Thanksgiving Day</div>
-    <div class="scrub"><div class="st">${fmtT(atTime)}</div><input type="range" id="scrub" min="${DAY_MIN}" max="${DAY_MAX}" step="5" value="${scrubT}"><button class="btn sm" id="scrubNow">Now</button></div>
-    <div class="muted small">${scrubT<0?`${relLabel({t:scrubT})} before dinner`:'Dinner time'}</div></div>
+    <div class="scrub"><div class="st" id="kTime"></div><input type="range" id="scrub" min="${DAY_MIN}" max="${DAY_MAX}" step="1"><button class="btn sm" id="scrubNow">Now</button></div>
+    <div class="muted small" id="kRel"></div></div>
   <div class="kgrid" style="margin-top:14px">
-    <div class="oven"><div class="top"><div><div class="eyebrow" style="color:#a8978a">Oven</div><div class="small" style="color:#c9b8aa">${temp?temp.label:'Off'}</div></div><div class="temp ${ovenOn?'hot':''}">${ovenOn?temp.temp+'°F':'Off'}</div></div>
-      <div class="ovenbox ${ovenOn?'lit':''}">
-        <div class="rack"><span class="rl">Upper-middle</span>${rackHtml('upper')}</div>
-        <div class="rack"><span class="rl">Middle</span>${rackHtml('middle')}</div>
-        <div class="rack"><span class="rl">Lowest</span>${rackHtml('lower')}</div>
+    <div class="oven"><div class="top"><div><div class="eyebrow" style="color:#a8978a">Oven</div><div class="small" style="color:#c9b8aa" id="oLbl"></div></div><div class="temp" id="oTemp"></div></div>
+      <div class="ovenbox" id="oBox">
+        <div class="rack"><span class="rl">Upper-middle</span><div class="rk" id="r-upper"></div></div>
+        <div class="rack"><span class="rl">Middle</span><div class="rk" id="r-middle"></div></div>
+        <div class="rack"><span class="rl">Lowest</span><div class="rk" id="r-lower"></div></div>
       </div></div>
-    <div><div class="stove">${burner('big1')}${burner('big2')}${burner('small1')}${burner('small2')}</div>
-      <div class="counter">${counter.length?counter.map(e=>`<span class="pill" style="background:${colorOf(e)};color:#fff;padding:6px 10px">Counter: ${esc(e.title)}</span>`).join(''):'<span class="muted small">Counter clear</span>'}</div></div>
+    <div><div class="stove"><div class="srow back">${burner('small1')}${burner('small2')}</div><div class="srow front">${burner('big1')}${burner('big2')}</div><div class="sfront">Front of stove</div></div>
+      <div class="counter" id="kCounter"></div></div>
   </div>
   <div class="card" style="margin-top:14px"><div class="eyebrow">Whole day at a glance</div>
-    <div class="gantt">${lanes.map(([k,l])=>`<div class="lane"><div class="ln">${l}</div><div class="track">${dayEv.filter(e=>e.where===k).map(e=>`<div class="bar ${e.dur?'':'pt'}" title="${esc(e.title)}" style="left:${pct(e.t)}%;width:${e.dur/(DAY_MAX-DAY_MIN)*100}%;background:${colorOf(e)}" ${e.dish?`data-recipe="${e.dish}"`:''}>${e.dur?esc(e.title):''}</div>`).join('')}<div class="scrubline" style="left:${pct(scrubT)}%"></div></div></div>`).join('')}
+    <div class="gantt">${lanes.map(([k,l])=>`<div class="lane"><div class="ln">${l}</div><div class="track">${dayEv.filter(e=>e.where===k).map(e=>`<div class="bar ${e.dur?'':'pt'}" title="${esc(e.title)}" style="left:${pct(e.t)}%;width:${e.dur/(DAY_MAX-DAY_MIN)*100}%;background:${colorOf(e)}" ${e.dish?`data-recipe="${e.dish}"`:''}>${e.dur?esc(e.title):''}</div>`).join('')}<div class="scrubline"></div></div></div>`).join('')}
     <div class="axis"><div></div><div class="ticks">${ticks.map(t=>`<span style="left:${pct(t)}%">${fmtT(new Date(D.getTime()+t*60000)).replace(/:00/,'').replace(' ','')}</span>`).join('')}</div></div></div></div>
   <div class="card planb" style="margin-top:14px"><div class="eyebrow" style="color:#8a6a14">Plan B — turkey running long</div><p style="margin:6px 0 0">${esc(P.planB)}</p></div>`;
-  $('#scrub').oninput = e => { scrubT = +e.target.value; renderKitchen(); $('#scrub').focus(); };
-  $('#scrubNow').onclick = () => { scrubT = null; renderKitchen(); };
+  const sc = $('#scrub');
+  let raf = 0;
+  sc.addEventListener('input', () => { scrubT = +sc.value; if (!raf) raf = requestAnimationFrame(() => { raf = 0; updateKitchen(); }); });
+  $('#scrubNow').onclick = () => { scrubT = null; updateKitchen(); };
+  kBuilt = true;
 }
+const kCache = {};
+const setHTML = (id, html) => { if (kCache[id] !== html){ kCache[id] = html; document.getElementById(id).innerHTML = html; } };
+function updateKitchen(){
+  const D = dinner(), n = now();
+  if (scrubT == null){ scrubT = Math.min(DAY_MAX, Math.max(DAY_MIN, Math.round((n - D)/60000))); }
+  const sc = $('#scrub'); if (+sc.value !== scrubT) sc.value = scrubT;
+  const T = scrubT;
+  const act = P.EVENTS.filter(e => e.t != null && e.dur && e.t <= T && e.t + e.dur > T);
+  let temp = null; P.ovenTemps.forEach(o => { if (o.t <= T) temp = o; });
+  const on = temp && temp.temp > 0;
+  $('#kTime').textContent = fmtT(new Date(D.getTime()+T*60000));
+  $('#kRel').textContent = T < 0 ? `${relLabel({t:T})} before dinner` : 'Dinner time';
+  $('#oLbl').textContent = temp ? temp.label : 'Off';
+  const ot = $('#oTemp'); ot.textContent = on ? temp.temp+'°F' : 'Off'; ot.classList.toggle('hot', on);
+  $('#oBox').classList.toggle('lit', on);
+  ['upper','middle','lower'].forEach(r => setHTML('r-'+r, act.filter(e=>e.where==='oven'&&e.rack===r).map(e=>`<div class="dishchip" style="background:${colorOf(e)}" data-recipe="${e.dish}">${esc(shortName(e.dish))}</div>`).join('')));
+  Object.keys(P.burners).forEach(k => { const e = act.find(x=>x.where===k); const el = document.getElementById('b-'+k);
+    el.classList.toggle('on', !!e); if (e && e.dish) el.dataset.recipe = e.dish; else delete el.dataset.recipe;
+    setHTML('b-'+k, `<div class="bt">${e ? `<b>${esc(e.dish?shortName(e.dish):'')}</b>${esc(e.title)}` : 'off'}</div>`); });
+  const counter = act.filter(e=>e.where==='counter');
+  setHTML('kCounter', counter.length ? counter.map(e=>`<span class="pill" style="background:${colorOf(e)};color:#fff;padding:6px 10px">Counter: ${esc(e.title)}</span>`).join('') : '<span class="muted small">Counter clear</span>');
+  const left = (T-DAY_MIN)/(DAY_MAX-DAY_MIN)*100 + '%';
+  document.querySelectorAll('#v-kitchen .scrubline').forEach(l => l.style.left = left);
+}
+function renderKitchen(){ if (!kBuilt || !document.getElementById('scrub')) buildKitchen(); updateKitchen(); }
 
 // ================= RECIPES =================
 function renderRecipes(){
@@ -489,7 +515,7 @@ if (!('wakeLock' in navigator)) $('#wlBtn').style.display='none';
 
 // ================= LOOP =================
 function render(t){ ({now:renderNow,timeline:renderTimeline,kitchen:renderKitchen,recipes:renderRecipes,ahead:renderAhead,shop:renderShop})[t](); }
-function renderAll(){ const D = dinner(); $('#dinnerLbl').textContent = `Dinner ${fmtDay(D)} · ${fmtT(D)}`; render(tab); renderTimers(); }
+function renderAll(){ kBuilt = false; for (const k in kCache) delete kCache[k]; const D = dinner(); $('#dinnerLbl').textContent = `Dinner ${fmtDay(D)} · ${fmtT(D)}`; render(tab); renderTimers(); }
 let lastMin = -1;
 setInterval(() => {
   const n = now(); $('#clk').textContent = fmtT(n); $('#clkd').textContent = n.toLocaleDateString([], {weekday:'short', month:'short', day:'numeric'});
