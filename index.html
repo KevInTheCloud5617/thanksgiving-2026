@@ -240,6 +240,11 @@ const LS = {
   get(k, d){ try{ const v = localStorage.getItem('tg26.'+k); return v==null?d:JSON.parse(v);}catch(e){return d;} },
   set(k, v){ localStorage.setItem('tg26.'+k, JSON.stringify(v)); }
 };
+// Apply the newly agreed dinner time once on each device; later edits still stick.
+if (LS.get('dinnerPlanRevision', 0) < 1){
+  LS.set('dinner', P.dinnerDefault);
+  LS.set('dinnerPlanRevision', 1);
+}
 const dishById = Object.fromEntries(P.DISHES.map(d => [d.id, d]));
 const colorOf = e => e.dish ? dishById[e.dish].color : '#6b5a4a';
 const WHERE = { oven:'Oven', big1:'Big burner L', big2:'Big burner R', small1:'Small burner L', small2:'Small burner R', counter:'Counter', fridge:'Fridge' };
@@ -498,7 +503,7 @@ $('#setBtn').onclick = () => {
   $('#panel').innerHTML = `<div class="phead"><h2 style="flex:1">Dinner time</h2><button class="btn sm" id="closeR">Close</button></div><div class="pbody">
     <p class="muted">Every Thanksgiving Day step shifts with this. Wednesday prep stays where it is.</p>
     <input type="time" id="dt" value="${cur}" style="font:600 32px var(--serif);padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff">
-    <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn primary" id="saveDt">Save</button><button class="btn" id="resetDt">Reset to 4:00 PM</button><button class="btn ghost" id="resetAll">Clear all checkmarks</button></div>
+    <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn primary" id="saveDt">Save</button><button class="btn" id="resetDt">Reset to ${fmtT(new Date(P.dinnerDefault))}</button><button class="btn ghost" id="resetAll">Clear all checkmarks</button></div>
     <p class="muted small" style="margin-top:18px">Turkey goes in about 3 hours before dinner. The brine runs Tue 6 PM → Wed 6 PM whatever time dinner is.</p></div>`;
   $('#sheet').classList.add('open');
   $('#closeR').onclick = closeRecipe;

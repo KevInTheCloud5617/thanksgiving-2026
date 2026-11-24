@@ -9,7 +9,7 @@
 
 window.PLAN = {
   title: "Thanksgiving 2026",
-  dinnerDefault: "2026-11-26T16:00",
+  dinnerDefault: "2026-11-26T13:30",
 
   // Oven temperature over the day (t = minutes from dinner)
   ovenTemps: [
@@ -318,7 +318,7 @@ window.PLAN = {
         "Wednesday 8 AM: feed the starter so it peaks around noon.",
         "Wednesday noon: mix dough; let it rise on the counter ~5 hr.",
         "Wednesday ~5:30 PM: shape 16 rolls into the pan, cover, fridge overnight.",
-        "Thursday 8 AM: out of the fridge to proof; bake ~10:30 AM while the oven is still free.",
+        "Thursday: take out to proof 8 hours before dinner; bake 5½ hours before dinner while the oven is free. See the schedule for your dinner time.",
         "Thursday right before dinner: rewarm about 7 min at 350°F after the mac is broiled."
       ],
       steps: [
@@ -327,7 +327,7 @@ window.PLAN = {
         { text: "Add salt, then knead in the soft butter a bit at a time. Knead 8–10 minutes until smooth and stretchy (or 6–8 min in a stand mixer on medium-low).", timer: { label: "Knead", min: 8 } },
         { text: "Cover and rise at warm room temp until about 1½× bigger and puffy. Usually 4–6 hours; enriched sourdough is slow.", timer: { label: "Bulk rise — first check", min: 240 } },
         { text: "~5:30 PM: divide into 16 pieces (~60 g each). Shape tight balls and place in buttered 9×13, 4 × 4. Cover tightly and refrigerate overnight." },
-        { text: "Thursday 8 AM: take the pan out of the fridge. Proof somewhere warm until puffy and touching, 2–3 hours.", timer: { label: "Rolls proof", min: 120 } },
+        { text: "Thursday: take the pan out of the fridge at the time shown in the schedule. Proof somewhere warm until puffy and touching, 2–3 hours.", timer: { label: "Rolls proof", min: 120 } },
         { text: "Preheat to 375°F, middle rack. Brush rolls with egg wash.", timer: { label: "Preheat 375°F", min: 15 } },
         { text: "Bake until deep golden and 190°F inside.", timer: { label: "Bake rolls", min: 22 } },
         { text: "Brush with melted butter, flaky salt if you like. Cool in the pan, then cover loosely with foil." },
@@ -335,7 +335,7 @@ window.PLAN = {
       ],
       notes: [
         "Starter sluggish? Give the bulk rise more time rather than rushing it. Dough should feel airy, not dense.",
-        "Behind schedule Thursday? The rolls can bake as late as 11:30 AM and still be out before the turkey preheat."
+        "If the rolls are behind schedule, check the timeline: they need to be out before the turkey preheat."
       ]
     }
   ],

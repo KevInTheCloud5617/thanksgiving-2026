@@ -2,7 +2,7 @@
 
 **Live site:** https://kevinthecloud5617.github.io/thanksgiving-2026/
 **Repo:** `~/projects/thanksgiving-2026` → GitHub `KevInTheCloud5617/thanksgiving-2026` (PUBLIC, so GitHub Pages works on the free plan; it holds only recipes, nothing personal)
-**Dinner:** Thu Nov 26, 2026, 4:00 PM by default (changeable in the app; every Thursday step shifts with it)
+**Dinner:** Thu Nov 26, 2026, 1:30 PM by default (changeable in the app; every Thursday step shifts with it). A one-time per-device migration applies the new agreed time even if an earlier time was saved; later local edits persist.
 
 ## What it is
 A static, dependency-free kitchen site for an iPad on the counter and Kevin's phone.
@@ -28,23 +28,23 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 - **Mac & cheese:** Tini's recipe from Meg's photo, made fresh Thursday. Cavatappi, 1 lb mozzarella, 1 lb Colby Jack, 8 oz cheddar, evaporated milk, heavy cream, Dijon. Photo doesn't specify seasoning amounts and contradicts itself on whether to add all or only some early; splitting the seasonings is an interpretation. Shred T−150, pasta T−125, sauce T−120, bake 350°F T−40 to T−10, broil T−10 to T−7 in a broiler-safe dish.
 - **Stuffing:** 2 bags of Pepperidge Farm. Package recipe **per bag: 4 tbsp butter, 1 cup onion, 2 cups chicken broth** (so 1 stick, 2 cups onion, 4 cups broth). No celery. Mixed on big R at T−75, baked at 350°F on the middle rack T−45 to T−10; uncover T−20. Kevin's message cut off at "we have 2 bags of…", so the stuffing variety is still unconfirmed.
 - **Green beans:** steamed on a small burner at T−20, then butter, salt and lemon.
-- **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. Thu: proof from 8 AM, bake 375°F about 22 min at ~10:30 (oven is free then). Rewarm under foil at 350°F T−7 after the mac is broiled. Assumes Kevin has an active starter; that hasn't been confirmed.
+- **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. For 1:30 dinner Thu: proof from 5:30 AM, bake 375°F about 22 min at 8 AM. Rewarm under foil at 350°F T−7 after the mac is broiled. Assumes Kevin has an active starter; that hasn't been confirmed.
 - **Gravy:** turkey-drippings gravy; make at T−55 on big right after stuffing leaves that burner, then hold warm (140°F or hotter) through dinner. Use unsalted butter and low/no-sodium broth, add drippings gradually, and salt only after tasting. Drippings may still be salty despite the mild brine.
-- **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Wednesday 1 PM prep/preheat, 1:15 bake at 350°F, refrigerate promptly within 2 hours. Thursday 3:45 reheat covered portions in microwave to 165°F; microwave reheating avoids competition for the single oven.
+- **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Wednesday 1 PM prep/preheat, 1:15 bake at 350°F, refrigerate promptly within 2 hours. Thursday 1:15 PM for 1:30 dinner: proposed covered-portion microwave reheating to 165°F to avoid competition for the single oven.
 - **Crab dip:** recipe and shopping list added: 9×9 dish, 350°F for 30 minutes. Serving time is unconfirmed, so no oven slot has been reserved yet. Refrigerate if assembled ahead.
 - **Baguette:** recipe card is a placeholder; recipe is coming. No ingredients or cooking times guessed, and no oven time reserved yet.
 
-## Thursday oven sequence (dinner 4 PM)
-- 10:15 AM: 375°F for the rolls; they come out about 10:52
-- 12:15 PM: 425°F preheat, lowest rack
-- 12:35 PM: turkey in at 425°F
-- 1:05 PM: down to 350°F
-- About 3:00 PM: turkey out to rest, oven stays at 350°F
-- 3:15 PM: stuffing in, middle rack
-- 3:20 PM: mac in, upper rack; verify both pans actually fit before relying on this plan
-- 3:40 PM: uncover the stuffing
-- 3:50 PM: stuffing out; broil mac for a few minutes (broiler-safe pan)
-- 3:53 PM: mac out, oven back to 350°F, rolls in to rewarm
+## Thursday oven sequence (dinner 1:30 PM)
+- 7:45 AM: 375°F preheat for rolls; bake 8:00–8:22
+- 10:05 AM: 425°F preheat, lowest rack
+- 10:25 AM: turkey in at 425°F
+- 10:55 AM: down to 350°F
+- About 12:30 PM: turkey out to rest, oven stays at 350°F
+- 12:45 PM: stuffing in, middle rack
+- 12:50 PM: mac in, upper rack; verify both pans actually fit before relying on this plan
+- 1:10 PM: uncover the stuffing
+- 1:20 PM: stuffing out; broil mac for a few minutes (broiler-safe pan)
+- 1:23 PM: mac out, oven back to 350°F, rolls in to rewarm
 - Plan B (in the app): if the turkey runs long, only share the oven if everything physically fits; otherwise delay dinner.
 
 ## Changes done this session
