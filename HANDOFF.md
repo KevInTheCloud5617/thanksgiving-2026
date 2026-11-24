@@ -2,7 +2,7 @@
 
 **Live site:** https://kevinthecloud5617.github.io/thanksgiving-2026/
 **Repo:** `~/projects/thanksgiving-2026` → GitHub `KevInTheCloud5617/thanksgiving-2026` (PUBLIC, so GitHub Pages works on the free plan; it holds only recipes, nothing personal)
-**Dinner:** Thu Nov 26, 2026, 1:30 PM by default (changeable in the app; every Thursday step shifts with it). A one-time per-device migration applies the new agreed time even if an earlier time was saved; later local edits persist.
+**Dinner:** Thu Nov 26, 2026, 1:30 PM by default (changeable in the app; every Thursday step shifts with it). Per-device migration revision 2 explicitly sets 1:30 once, including devices where revision 1 saved an old cached 4 PM default; later local edits persist. Checklists and timers are untouched.
 
 ## What it is
 A static, dependency-free kitchen site for an iPad on the counter and Kevin's phone.

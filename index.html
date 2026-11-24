@@ -240,10 +240,10 @@ const LS = {
   get(k, d){ try{ const v = localStorage.getItem('tg26.'+k); return v==null?d:JSON.parse(v);}catch(e){return d;} },
   set(k, v){ localStorage.setItem('tg26.'+k, JSON.stringify(v)); }
 };
-// Apply the newly agreed dinner time once on each device; later edits still stick.
-if (LS.get('dinnerPlanRevision', 0) < 1){
-  LS.set('dinner', P.dinnerDefault);
-  LS.set('dinnerPlanRevision', 1);
+// Reapply the agreed time once, even if an old cached plan was saved by revision 1.
+if (LS.get('dinnerPlanRevision', 0) < 2){
+  LS.set('dinner', '2026-11-26T13:30');
+  LS.set('dinnerPlanRevision', 2);
 }
 const dishById = Object.fromEntries(P.DISHES.map(d => [d.id, d]));
 const colorOf = e => e.dish ? dishById[e.dish].color : '#6b5a4a';
