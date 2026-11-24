@@ -110,9 +110,38 @@ window.PLAN = {
     },
     {
       id: "corn", name: "Corn Casserole", color: "#d2a52c",
-      summary: "Recipe coming — ingredients and timing are not set yet.",
-      yield: "To be determined", activeTime: "TBD", totalTime: "TBD",
-      ingredients: [], ahead: [], steps: [{ text: "Waiting for your corn casserole recipe." }], notes: ["Not scheduled until the recipe arrives."]
+      summary: "Creamy corn casserole with a homemade cornmeal mix instead of Jiffy. Bake Wednesday; reheat Thursday.",
+      yield: "About 9 servings; 8×8 or 9×9 pan", activeTime: "10 min", totalTime: "45–50 min, plus cooling",
+      source: "https://thefoodcharlatan.com/creamed-corn-casserole/",
+      ingredients: [
+        { group: "Casserole", items: [
+          "½ cup (1 stick) butter",
+          "1 (15 oz) can whole-kernel corn, drained",
+          "1 (15 oz) can creamed corn, undrained",
+          "1 cup sour cream",
+          "3 tbsp granulated sugar (optional, for extra sweetness)",
+          "½ tsp kosher salt (or ¼ tsp table salt), in addition to the salt in the mix"
+        ]},
+        { group: "Homemade cornmeal mix (instead of Jiffy)", items: [
+          "½ cup yellow cornmeal",
+          "⅔ cup all-purpose flour",
+          "⅓ cup granulated sugar",
+          "1½ tsp baking powder",
+          "½ tsp salt",
+          "2 tbsp vegetable oil"
+        ]},
+        { group: "Gear", items: ["8×8 or 9×9 baking dish", "Microwave-safe dish for reheating"] }
+      ],
+      ahead: ["Wednesday: bake at 350°F, cool briefly, then refrigerate promptly in a shallow covered container within 2 hours of baking.", "Thursday: reheat covered portions in the microwave to 165°F, stirring for even heating; timing depends on the microwave and portion size."] ,
+      steps: [
+        { text: "Heat oven to 350°F. Melt the butter in a microwave-safe bowl or glass baking dish, then coat the sides of the baking dish with some of it. Never microwave a metal pan." },
+        { text: "Mix the cornmeal, flour, ⅓ cup sugar, baking powder, ½ tsp salt and oil to make the homemade mix." },
+        { text: "Combine the melted butter, drained whole corn, undrained creamed corn, sour cream, optional 3 tbsp sugar and extra kosher salt. Stir in the homemade mix until combined; spread in the baking dish." },
+        { text: "Bake at 350°F for about 35–40 minutes. The edges should be golden and pulling away; the center should be set, and a toothpick should come out without wet batter. Check metal pans a little early.", timer: { label: "Corn casserole bake — check", min: 35 } },
+        { text: "Cool briefly, then refrigerate promptly in a shallow covered container, within 2 hours of baking." },
+        { text: "Thursday, reheat covered portions in the microwave, stirring and checking in several spots until they reach 165°F. Serve warm." }
+      ],
+      notes: ["The author offers this homemade mix as a substitute but says she has not tested it. Cornmeal alone is not equivalent to the boxed mix; flour, sugar, baking powder, salt and oil are included.", "The 3 tbsp extra sugar is optional; the homemade mix already contains ⅓ cup sugar."]
     },
     {
       id: "crab", name: "Crab Dip", color: "#b85d4d",
@@ -292,6 +321,10 @@ window.PLAN = {
     { id: "brine",    dish: "turkey",   day: -2, clock: "10:00", where: "big1",    title: "Make brine, then chill it", detail: "Dissolve salt & aromatics in ½ gal hot water, add 1½ gal cold. Fridge until cold.", dur: 20 },
     { id: "starter",  dish: "rolls",    day: -1, clock: "08:00", where: "counter", title: "Feed sourdough starter", detail: "So it peaks around noon." },
     { id: "rollmix",  dish: "rolls",    day: -1, clock: "12:00", where: "counter", title: "Mix & knead roll dough, start bulk rise", detail: "~40 min hands-on, then 4–6 hr rise on the counter.", dur: 40 },
+    { id: "cornprep", dish: "corn",     day: -1, clock: "13:00", where: "counter", title: "Mix corn casserole", detail: "Make the cornmeal mix from scratch; combine with corn, sour cream and butter.", dur: 15 },
+    { id: "cornheat", dish: "corn",     day: -1, clock: "13:00", where: "oven", rack: "middle", title: "Preheat oven to 350°F for corn casserole", detail: "Middle rack.", dur: 15 },
+    { id: "cornbake", dish: "corn",     day: -1, clock: "13:15", where: "oven", rack: "middle", title: "Bake corn casserole", detail: "350°F, about 35–40 min; check for a set center.", dur: 45, timer: { label: "Corn casserole bake — check", min: 35 } },
+    { id: "cornchill",dish: "corn",     day: -1, clock: "14:15", where: "fridge", title: "Refrigerate corn casserole", detail: "Cool briefly; refrigerate in a shallow covered container within 2 hours after baking." },
     { id: "rollshape",dish: "rolls",    day: -1, clock: "17:30", where: "counter", title: "Shape 16 rolls, cover, fridge overnight", detail: "Into buttered 9×13, 4 × 4.", dur: 20 },
         { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
     { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, no salt, fridge. Thursday: drain, fresh cold water to cook.", dur: 30 },
@@ -322,6 +355,7 @@ window.PLAN = {
     { id: "uncover",  dish: "stuffing", t: -25,  dur: 0,   where: "oven",   title: "Uncover the stuffing", detail: "10 more minutes for a crisp top.", timer: { label: "Stuffing uncovered", min: 10 } },
     { id: "beanwater",dish: "beans",    t: -20,  dur: 20,  where: "small2", title: "Green beans: water on, then steam", detail: "1 inch of water, basket, lid. Beans in once boiling, 5–7 min.", timer: { label: "Steam beans", min: 6 } },
     { id: "carve",    dish: "turkey",   t: -15,  dur: 15,  where: "counter", title: "Carve the turkey", detail: "Legs, thighs, drums, then breasts whole and sliced." },
+    { id: "cornwarm", dish: "corn",     t: -15,  dur: 15,  where: "counter", title: "Reheat corn casserole in microwave", detail: "Reheat covered portions, stirring and checking in several spots, to 165°F. Microwave times vary." },
     { id: "sidesout", dish: null,       t: -10,  dur: 0,   where: "oven",   title: "Mac & stuffing out", detail: "To the table." },
     { id: "rollwarm", dish: "rolls",    t: -10,  dur: 8,   where: "oven", rack: "middle", title: "Rolls in to rewarm (foil on), then oven off", detail: "5–8 minutes.", timer: { label: "Rewarm rolls", min: 6 } },
     { id: "dinner",   dish: null,       t: 0,    dur: 0,   where: "counter", title: "Dinner!", detail: "Happy Thanksgiving." }
@@ -336,8 +370,9 @@ window.PLAN = {
     { group: "Stuffing", items: ["Pepperidge Farm stuffing ×2", "Onions ×2 medium", "Chicken broth (4 cups — one 32-oz carton)"] },
     { group: "Green beans", items: ["2 lb green beans", "Lemon"] },
     { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (shared with mac)", "Flaky salt (optional)"] },
-    { group: "Butter total", items: ["About 1¼ lb — 5 sticks (rolls ~6 tbsp, turkey 4 tbsp, potatoes 1 stick, mac 4 tbsp+, stuffing 1 stick, beans 2 tbsp, gravy up to 4 tbsp unsalted)"] },
+    { group: "Butter total", items: ["About 1½ lb — 6 sticks (includes 1 stick for corn casserole and up to 4 tbsp unsalted for gravy)"] },
     { group: "Gravy", items: ["Low- or no-sodium turkey or chicken broth — up to 3 cups (in addition to stuffing broth)", "All-purpose flour — 4 tbsp (shared with mac)", "Unsalted butter — up to 4 tbsp (included in butter total)"] },
-    { group: "Recipes still coming", items: ["Corn casserole — ingredients TBD", "Crab dip — ingredients TBD", "Baguette — ingredients TBD"] }
+    { group: "New dishes", items: ["Corn casserole — see its shopping list", "Crab dip — ingredients TBD", "Baguette — ingredients TBD"] },
+    { group: "Corn casserole", items: ["1 can whole-kernel corn (15 oz)", "1 can creamed corn (15 oz)", "Sour cream — 1 cup", "Yellow cornmeal — ½ cup", "All-purpose flour — ⅔ cup (shared)", "Granulated sugar — ⅓ cup, plus 3 tbsp optional", "Baking powder — 1½ tsp", "Salt — ½ tsp plus ½ tsp kosher (or ¼ tsp table salt)", "Vegetable oil — 2 tbsp", "Butter — 1 stick (included in butter total)"] }
   ]
 };

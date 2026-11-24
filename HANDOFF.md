@@ -30,7 +30,8 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 - **Green beans:** steamed on a small burner at T−20, then butter, salt and lemon.
 - **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. Thu: proof from 8 AM, bake 375°F about 22 min at ~10:30 (oven is free then). Rewarm under foil at T−10 after the sides come out. Assumes Kevin has an active starter; that hasn't been confirmed.
 - **Gravy:** turkey-drippings gravy; make at T−55 on big right after stuffing leaves that burner, then hold warm (140°F or hotter) through dinner. Use unsalted butter and low/no-sodium broth, add drippings gradually, and salt only after tasting. Drippings may still be salty despite the mild brine.
-- **Corn casserole, crab dip and baguette:** recipe cards are placeholders only; Kevin will provide recipes. No ingredients or cooking times guessed, and no oven/burner time reserved yet.
+- **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Wednesday 1 PM prep/preheat, 1:15 bake at 350°F, refrigerate promptly within 2 hours. Thursday 3:45 reheat covered portions in microwave to 165°F; microwave reheating avoids competition for the single oven.
+- **Crab dip and baguette:** recipe cards are placeholders only; recipes are coming. No ingredients or cooking times guessed, and no oven/burner time reserved yet.
 
 ## Thursday oven sequence (dinner 4 PM)
 - 10:15 AM: 375°F for the rolls; they come out about 10:52
@@ -55,7 +56,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 
 ## Open items
 - [ ] Get Meg's mac & cheese recipe and put it in `data.js` (`id: "mac"`); adjust timing if her bake differs.
-- [ ] Get the corn casserole, crab dip and baguette recipes; replace the placeholders and fit them into the oven/burner plan without conflicts. Update shopping and account for when the crab dip is to be served.
+- [ ] Get the crab dip and baguette recipes; replace the placeholders and fit them into the oven/burner plan without conflicts. Update shopping and account for when the crab dip is to be served.
 - [ ] Confirm the stuffing variety (message was cut off) and the sourdough starter situation.
 - [ ] Kevin said he'll add more dishes. For each one, find a burner and oven slot that doesn't overlap (run the overlap check below).
 - [ ] Visual QA: screenshots couldn't be viewed this session (vision tool not configured). Layout was checked through DOM metrics only: no horizontal overflow at 1180×820 or 430×932, recipe sheet and timers work. Get Kevin's eyes on the iPad.
