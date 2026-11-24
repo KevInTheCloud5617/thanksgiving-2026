@@ -12,7 +12,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
   - Ahead events: `day` (relative to Thanksgiving) + `clock` "HH:MM", fixed times.
   - `where`: oven | big1 | big2 | small1 | small2 | counter | fridge; oven events need a `rack`: upper | middle | lower.
 - Preview any moment: `?at=2026-11-26T14:20` (e.g. `…/?at=2026-11-26T14:20#kitchen`).
-- Deploy = `git commit && git push` to main. Pages updates in ~30–60 s. Verify with `curl` that the change is live.
+- Deploy = `git commit && git push` to main. Pages updates in ~30–60 s. Bump the `data.js?v=...` token in `index.html` whenever `data.js` changes so a cached older script cannot be mixed with a newer page. Verify the normal live page and its exact referenced script, not only cache-busting probe URLs; Pages sends a 10-minute cache header. For a fresh page on a device, use a new `?v=...#timeline` URL; do not clear site data, which would erase local checklists/timers.
 
 ## Kitchen facts
 - Induction cooktop: **2 big burners in FRONT, 2 small in BACK**. One oven.
