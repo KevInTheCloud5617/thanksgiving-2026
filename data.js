@@ -145,9 +145,29 @@ window.PLAN = {
     },
     {
       id: "crab", name: "Crab Dip", color: "#b85d4d",
-      summary: "Recipe coming — ingredients and timing are not set yet.",
-      yield: "To be determined", activeTime: "TBD", totalTime: "TBD",
-      ingredients: [], ahead: [], steps: [{ text: "Waiting for your crab dip recipe." }], notes: ["Not scheduled until the recipe arrives."]
+      summary: "Creamy cheddar crab dip, topped with paprika and baked at 350°F.",
+      yield: "One 9×9 dish", activeTime: "A few minutes", totalTime: "30 min bake + prep",
+      ingredients: [
+        { group: "Crab dip", items: [
+          "1 (8 oz) package cream cheese",
+          "2 tbsp mayonnaise",
+          "1 cup shredded cheddar cheese",
+          "1 (6 oz) can crab meat",
+          "¾ tbsp lemon juice",
+          "1 tsp hot sauce",
+          "1 tbsp Worcestershire sauce",
+          "Paprika for the top"
+        ]},
+        { group: "Gear", items: ["9×9 baking dish"] }
+      ],
+      ahead: ["If mixed ahead, cover and refrigerate until ready to bake."],
+      steps: [
+        { text: "Preheat the oven to 350°F." },
+        { text: "Mix together the cream cheese, mayonnaise, cheddar, crab meat, lemon juice, hot sauce and Worcestershire sauce." },
+        { text: "Spread in a 9×9 baking dish and sprinkle paprika over the top." },
+        { text: "Bake at 350°F for 30 minutes.", timer: { label: "Bake crab dip", min: 30 } }
+      ],
+      notes: ["Oven time not scheduled yet — serving time is still to be confirmed."]
     },
     {
       id: "baguette", name: "Baguette", color: "#ae7941",
@@ -372,7 +392,8 @@ window.PLAN = {
     { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (shared with mac)", "Flaky salt (optional)"] },
     { group: "Butter total", items: ["About 1½ lb — 6 sticks (includes 1 stick for corn casserole and up to 4 tbsp unsalted for gravy)"] },
     { group: "Gravy", items: ["Low- or no-sodium turkey or chicken broth — up to 3 cups (in addition to stuffing broth)", "All-purpose flour — 4 tbsp (shared with mac)", "Unsalted butter — up to 4 tbsp (included in butter total)"] },
-    { group: "New dishes", items: ["Corn casserole — see its shopping list", "Crab dip — ingredients TBD", "Baguette — ingredients TBD"] },
-    { group: "Corn casserole", items: ["1 can whole-kernel corn (15 oz)", "1 can creamed corn (15 oz)", "Sour cream — 1 cup", "Yellow cornmeal — ½ cup", "All-purpose flour — ⅔ cup (shared)", "Granulated sugar — ⅓ cup, plus 3 tbsp optional", "Baking powder — 1½ tsp", "Salt — ½ tsp plus ½ tsp kosher (or ¼ tsp table salt)", "Vegetable oil — 2 tbsp", "Butter — 1 stick (included in butter total)"] }
+    { group: "New dishes", items: ["Corn casserole — see its shopping list", "Crab dip — see its shopping list", "Baguette — ingredients TBD"] },
+    { group: "Corn casserole", items: ["1 can whole-kernel corn (15 oz)", "1 can creamed corn (15 oz)", "Sour cream — 1 cup", "Yellow cornmeal — ½ cup", "All-purpose flour — ⅔ cup (shared)", "Granulated sugar — ⅓ cup, plus 3 tbsp optional", "Baking powder — 1½ tsp", "Salt — ½ tsp plus ½ tsp kosher (or ¼ tsp table salt)", "Vegetable oil — 2 tbsp", "Butter — 1 stick (included in butter total)"] },
+    { group: "Crab dip", items: ["Cream cheese — 1 package (8 oz)", "Mayonnaise — 2 tbsp", "Shredded cheddar — 1 cup (in addition to mac)", "Crab meat — 1 can (6 oz)", "Lemon juice — ¾ tbsp", "Hot sauce — 1 tsp", "Worcestershire sauce — 1 tbsp", "Paprika for topping (shared with mac)"] }
   ]
 };
