@@ -25,10 +25,10 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
   - Wed 6 PM: out, drain, pat dry — **no rinse** (Kevin's call; mild brine + USDA says don't rinse raw poultry) — fridge **uncovered** overnight.
   - Thu: 425°F 30 min, then 350°F. Pull at 160°F breast / 170–175°F thigh, rest 30–45 min.
 - **Mashed potatoes:** 5 lb Yukon Gold, butter and a little cream only. Peeled Wed into cold unsalted water in the fridge. Thu: drain, rinse, **fresh cold salted water**, cook, mash, hold on a small burner on LOW.
-- **Mac & cheese:** made **fresh Thursday**, not ahead. **Meg is sending her recipe.** The current one is a labeled placeholder (roux-based). Swap ingredients and steps when it arrives; the schedule can stay (pasta on big R at T−125, sauce on big L at T−120, bake uncovered at 375°F on the upper rack T−35 to T−10).
-- **Stuffing:** 2 bags of Pepperidge Farm. Package recipe **per bag: 4 tbsp butter, 1 cup onion, 2 cups chicken broth** (so 1 stick, 2 cups onion, 4 cups broth). No celery. Mixed on big R at T−75, baked covered at 375°F on the middle rack T−50, uncovered T−25. Kevin's message cut off at "we have 2 bags of…", so the stuffing variety is still unconfirmed.
+- **Mac & cheese:** Tini's recipe from Meg's photo, made fresh Thursday. Cavatappi, 1 lb mozzarella, 1 lb Colby Jack, 8 oz cheddar, evaporated milk, heavy cream, Dijon. Photo doesn't specify seasoning amounts and contradicts itself on whether to add all or only some early; splitting the seasonings is an interpretation. Shred T−150, pasta T−125, sauce T−120, bake 350°F T−40 to T−10, broil T−10 to T−7 in a broiler-safe dish.
+- **Stuffing:** 2 bags of Pepperidge Farm. Package recipe **per bag: 4 tbsp butter, 1 cup onion, 2 cups chicken broth** (so 1 stick, 2 cups onion, 4 cups broth). No celery. Mixed on big R at T−75, baked at 350°F on the middle rack T−45 to T−10; uncover T−20. Kevin's message cut off at "we have 2 bags of…", so the stuffing variety is still unconfirmed.
 - **Green beans:** steamed on a small burner at T−20, then butter, salt and lemon.
-- **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. Thu: proof from 8 AM, bake 375°F about 22 min at ~10:30 (oven is free then). Rewarm under foil at T−10 after the sides come out. Assumes Kevin has an active starter; that hasn't been confirmed.
+- **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. Thu: proof from 8 AM, bake 375°F about 22 min at ~10:30 (oven is free then). Rewarm under foil at 350°F T−7 after the mac is broiled. Assumes Kevin has an active starter; that hasn't been confirmed.
 - **Gravy:** turkey-drippings gravy; make at T−55 on big right after stuffing leaves that burner, then hold warm (140°F or hotter) through dinner. Use unsalted butter and low/no-sodium broth, add drippings gradually, and salt only after tasting. Drippings may still be salty despite the mild brine.
 - **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Wednesday 1 PM prep/preheat, 1:15 bake at 350°F, refrigerate promptly within 2 hours. Thursday 3:45 reheat covered portions in microwave to 165°F; microwave reheating avoids competition for the single oven.
 - **Crab dip:** recipe and shopping list added: 9×9 dish, 350°F for 30 minutes. Serving time is unconfirmed, so no oven slot has been reserved yet. Refrigerate if assembled ahead.
@@ -39,12 +39,13 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 - 12:15 PM: 425°F preheat, lowest rack
 - 12:35 PM: turkey in at 425°F
 - 1:05 PM: down to 350°F
-- About 3:00 PM: turkey out to rest, oven to 375°F
-- 3:10 PM: stuffing in, middle rack
-- 3:25 PM: mac in, upper rack
-- 3:35 PM: uncover the stuffing
-- 3:50 PM: rolls in to rewarm, then oven off
-- Plan B (in the app): if the turkey runs long, the sides share the oven at 350°F.
+- About 3:00 PM: turkey out to rest, oven stays at 350°F
+- 3:15 PM: stuffing in, middle rack
+- 3:20 PM: mac in, upper rack; verify both pans actually fit before relying on this plan
+- 3:40 PM: uncover the stuffing
+- 3:50 PM: stuffing out; broil mac for a few minutes (broiler-safe pan)
+- 3:53 PM: mac out, oven back to 350°F, rolls in to rewarm
+- Plan B (in the app): if the turkey runs long, only share the oven if everything physically fits; otherwise delay dinner.
 
 ## Changes done this session
 1. Built and deployed the site.
@@ -53,10 +54,10 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 4. Added sourdough rolls.
 5. Kitchen scrubber rewritten to update in place each animation frame (1-min steps, no full re-render), so it's smooth. Stove drawn with small burners in back and big in front, fixed sizes so nothing jumps.
 6. Stuffing changed to the package ratios, celery removed.
-7. Thaw steps removed (turkey's already thawed). Mac changed from make-ahead to made fresh Thursday, with Meg's recipe pending.
+7. Thaw steps removed (turkey's already thawed). Mac changed from make-ahead to made fresh Thursday; Meg's recipe has since replaced the placeholder.
 
 ## Open items
-- [ ] Get Meg's mac & cheese recipe and put it in `data.js` (`id: "mac"`); adjust timing if her bake differs.
+- [ ] Confirm mac and stuffing pans physically fit simultaneously on their racks and that the mac dish is broiler-safe. The recipe photo does not specify seasoning quantities.
 - [ ] Confirm when crab dip should be served, then fit its 350°F / 30-minute bake into the oven schedule without conflicts.
 - [ ] Get the baguette recipe; replace the placeholder, update shopping and fit it into the oven plan without conflicts.
 - [ ] Confirm the stuffing variety (message was cut off) and the sourdough starter situation.

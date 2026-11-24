@@ -393,11 +393,11 @@ function updateKitchen(){
   const T = scrubT;
   const act = P.EVENTS.filter(e => e.t != null && e.dur && e.t <= T && e.t + e.dur > T);
   let temp = null; P.ovenTemps.forEach(o => { if (o.t <= T) temp = o; });
-  const on = temp && temp.temp > 0;
+  const on = temp && (typeof temp.temp === 'number' ? temp.temp > 0 : !!temp.temp);
   $('#kTime').textContent = fmtT(new Date(D.getTime()+T*60000));
   $('#kRel').textContent = T < 0 ? `${relLabel({t:T})} before dinner` : 'Dinner time';
   $('#oLbl').textContent = temp ? temp.label : 'Off';
-  const ot = $('#oTemp'); ot.textContent = on ? temp.temp+'°F' : 'Off'; ot.classList.toggle('hot', on);
+  const ot = $('#oTemp'); ot.textContent = on ? (typeof temp.temp === 'number' ? temp.temp+'°F' : temp.temp) : 'Off'; ot.classList.toggle('hot', on);
   $('#oBox').classList.toggle('lit', on);
   ['upper','middle','lower'].forEach(r => setHTML('r-'+r, act.filter(e=>e.where==='oven'&&e.rack===r).map(e=>`<div class="dishchip" style="background:${colorOf(e)}" data-recipe="${e.dish}">${esc(shortName(e.dish))}</div>`).join('')));
   Object.keys(P.burners).forEach(k => { const e = act.find(x=>x.where===k); const el = document.getElementById('b-'+k);
@@ -421,7 +421,7 @@ function openRecipe(id){
   const evs = sorted().filter(e=>e.dish===id);
   $('#panel').innerHTML = `<div class="phead"><div style="width:8px;align-self:stretch;border-radius:4px;background:${d.color}"></div><div style="flex:1"><h2>${esc(d.name)}</h2><div class="muted">${esc(d.summary)}</div><div class="facts"><span class="pill where">${esc(d.yield)}</span><span class="pill where">Active ${esc(d.activeTime)}</span><span class="pill where">${esc(d.totalTime)}</span></div></div><button class="btn sm" id="closeR">Close</button></div>
   <div class="pbody">${d.source?`<p class="small"><a href="${esc(d.source)}" target="_blank" rel="noopener noreferrer">Original recipe ↗</a></p>`:''}<div class="cols">
-    <div class="ing">${d.ingredients.map((g,gi)=>`<h4>${esc(g.group)}</h4><ul class="cl">${g.items.map((it,ii)=>{const k=`${id}.${gi}.${ii}`;return `<li class="${ingDone.has(k)?'on':''}" data-ing="${k}"><div class="bx">${ingDone.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul>`).join('')}
+    <div class="ing">${d.ingredients.map((g,gi)=>`<h4>${esc(g.group)}</h4><ul class="cl">${g.items.map((it,ii)=>{const k=`${id}${d.ingredientVersion?'.'+d.ingredientVersion:''}.${gi}.${ii}`;return `<li class="${ingDone.has(k)?'on':''}" data-ing="${k}"><div class="bx">${ingDone.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul>`).join('')}
       ${d.ahead.length?`<div class="aheadbox"><div class="eyebrow" style="color:var(--olive)">Make ahead</div><ul>${d.ahead.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div>`:''}
       <h4>When (with your dinner time)</h4><ul class="cl">${evs.map(e=>`<li style="cursor:default"><b style="min-width:110px;font-variant-numeric:tabular-nums">${fmtDay(startOf(e)).split(',')[0].slice(0,3)} ${fmtT(startOf(e))}</b><span>${esc(e.title)}</span></li>`).join('')}</ul></div>
     <div class="steps"><h4>Steps</h4><ol class="st">${d.steps.map(s=>`<li>${esc(s.text)}${s.timer?`<div><button class="btn sm" data-timer="${esc(s.timer.label)}|${s.timer.min}">Start ${s.timer.min} min timer</button></div>`:''}</li>`).join('')}</ol>
@@ -447,7 +447,7 @@ function renderAhead(){
 // ================= SHOPPING =================
 let shop = new Set(LS.get('shop', []));
 function renderShop(){
-  $('#v-shop').innerHTML = `<div class="rgrid">${P.SHOPPING.map((g,gi)=>`<div class="card"><h3 style="font-size:18px">${esc(g.group)}</h3><ul class="cl">${g.items.map((it,ii)=>{const k=gi+'.'+ii;return `<li class="${shop.has(k)?'on':''}" data-shop="${k}"><div class="bx">${shop.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul></div>`).join('')}</div>`;
+  $('#v-shop').innerHTML = `<div class="rgrid">${P.SHOPPING.map((g,gi)=>g.hidden?'':`<div class="card"><h3 style="font-size:18px">${esc(g.group)}</h3><ul class="cl">${g.items.map((it,ii)=>{const k=gi+'.'+ii;return `<li class="${shop.has(k)?'on':''}" data-shop="${k}"><div class="bx">${shop.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul></div>`).join('')}</div>`;
 }
 $('#v-shop').addEventListener('click', e => { const li = e.target.closest('[data-shop]'); if(!li) return; const k=li.dataset.shop; shop.has(k)?shop.delete(k):shop.add(k); LS.set('shop',[...shop]); renderShop(); });
 

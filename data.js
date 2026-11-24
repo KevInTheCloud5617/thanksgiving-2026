@@ -19,9 +19,10 @@ window.PLAN = {
     { t: -205, temp: 425, label: "Preheating" },
     { t: -185, temp: 425, label: "Turkey blast" },
     { t: -155, temp: 350, label: "Turkey roast" },
-    { t: -60,  temp: 375, label: "Sides" },
-    { t: -10,  temp: 375, label: "Rewarming rolls" },
-    { t: -2,   temp: 0,   label: "Off" }
+    { t: -60,  temp: 350, label: "Sides" },
+    { t: -10,  temp: "Broil", label: "Finishing mac & cheese" },
+    { t: -7,   temp: 350, label: "Rewarming rolls" },
+    { t: 0,    temp: 0,   label: "Off" }
   ],
 
   burners: {
@@ -205,39 +206,44 @@ window.PLAN = {
     },
     {
       id: "mac", name: "Baked Mac & Cheese", color: "#e0a526",
-      summary: "Made fresh Thursday, baked during the turkey rest. Meg’s recipe goes here — placeholder below until we have it.",
-      yield: "One 9×13 dish", activeTime: "35 min", totalTime: "35 min + ~40 min bake",
+      summary: "Tini’s mac & cheese: cavatappi, a creamy three-cheese sauce and layers of cheese.",
+      yield: "One large baking dish", activeTime: "About 45 min", totalTime: "Prep + 25–30 min bake + broil",
+      ingredientVersion: "tini",
       ingredients: [
         { group: "Pasta", items: [
-          "1 lb elbow macaroni (or cavatappi)",
+          "1 lb cavatappi pasta",
           "Salt for the pasta water"
         ]},
-        { group: "Sauce", items: [
-          "4 tbsp butter",
-          "¼ cup all-purpose flour",
-          "3½ cups whole milk, warmed",
-          "1 lb sharp cheddar, shredded from the block (bagged doesn’t melt as well)",
-          "4 oz Gruyère or Monterey Jack, shredded (optional)",
-          "1 tsp dry mustard",
-          "½ tsp paprika",
-          "1 tsp kosher salt, pepper to taste"
+        { group: "Cheese", items: [
+          "1 lb mozzarella, shredded",
+          "1 lb Colby Jack, shredded",
+          "8 oz cheddar, shredded"
         ]},
-        { group: "Topping (optional)", items: [
-          "½ cup panko + 1 tbsp melted butter",
-          "Handful of reserved cheddar"
+        { group: "Sauce & seasoning", items: [
+          "3 tbsp butter",
+          "3 tbsp all-purpose flour",
+          "1 (12 oz) can evaporated milk",
+          "2 cups heavy cream",
+          "1 tbsp Dijon mustard",
+          "Salt, pepper, garlic powder and paprika — amounts not specified in the recipe"
+        ]},
+        { group: "Gear", items: [
+          "Large baking dish safe for both oven and broiler"
         ]}
       ],
-      ahead: ["Wednesday (optional): shred the cheese and bag it. Everything else is made fresh Thursday."],
+      ahead: ["Wednesday (optional): shred the cheeses, mix them, divide in half and refrigerate. Make the pasta and sauce fresh Thursday."],
       steps: [
-        { text: "Butter a 9×13 dish. Boil pasta in well-salted water 2 minutes LESS than the box says. Drain, don’t rinse.", timer: { label: "Pasta (box time − 2)", min: 6 } },
-        { text: "Same pot or a saucepan on a big burner, medium: melt butter, whisk in flour, cook 2 minutes without browning.", timer: { label: "Roux", min: 2 } },
-        { text: "Slowly whisk in warm milk. Simmer, whisking, until it coats a spoon.", timer: { label: "Sauce thicken", min: 7 } },
-        { text: "Off the heat: mustard, paprika, salt, pepper, then the cheese a handful at a time until smooth. Hold back a handful for the top." },
-        { text: "Fold in the pasta." },
-        { text: "Into the buttered dish. Top with reserved cheese (and panko if using). It can sit on the counter until the oven is free." },
-        { text: "Bake uncovered at 375°F, upper-middle rack, until bubbling at the edges and golden.", timer: { label: "Bake mac", min: 25 } }
+        { text: "Salt the pasta water and cook the cavatappi for 8 minutes, stirring every 2 minutes. Drain.", timer: { label: "Cavatappi", min: 8 } },
+        { text: "Shred and mix the mozzarella, Colby Jack and cheddar. Divide the mixture into two equal portions: one for sauce, one for layering." },
+        { text: "Mix salt, pepper, garlic powder and paprika. Melt the butter in a pan over medium heat; add half the seasoning and cook about 30 seconds to bloom it." },
+        { text: "Stir in the flour and cook for about 2 minutes.", timer: { label: "Mac roux", min: 2 } },
+        { text: "Gradually whisk in the evaporated milk, then add the heavy cream a little at a time, whisking. The photo says this takes about 6–7 minutes." },
+        { text: "Add the remaining seasoning and 1 tbsp Dijon mustard. Lower to a simmer and gradually whisk in one half of the shredded cheese, a handful at a time, until melted." },
+        { text: "Mix the cooked pasta into the cheese sauce. Layer half the pasta in a large broiler-safe baking dish, add some of the reserved cheese, then the remaining pasta and remaining cheese on top." },
+        { text: "Bake at 350°F for 25–30 minutes.", timer: { label: "Bake mac — check", min: 25 } },
+        { text: "Broil for a few minutes to brown the top, watching closely. Use a broiler-safe dish; never broil glass unless its manufacturer explicitly permits it.", timer: { label: "Broil mac — watch closely", min: 2 } }
       ],
-      notes: ["Placeholder recipe — will be swapped for Meg’s."]
+      notes: ["The photo does not specify amounts for the salt, pepper, garlic powder or paprika. Its seasoning steps say both ‘all’ and ‘the rest’; splitting the seasoning between those steps is an interpretation.", "The bake schedule assumes the mac and stuffing dishes fit together on separate racks; check the actual pans and oven before Thanksgiving.", "If the assembled mac is delayed, refrigerate it within 2 hours rather than leaving it on the counter; a chilled dish may need longer to heat through."]
     },
     {
       id: "stuffing", name: "Pepperidge Farm Stuffing", color: "#7a8b3a",
@@ -261,10 +267,10 @@ window.PLAN = {
         { text: "Add broth, bring just to a simmer. Take off heat." },
         { text: "Add stuffing and fold gently until evenly moistened. Don’t mash it." },
         { text: "Into the buttered dish, cover with foil." },
-        { text: "Bake covered at 375°F on the middle rack.", timer: { label: "Stuffing covered", min: 25 } },
+        { text: "Bake covered at 350°F on the middle rack.", timer: { label: "Stuffing covered", min: 25 } },
         { text: "Uncover for a crisp top.", timer: { label: "Stuffing uncovered", min: 10 } }
       ],
-      notes: ["Package says 350°F for 30 min; at 375°F alongside the mac it’s about the same total time."]
+      notes: ["Package says 350°F for 30 min; check that the center reaches 165°F before serving."]
     },
     {
       id: "beans", name: "Steamed Green Beans", color: "#3f7d4e",
@@ -313,7 +319,7 @@ window.PLAN = {
         "Wednesday noon: mix dough; let it rise on the counter ~5 hr.",
         "Wednesday ~5:30 PM: shape 16 rolls into the pan, cover, fridge overnight.",
         "Thursday 8 AM: out of the fridge to proof; bake ~10:30 AM while the oven is still free.",
-        "Thursday right before dinner: rewarm 5–8 min in the hot oven after the sides come out."
+        "Thursday right before dinner: rewarm about 7 min at 350°F after the mac is broiled."
       ],
       steps: [
         { text: "Wednesday 8 AM: feed your starter (equal weights flour and water). It should double and be bubbly by about noon." },
@@ -325,7 +331,7 @@ window.PLAN = {
         { text: "Preheat to 375°F, middle rack. Brush rolls with egg wash.", timer: { label: "Preheat 375°F", min: 15 } },
         { text: "Bake until deep golden and 190°F inside.", timer: { label: "Bake rolls", min: 22 } },
         { text: "Brush with melted butter, flaky salt if you like. Cool in the pan, then cover loosely with foil." },
-        { text: "Dinner: when the mac and stuffing come out, put the foil-covered rolls in the hot oven 5–8 minutes, then turn the oven off.", timer: { label: "Rewarm rolls", min: 6 } }
+        { text: "Dinner: after the mac is broiled, switch the oven back to 350°F and warm the foil-covered rolls 5–8 minutes, then turn the oven off.", timer: { label: "Rewarm rolls", min: 6 } }
       ],
       notes: [
         "Starter sluggish? Give the bulk rise more time rather than rushing it. Dough should feel airy, not dense.",
@@ -361,39 +367,42 @@ window.PLAN = {
     { id: "tk425",    dish: "turkey",   t: -185, dur: 30,  where: "oven", rack: "lower", title: "Turkey in at 425°F", detail: "30 minutes to brown.", timer: { label: "Turkey @ 425°F", min: 30 } },
     { id: "tk350",    dish: "turkey",   t: -155, dur: 95,  where: "oven", rack: "lower", title: "Drop to 350°F — keep roasting", detail: "Tent the breast with foil if it browns too fast.", timer: { label: "Turkey — first temp check", min: 65 } },
     { id: "tkcheck",  dish: "turkey",   t: -90,  dur: 0,   where: "oven", title: "Start checking turkey temp", detail: "Breast 160°F, thigh 170–175°F. Check every 10–15 min." },
+    { id: "macshred", dish: "mac",      t: -150, dur: 20,  where: "counter", title: "Mac: shred & divide the cheeses", detail: "Mix mozzarella, Colby Jack and cheddar. Divide in half for sauce and layers; refrigerate if not using right away." },
     { id: "potboil",  dish: "potatoes", t: -80,  dur: 35,  where: "big1",   title: "Potatoes on to boil", detail: "Cold water start, salted. Boil then strong simmer until tender.", timer: { label: "Potatoes boil + simmer", min: 30 } },
     { id: "stuffmix", dish: "stuffing", t: -75,  dur: 20,  where: "big2",   title: "Make stuffing", detail: "Butter + onion, add broth, fold in stuffing, into buttered dish, foil on.", timer: { label: "Sauté onion", min: 7 } },
     { id: "tkout",    dish: "turkey",   t: -60,  dur: 45,  where: "counter", title: "Turkey out — rest, tented", detail: "Target: breast 160°F. Rest 30–45 min.", timer: { label: "Turkey rest", min: 40 } },
     { id: "gravycook",dish: "gravy",    t: -55,  dur: 55,  where: "big2", title: "Make gravy, then hold warm", detail: "Separate drippings, make roux, whisk in drippings and low-sodium broth. If turkey is late, start with broth. Taste before salting; hold at 140°F or hotter." },
-    { id: "oven375",  dish: null,       t: -60,  dur: 10,  where: "oven", title: "Oven to 375°F, set two racks", detail: "Racks at upper-middle and middle." },
-    { id: "macpasta", dish: "mac",      t: -125, dur: 15,  where: "big2",   title: "Mac: boil the pasta", detail: "2 min under box time. Drain.", timer: { label: "Pasta (box time − 2)", min: 6 } },
-    { id: "macsauce", dish: "mac",      t: -120, dur: 25,  where: "big1",   title: "Mac: make the cheese sauce, assemble", detail: "Roux, milk, cheese, fold in pasta, into buttered dish. Holds on the counter till the oven’s free." },
-    { id: "macbake",  dish: "mac",      t: -35,  dur: 25,  where: "oven", rack: "upper", title: "Mac & cheese in (uncovered)", detail: "Until bubbling and golden.", timer: { label: "Bake mac", min: 25 } },
-    { id: "stuffbake",dish: "stuffing", t: -50,  dur: 35,  where: "oven", rack: "middle", title: "Stuffing in (covered)", detail: "Covered 25 min, then uncover 10.", timer: { label: "Stuffing covered", min: 25 } },
+    { id: "oven350sides", dish: null,    t: -60,  dur: 0,  where: "oven", title: "Keep oven at 350°F; set two racks", detail: "Confirm the mac and stuffing pans fit together on separate racks." },
+    { id: "tinipasta",dish: "mac",      t: -125, dur: 25,  where: "big2",   title: "Mac: boil the cavatappi", detail: "Bring salted water to a boil, then cook pasta 8 minutes, stirring every 2. Start the timer from the recipe when pasta goes in; drain." },
+    { id: "tinisauce",dish: "mac",      t: -120, dur: 25,  where: "big1",   title: "Mac: make sauce and assemble", detail: "Bloom seasonings, make roux, add evaporated milk, cream and cheese. Fold in pasta, layer with remaining cheese. If delayed, refrigerate within 2 hours." },
+    { id: "tinibake", dish: "mac",      t: -40,  dur: 30,  where: "oven", rack: "upper", title: "Mac & cheese in at 350°F", detail: "Bake 25–30 min in a broiler-safe dish; check at 25.", timer: { label: "Bake mac — check", min: 25 } },
+    { id: "stuffbake",dish: "stuffing", t: -45,  dur: 35,  where: "oven", rack: "middle", title: "Stuffing in at 350°F (covered)", detail: "Covered 25 min, then uncover 10. Check center reaches 165°F.", timer: { label: "Stuffing covered", min: 25 } },
     { id: "potmash",  dish: "potatoes", t: -45,  dur: 10,  where: "big1",   title: "Drain & mash potatoes", detail: "Steam dry 2 min, mash, butter + warm cream, salt." },
     { id: "pothold",  dish: "potatoes", t: -35,  dur: 35,  where: "small1", title: "Hold potatoes warm (LOW)", detail: "Lid on. Splash of cream right before serving." },
-    { id: "uncover",  dish: "stuffing", t: -25,  dur: 0,   where: "oven",   title: "Uncover the stuffing", detail: "10 more minutes for a crisp top.", timer: { label: "Stuffing uncovered", min: 10 } },
+    { id: "uncover",  dish: "stuffing", t: -20,  dur: 0,   where: "oven",   title: "Uncover the stuffing", detail: "10 more minutes for a crisp top.", timer: { label: "Stuffing uncovered", min: 10 } },
     { id: "beanwater",dish: "beans",    t: -20,  dur: 20,  where: "small2", title: "Green beans: water on, then steam", detail: "1 inch of water, basket, lid. Beans in once boiling, 5–7 min.", timer: { label: "Steam beans", min: 6 } },
     { id: "carve",    dish: "turkey",   t: -15,  dur: 15,  where: "counter", title: "Carve the turkey", detail: "Legs, thighs, drums, then breasts whole and sliced." },
     { id: "cornwarm", dish: "corn",     t: -15,  dur: 15,  where: "counter", title: "Reheat corn casserole in microwave", detail: "Reheat covered portions, stirring and checking in several spots, to 165°F. Microwave times vary." },
-    { id: "sidesout", dish: null,       t: -10,  dur: 0,   where: "oven",   title: "Mac & stuffing out", detail: "To the table." },
-    { id: "rollwarm", dish: "rolls",    t: -10,  dur: 8,   where: "oven", rack: "middle", title: "Rolls in to rewarm (foil on), then oven off", detail: "5–8 minutes.", timer: { label: "Rewarm rolls", min: 6 } },
+    { id: "sidesout", dish: "stuffing", t: -10,  dur: 0,   where: "oven", title: "Stuffing out; switch oven to broil", detail: "Check stuffing reaches 165°F; cover and serve soon. Mac stays in to brown." },
+    { id: "macbroil", dish: "mac",      t: -10,  dur: 3,  where: "oven", rack: "upper", title: "Broil mac & cheese", detail: "Watch closely, a few minutes only; broiler-safe dish required. Remove when browned.", timer: { label: "Broil mac — watch closely", min: 2 } },
+    { id: "rollwarm", dish: "rolls",    t: -7,  dur: 7,   where: "oven", rack: "middle", title: "Switch to 350°F; warm rolls (foil on)", detail: "After mac comes out, warm 5–8 min, then turn oven off.", timer: { label: "Rewarm rolls", min: 6 } },
     { id: "dinner",   dish: null,       t: 0,    dur: 0,   where: "counter", title: "Dinner!", detail: "Happy Thanksgiving." }
   ],
 
-  planB: "If the turkey isn’t at 160°F by 1 hour before dinner: leave it in, and slide the mac and stuffing in alongside it at 350°F (add ~10 min). Turkey can rest a shorter 20–25 min. Push dinner back in Settings and everything shifts.",
+  planB: "If the turkey runs long, leave it in until done. Only share the 350°F oven with sides if the pans physically fit without crowding; otherwise wait for the turkey and push dinner back. Refrigerate assembled mac within 2 hours if delayed. Turkey needs a rest before carving.",
 
   SHOPPING: [
     { group: "Turkey", items: ["11 lb turkey", "Kosher salt (Diamond or Morton)", "Brown sugar", "Black peppercorns", "Lemons ×4", "Garlic (1 head)", "Rosemary, thyme, sage", "Bay leaves", "Onion ×1 (cavity)", "Brining bag", "Foil"] },
     { group: "Potatoes", items: ["5 lb Yukon Gold", "Heavy cream (pint covers potatoes)", "Butter"] },
-    { group: "Mac & cheese", items: ["1 lb elbows", "Whole milk (½ gallon)", "1 lb sharp cheddar block", "4 oz Gruyère/Jack (optional)", "Dry mustard", "Paprika", "Flour", "Panko (optional)"] },
+    { group: "Mac & cheese (old placeholder)", hidden: true, items: ["1 lb elbows", "Whole milk (½ gallon)", "1 lb sharp cheddar block", "4 oz Gruyère/Jack (optional)", "Dry mustard", "Paprika", "Flour", "Panko (optional)"] },
     { group: "Stuffing", items: ["Pepperidge Farm stuffing ×2", "Onions ×2 medium", "Chicken broth (4 cups — one 32-oz carton)"] },
     { group: "Green beans", items: ["2 lb green beans", "Lemon"] },
-    { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (shared with mac)", "Flaky salt (optional)"] },
+    { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (for rolls)", "Flaky salt (optional)"] },
     { group: "Butter total", items: ["About 1½ lb — 6 sticks (includes 1 stick for corn casserole and up to 4 tbsp unsalted for gravy)"] },
     { group: "Gravy", items: ["Low- or no-sodium turkey or chicken broth — up to 3 cups (in addition to stuffing broth)", "All-purpose flour — 4 tbsp (shared with mac)", "Unsalted butter — up to 4 tbsp (included in butter total)"] },
     { group: "New dishes", items: ["Corn casserole — see its shopping list", "Crab dip — see its shopping list", "Baguette — ingredients TBD"] },
     { group: "Corn casserole", items: ["1 can whole-kernel corn (15 oz)", "1 can creamed corn (15 oz)", "Sour cream — 1 cup", "Yellow cornmeal — ½ cup", "All-purpose flour — ⅔ cup (shared)", "Granulated sugar — ⅓ cup, plus 3 tbsp optional", "Baking powder — 1½ tsp", "Salt — ½ tsp plus ½ tsp kosher (or ¼ tsp table salt)", "Vegetable oil — 2 tbsp", "Butter — 1 stick (included in butter total)"] },
-    { group: "Crab dip", items: ["Cream cheese — 1 package (8 oz)", "Mayonnaise — 2 tbsp", "Shredded cheddar — 1 cup (in addition to mac)", "Crab meat — 1 can (6 oz)", "Lemon juice — ¾ tbsp", "Hot sauce — 1 tsp", "Worcestershire sauce — 1 tbsp", "Paprika for topping (shared with mac)"] }
+    { group: "Crab dip", items: ["Cream cheese — 1 package (8 oz)", "Mayonnaise — 2 tbsp", "Shredded cheddar — 1 cup (in addition to mac)", "Crab meat — 1 can (6 oz)", "Lemon juice — ¾ tbsp", "Hot sauce — 1 tsp", "Worcestershire sauce — 1 tbsp", "Paprika for topping (shared with mac)"] },
+    { group: "Tini’s mac & cheese", items: ["Cavatappi pasta — 1 lb", "Mozzarella — 1 lb", "Colby Jack — 1 lb", "Cheddar — 8 oz (in addition to crab dip)", "Evaporated milk — 1 can (12 oz)", "Heavy cream — 2 cups (in addition to potatoes)", "Dijon mustard — 1 tbsp", "Butter — 3 tbsp (included in butter total)", "All-purpose flour — 3 tbsp", "Salt, pepper, garlic powder and paprika"] }
   ]
 };
