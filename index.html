@@ -230,7 +230,7 @@ ol.st li .btn{margin-top:8px}
 <div class="sheet" id="sheet"><div class="panel" id="panel"></div></div>
 <div class="alarm" id="alarm"><div class="eyebrow" style="color:#ffe3d2">Timer done</div><h2 id="alarmT"></h2><button class="btn" id="alarmOk">Got it</button></div>
 
-<script src="data.js?v=dinner-1330-1"></script>
+<script src="data.js?v=make-ahead-mac-oven-corn-1"></script>
 <script>
 (function(){
 const P = window.PLAN;
@@ -426,7 +426,7 @@ function openRecipe(id){
   const evs = sorted().filter(e=>e.dish===id);
   $('#panel').innerHTML = `<div class="phead"><div style="width:8px;align-self:stretch;border-radius:4px;background:${d.color}"></div><div style="flex:1"><h2>${esc(d.name)}</h2><div class="muted">${esc(d.summary)}</div><div class="facts"><span class="pill where">${esc(d.yield)}</span><span class="pill where">Active ${esc(d.activeTime)}</span><span class="pill where">${esc(d.totalTime)}</span></div></div><button class="btn sm" id="closeR">Close</button></div>
   <div class="pbody">${d.source?`<p class="small"><a href="${esc(d.source)}" target="_blank" rel="noopener noreferrer">Original recipe ↗</a></p>`:''}<div class="cols">
-    <div class="ing">${d.ingredients.map((g,gi)=>`<h4>${esc(g.group)}</h4><ul class="cl">${g.items.map((it,ii)=>{const k=`${id}${d.ingredientVersion?'.'+d.ingredientVersion:''}.${gi}.${ii}`;return `<li class="${ingDone.has(k)?'on':''}" data-ing="${k}"><div class="bx">${ingDone.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul>`).join('')}
+    <div class="ing">${d.ingredients.map((g,gi)=>g.hidden?'':`<h4>${esc(g.group)}</h4><ul class="cl">${g.items.map((it,ii)=>{const k=`${id}${d.ingredientVersion?'.'+d.ingredientVersion:''}.${gi}.${ii}`;return `<li class="${ingDone.has(k)?'on':''}" data-ing="${k}"><div class="bx">${ingDone.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul>`).join('')}
       ${d.ahead.length?`<div class="aheadbox"><div class="eyebrow" style="color:var(--olive)">Make ahead</div><ul>${d.ahead.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div>`:''}
       <h4>When (with your dinner time)</h4><ul class="cl">${evs.map(e=>`<li style="cursor:default"><b style="min-width:110px;font-variant-numeric:tabular-nums">${fmtDay(startOf(e)).split(',')[0].slice(0,3)} ${fmtT(startOf(e))}</b><span>${esc(e.title)}</span></li>`).join('')}</ul></div>
     <div class="steps"><h4>Steps</h4><ol class="st">${d.steps.map(s=>`<li>${esc(s.text)}${s.timer?`<div><button class="btn sm" data-timer="${esc(s.timer.label)}|${s.timer.min}">Start ${s.timer.min} min timer</button></div>`:''}</li>`).join('')}</ol>
