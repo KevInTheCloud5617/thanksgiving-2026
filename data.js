@@ -112,7 +112,7 @@ window.PLAN = {
     {
       id: "corn", name: "Corn Casserole", color: "#d2a52c",
       summary: "Creamy corn casserole with homemade cornmeal mix. Bake Wednesday; reheat whole in the oven Thursday.",
-      yield: "One 9×13 dish; single batch", activeTime: "10 min", totalTime: "Bake + cooling; reheat Thursday",
+      yield: "One 8×8 or 9×9 dish; single batch", activeTime: "10 min", totalTime: "Bake + cooling; reheat Thursday",
       source: "https://thefoodcharlatan.com/creamed-corn-casserole/",
       ingredients: [
         { group: "Casserole", items: [
@@ -132,18 +132,19 @@ window.PLAN = {
           "2 tbsp vegetable oil"
         ]},
         { group: "Previous gear", hidden: true, items: ["8×8 or 9×9 baking dish", "Microwave-safe dish for reheating"] },
-        { group: "Gear", items: ["9×13 baking dish", "Foil", "Food thermometer"] }
+        { group: "Previous 9×13 gear", hidden: true, items: ["9×13 baking dish", "Foil", "Food thermometer"] },
+        { group: "Gear", items: ["8×8 or 9×9 baking dish", "Foil", "Food thermometer"] }
       ],
       ahead: ["Wednesday: bake at 350°F, cool briefly and refrigerate promptly in the shallow dish, within 2 hours of baking.", "Thursday: reheat the whole casserole covered in the oven; do not stir. Allow about 20 minutes, checking the center reaches 165°F; it may need longer."],
       steps: [
         { text: "Heat oven to 350°F. Melt the butter in a microwave-safe bowl or glass baking dish, then coat the sides of the baking dish with some of it. Never microwave a metal pan." },
         { text: "Mix the cornmeal, flour, ⅓ cup sugar, baking powder, ½ tsp salt and oil to make the homemade mix." },
         { text: "Combine the melted butter, drained whole corn, undrained creamed corn, sour cream, optional 3 tbsp sugar and extra kosher salt. Stir in the homemade mix until combined; spread in the baking dish." },
-        { text: "Bake at 350°F until the edges are golden and the center is set, with no wet batter on a toothpick. The original single-batch recipe says 35–40 minutes in an 8×8 or 9×9 pan; this 9×13 batch may cook faster, so start checking early.", timer: { label: "Corn casserole bake — first check", min: 25 } },
+        { text: "Bake at 350°F for about 35–40 minutes, until the edges are golden and the center is set, with no wet batter on a toothpick. Check metal pans a little early.", timer: { label: "Corn casserole bake — first check", min: 35 } },
         { text: "Cool briefly, then refrigerate promptly in a shallow covered container, within 2 hours of baking." },
         { text: "Thursday, cover with foil and reheat the whole casserole at 350°F, about 20 minutes to start. Do not stir. Check the center reaches 165°F; allow extra time if needed. Keep covered and hot until serving.", timer: { label: "Corn reheat — check", min: 20 } }
       ],
-      notes: ["The author offers this homemade mix as a substitute but says she has not tested it. Cornmeal alone is not equivalent to the boxed mix; flour, sugar, baking powder, salt and oil are included.", "The 3 tbsp extra sugar is optional; the homemade mix already contains ⅓ cup sugar.", "One batch in a 9×13 dish, as confirmed; it may bake faster because it is shallower.", "Follow the dish maker’s guidance for moving a refrigerated dish into a hot oven, especially if it is glass.", "After reheating, hold covered and insulated at 140°F or hotter until dinner; check with a thermometer. If it cools, reheat to 165°F before serving. Delay dinner if necessary."]
+      notes: ["The author offers this homemade mix as a substitute but says she has not tested it. Cornmeal alone is not equivalent to the boxed mix; flour, sugar, baking powder, salt and oil are included.", "The 3 tbsp extra sugar is optional; the homemade mix already contains ⅓ cup sugar.", "One batch in an 8×8 or 9×9 dish, as confirmed.", "Follow the dish maker’s guidance for moving a refrigerated dish into a hot oven, especially if it is glass.", "After reheating, hold covered and insulated at 140°F or hotter until dinner; check with a thermometer. If it cools, reheat to 165°F before serving. Delay dinner if necessary."]
     },
     {
       id: "crab", name: "Crab Dip", color: "#b85d4d",
@@ -355,7 +356,7 @@ window.PLAN = {
     { id: "rollmix",  dish: "rolls",    day: -1, clock: "12:00", where: "counter", title: "Mix & knead roll dough, start bulk rise", detail: "~40 min hands-on, then 4–6 hr rise on the counter.", dur: 40 },
     { id: "cornprep", dish: "corn",     day: -1, clock: "13:00", where: "counter", title: "Mix corn casserole", detail: "Make the cornmeal mix from scratch; combine with corn, sour cream and butter.", dur: 15 },
     { id: "cornheat", dish: "corn",     day: -1, clock: "13:00", where: "oven", rack: "middle", title: "Preheat oven to 350°F for corn casserole", detail: "Middle rack.", dur: 15 },
-    { id: "cornbake", dish: "corn",     day: -1, clock: "13:15", where: "oven", rack: "middle", title: "Bake corn casserole", detail: "350°F; 9×13 single batch may bake faster, so check early for a set center.", dur: 45, timer: { label: "Corn casserole bake — first check", min: 25 } },
+    { id: "cornbake", dish: "corn",     day: -1, clock: "13:15", where: "oven", rack: "middle", title: "Bake corn casserole", detail: "350°F, 35–40 min in an 8×8 or 9×9; check for a set center.", dur: 45, timer: { label: "Corn casserole bake — first check", min: 35 } },
     { id: "cornchill",dish: "corn",     day: -1, clock: "14:15", where: "fridge", title: "Refrigerate corn casserole", detail: "Cool briefly; refrigerate in a shallow covered container within 2 hours after baking." },
     { id: "rollshape",dish: "rolls",    day: -1, clock: "17:30", where: "counter", title: "Shape 16 rolls, cover, fridge overnight", detail: "Into buttered 9×13, 4 × 4.", dur: 20 },
         { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
@@ -380,7 +381,7 @@ window.PLAN = {
     { id: "gravycook",dish: "gravy",    t: -55,  dur: 55,  where: "big2", title: "Make gravy, then hold warm", detail: "Separate drippings, make roux, whisk in drippings and low-sodium broth. If turkey is late, start with broth. Taste before salting; hold at 140°F or hotter." },
     { id: "oven350sides", dish: null,    t: -60,  dur: 0,  where: "oven", title: "Keep oven at 350°F; set two racks", detail: "Confirm the mac fits above the corn and then above the stuffing, with room for airflow." },
     { id: "macwedbake", dish: "mac",     t: -58,  dur: 50,  where: "oven", rack: "upper", title: "Bake chilled mac at 350°F", detail: "Covered for 30 min, then uncover. Continue until center reaches 165°F; 50 minutes is an estimate, allow longer if needed.", timer: { label: "Mac covered — first check", min: 30 } },
-    { id: "cornovenwarm", dish: "corn", t: -58,  dur: 20,  where: "oven", rack: "middle", title: "Reheat corn casserole, covered", detail: "Whole 9×13 dish at 350°F; do not stir. Check center reaches 165°F; allow longer if needed.", timer: { label: "Corn reheat — check", min: 20 } },
+    { id: "cornovenwarm", dish: "corn", t: -58,  dur: 20,  where: "oven", rack: "middle", title: "Reheat corn casserole, covered", detail: "Whole 8×8 or 9×9 dish at 350°F; do not stir. Check center reaches 165°F; allow longer if needed.", timer: { label: "Corn reheat — check", min: 20 } },
     { id: "cornhot", dish: "corn",      t: -38,  dur: 38,  where: "counter", title: "Hold corn casserole hot", detail: "Cover and insulate; check it stays 140°F or hotter until serving. If it cools, reheat to 165°F before serving." },
     { id: "stuffbake",dish: "stuffing", t: -38,  dur: 30,  where: "oven", rack: "middle", title: "Stuffing in at 350°F (covered)", detail: "Covered 20 min, then uncover 10. Check center reaches 165°F.", timer: { label: "Stuffing covered", min: 20 } },
     { id: "macuncover",dish: "mac",     t: -28,  dur: 0, where: "oven", title: "Uncover the mac & cheese", detail: "After 30 minutes covered, keep baking until center reaches 165°F." },
