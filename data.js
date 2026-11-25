@@ -173,9 +173,9 @@ window.PLAN = {
     },
     {
       id: "baguette", name: "Baguette", color: "#ae7941",
-      summary: "Recipe coming — ingredients and timing are not set yet.",
-      yield: "To be determined", activeTime: "TBD", totalTime: "TBD",
-      ingredients: [], ahead: [], steps: [{ text: "Waiting for your baguette recipe." }], notes: ["Not scheduled until the recipe arrives."]
+      summary: "Already purchased; ready to slice and serve.",
+      yield: "Store-bought", activeTime: "As needed", totalTime: "Ready to serve",
+      ingredients: [], ahead: ["Already purchased; slice when ready to serve."], steps: [{ text: "Slice the purchased baguette when ready to serve." }], notes: ["No recipe or oven time needed."]
     },
     {
       id: "potatoes", name: "Yukon Gold Mashed Potatoes", color: "#c9962b",
@@ -406,7 +406,7 @@ window.PLAN = {
     { group: "Rolls", items: ["Bread flour (500 g ≈ 4 cups)", "Eggs ×2", "Honey", "Whole milk (for rolls)", "Flaky salt (optional)"] },
     { group: "Butter total", items: ["About 1½ lb — 6 sticks (includes 1 stick for corn casserole and up to 4 tbsp unsalted for gravy)"] },
     { group: "Gravy", items: ["Low- or no-sodium turkey or chicken broth — up to 3 cups (in addition to stuffing broth)", "All-purpose flour — 4 tbsp (shared with mac)", "Unsalted butter — up to 4 tbsp (included in butter total)"] },
-    { group: "New dishes", items: ["Corn casserole — see its shopping list", "Crab dip — see its shopping list", "Baguette — ingredients TBD"] },
+    { group: "New dishes", items: ["Corn casserole — see its shopping list", "Crab dip — see its shopping list", "Baguette — already purchased"] },
     { group: "Corn casserole", items: ["1 can whole-kernel corn (15 oz)", "1 can creamed corn (15 oz)", "Sour cream — 1 cup", "Yellow cornmeal — ½ cup", "All-purpose flour — ⅔ cup (shared)", "Granulated sugar — ⅓ cup, plus 3 tbsp optional", "Baking powder — 1½ tsp", "Salt — ½ tsp plus ½ tsp kosher (or ¼ tsp table salt)", "Vegetable oil — 2 tbsp", "Butter — 1 stick (included in butter total)"] },
     { group: "Crab dip", items: ["Cream cheese — 1 package (8 oz)", "Mayonnaise — 2 tbsp", "Shredded cheddar — 1 cup (in addition to mac)", "Crab meat — 1 can (6 oz)", "Lemon juice — ¾ tbsp", "Hot sauce — 1 tsp", "Worcestershire sauce — 1 tbsp", "Paprika for topping (shared with mac)"] },
     { group: "Tini’s mac & cheese", items: ["Cavatappi pasta — 1 lb", "Mozzarella — 1 lb", "Colby Jack — 1 lb", "Cheddar — 8 oz (in addition to crab dip)", "Evaporated milk — 1 can (12 oz)", "Heavy cream — 2 cups (in addition to potatoes)", "Dijon mustard — 1 tbsp", "Butter — 3 tbsp (included in butter total)", "All-purpose flour — 3 tbsp", "Salt, pepper, garlic powder and paprika"] }

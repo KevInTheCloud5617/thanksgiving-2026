@@ -33,7 +33,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 - **Gravy:** turkey-drippings gravy; make at T−55 on big right after stuffing leaves that burner, then hold warm (140°F or hotter) through dinner. Use unsalted butter and low/no-sodium broth, add drippings gradually, and salt only after tasting. Drippings may still be salty despite the mild brine.
 - **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Meg changed the plan to **mix and bake fresh Thursday**, one batch in an 8×8 or 9×9. Prep 11:45 AM, bake 12:05–12:45 at 350°F (35–40 min), hold covered and insulated at 140°F or hotter until dinner. Do not stir the baked casserole. Oven fit and ability to hold it hot remain unverified.
 - **Crab dip:** Meg already mixed it and placed it in a 9×9 in the fridge. Suggested appetizer bake 11:20–noon at 350°F, checking after 30 min and aiming to serve around 11:50 or noon. **This slot is conditional on the dish fitting on a separate rack above the turkey**, with safe clearance; confirm before relying on it. If not, a different appetizer plan is needed. Keep refrigerated at 40°F or below until baking.
-- **Baguette:** recipe card is a placeholder; recipe is coming. No ingredients or cooking times guessed, and no oven time reserved yet.
+- **Baguette:** already purchased; slice when ready to serve. No recipe, shopping ingredients or oven time needed.
 
 ## Thursday oven sequence (dinner 1:30 PM)
 - 7:45 AM: 375°F preheat for rolls; bake 8:00–8:22
@@ -60,8 +60,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 
 ## Open items
 - [ ] Confirm crab dip pan fits above the turkey with safe clearance; otherwise find another appetizer slot. Confirm mac and corn pans fit simultaneously, the mac dish is broiler-safe, and the proposed 140°F holds are feasible. The recipe photo does not specify seasoning quantities.
-- [ ] Get the baguette recipe; replace the placeholder, update shopping and fit it into the oven plan without conflicts.
-- [ ] Add baguette ingredient-link mappings when the recipe is supplied; run `node test-ingredient-links.js` after modifying recipes.
+
 - [ ] Confirm the stuffing variety (message was cut off) and the sourdough starter situation.
 - [ ] Kevin said he'll add more dishes. For each one, find a burner and oven slot that doesn't overlap (run the overlap check below).
 - [ ] Visual QA: screenshots couldn't be viewed this session (vision tool not configured). Layout was checked through DOM metrics only: no horizontal overflow at 1180×820 or 430×932, recipe sheet and timers work. Get Kevin's eyes on the iPad.

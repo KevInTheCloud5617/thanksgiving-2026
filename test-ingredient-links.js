@@ -49,7 +49,7 @@ assert.equal(ref('rolls', 6, 'egg wash'), '1.0');
 assert.deepEqual(ref('mac', 5, 'shredded cheese'), ['1.0','1.1','1.2']);
 assert.equal(ref('crab', 1, 'lemon juice'), '0.4');
 assert.equal(ref('gravy', 1, 'turkey fat'), '0.1');
-assert(!links.baguette, 'pending recipe must not invent ingredients');
+assert(!links.baguette, 'store-bought baguette must not invent recipe ingredients');
 const html = fs.readFileSync('index.html', 'utf8');
 assert(html.includes('ingredient-links.js?v='), 'ingredient mapping script is not loaded');
 assert(html.includes('renderStepIngredients('), 'recipe steps do not render ingredient links');
