@@ -16,13 +16,13 @@ window.PLAN = {
     { t: -345, temp: 375, label: "Rolls — preheat" },
     { t: -330, temp: 375, label: "Baking rolls" },
     { t: -305, temp: 0, label: "Off" },
-    { t: -205, temp: 425, label: "Preheating" },
-    { t: -185, temp: 425, label: "Turkey blast" },
-    { t: -155, temp: 350, label: "Turkey roast" },
-    { t: -60,  temp: 350, label: "Sides" },
-    { t: -8,   temp: "Broil", label: "Finishing mac & cheese" },
-    { t: -6,   temp: 350, label: "Rewarming rolls" },
-    { t: 0,    temp: 0,   label: "Off" }
+    { t: -275, temp: 425, label: "Preheating" },
+    { t: -255, temp: 425, label: "Turkey blast" },
+    { t: -225, temp: 350, label: "Turkey roast" },
+    { t: -90,  temp: 350, label: "Sides" },
+    { t: -15,  temp: "Broil", label: "Finishing mac & cheese" },
+    { t: -13,  temp: 350, label: "Rewarming rolls" },
+    { t: -5,   temp: 0,   label: "Off" }
   ],
 
   burners: {
@@ -73,12 +73,12 @@ window.PLAN = {
         { text: "Tuesday ~6 PM: turkey into brine, breast-down, fully submerged (weigh down with a plate if needed). Fridge 24 hours — no longer." },
         { text: "Wednesday ~6 PM: lift out and let the brine drain from the cavity over the bag/bucket. No rinse — just pat VERY dry with paper towels, inside and out. Into the fridge on a rack set in a sheet pan, uncovered, until roast time Thursday. The skin will look dry and a little tight — that’s what you want." },
         { text: "45 min before roasting: take turkey out. Rub butter all over and under the breast skin, pepper. Stuff cavity loosely with lemon, onion, herbs. Tuck wing tips, tie legs loosely." },
-        { text: "Preheat oven to 425°F with a rack in the LOWEST position.", timer: { label: "Preheat 425°F", min: 20 } },
+        { text: "Preheat oven to 425°F with the turkey rack in the LOWEST position. The suggested crab dip slot needs a separate rack above the turkey: check it fits safely before roasting.", timer: { label: "Preheat 425°F", min: 20 } },
         { text: "Roast at 425°F for 30 minutes to start browning.", timer: { label: "Turkey @ 425°F", min: 30 } },
-        { text: "Drop oven to 350°F. Keep roasting. Total roast for 11 lb is ~2¼–2¾ hr. If breast is browning too fast, tent it loosely with foil.", timer: { label: "Turkey @ 350°F — first check", min: 65 } },
+        { text: "Drop oven to 350°F. Keep roasting. Total roast for 11 lb is ~2¼–2¾ hr. If breast is browning too fast, tent it loosely with foil.", timer: { label: "Turkey @ 350°F — first check", min: 95 } },
         { text: "Start checking temperature: thickest part of breast 160°F, thigh 170–175°F (not touching bone). Carryover finishes it to 165°F." },
-        { text: "Rest on a board, tented with foil, 30–45 minutes. It stays hot — this is when the sides bake.", timer: { label: "Turkey rest", min: 40 } },
-        { text: "Carve: legs off, thighs and drums apart, then each breast off whole and slice crosswise." }
+        { text: "Rest on a board, tented with foil, 30–45 minutes. This is when the sides bake.", timer: { label: "Turkey rest", min: 40 } },
+        { text: "Carve: legs off, thighs and drums apart, then each breast off whole and slice crosswise. If dinner is not ready, keep the carved turkey at 140°F or hotter until serving." }
       ],
       notes: [
         "For gravy, use the drippings with UNSALTED butter and low/no-sodium broth. Even a mild brine can make drippings salty, so add them gradually and taste before adding salt.",
@@ -111,8 +111,8 @@ window.PLAN = {
     },
     {
       id: "corn", name: "Corn Casserole", color: "#d2a52c",
-      summary: "Creamy corn casserole with homemade cornmeal mix. Bake Wednesday; reheat whole in the oven Thursday.",
-      yield: "One 8×8 or 9×9 dish; single batch", activeTime: "10 min", totalTime: "Bake + cooling; reheat Thursday",
+      summary: "Creamy corn casserole with homemade cornmeal mix. Mix and bake fresh on Thursday.",
+      yield: "One 8×8 or 9×9 dish; single batch", activeTime: "10 min", totalTime: "10 min prep + 35–40 min bake",
       source: "https://thefoodcharlatan.com/creamed-corn-casserole/",
       ingredients: [
         { group: "Casserole", items: [
@@ -135,20 +135,19 @@ window.PLAN = {
         { group: "Previous 9×13 gear", hidden: true, items: ["9×13 baking dish", "Foil", "Food thermometer"] },
         { group: "Gear", items: ["8×8 or 9×9 baking dish", "Foil", "Food thermometer"] }
       ],
-      ahead: ["Wednesday: bake at 350°F, cool briefly and refrigerate promptly in the shallow dish, within 2 hours of baking.", "Thursday: reheat the whole casserole covered in the oven; do not stir. Allow about 20 minutes, checking the center reaches 165°F; it may need longer."],
+      ahead: ["Thursday: mix and bake fresh; see the timeline for the oven slot."],
       steps: [
         { text: "Heat oven to 350°F. Melt the butter in a microwave-safe bowl or glass baking dish, then coat the sides of the baking dish with some of it. Never microwave a metal pan." },
         { text: "Mix the cornmeal, flour, ⅓ cup sugar, baking powder, ½ tsp salt and oil to make the homemade mix." },
         { text: "Combine the melted butter, drained whole corn, undrained creamed corn, sour cream, optional 3 tbsp sugar and extra kosher salt. Stir in the homemade mix until combined; spread in the baking dish." },
         { text: "Bake at 350°F for about 35–40 minutes, until the edges are golden and the center is set, with no wet batter on a toothpick. Check metal pans a little early.", timer: { label: "Corn casserole bake — first check", min: 35 } },
-        { text: "Cool briefly, then refrigerate promptly in a shallow covered container, within 2 hours of baking." },
-        { text: "Thursday, cover with foil and reheat the whole casserole at 350°F, about 20 minutes to start. Do not stir. Check the center reaches 165°F; allow extra time if needed. Keep covered and hot until serving.", timer: { label: "Corn reheat — check", min: 20 } }
+        { text: "Let the casserole settle briefly. Keep it covered and hot until serving; do not stir the baked casserole." }
       ],
-      notes: ["The author offers this homemade mix as a substitute but says she has not tested it. Cornmeal alone is not equivalent to the boxed mix; flour, sugar, baking powder, salt and oil are included.", "The 3 tbsp extra sugar is optional; the homemade mix already contains ⅓ cup sugar.", "One batch in an 8×8 or 9×9 dish, as confirmed.", "Follow the dish maker’s guidance for moving a refrigerated dish into a hot oven, especially if it is glass.", "After reheating, hold covered and insulated at 140°F or hotter until dinner; check with a thermometer. If it cools, reheat to 165°F before serving. Delay dinner if necessary."]
+      notes: ["The author offers this homemade mix as a substitute but says she has not tested it. Cornmeal alone is not equivalent to the boxed mix; flour, sugar, baking powder, salt and oil are included.", "The 3 tbsp extra sugar is optional; the homemade mix already contains ⅓ cup sugar.", "One batch in an 8×8 or 9×9 dish, as confirmed.", "After baking, hold covered and insulated at 140°F or hotter until dinner; check with a thermometer. If it cools, reheat to 165°F before serving. Delay dinner if necessary."]
     },
     {
       id: "crab", name: "Crab Dip", color: "#b85d4d",
-      summary: "Creamy cheddar crab dip, topped with paprika and baked at 350°F.",
+      summary: "Already mixed in a 9×9 and refrigerated; bake at 350°F for an appetizer.",
       yield: "One 9×9 dish", activeTime: "A few minutes", totalTime: "30 min bake + prep",
       ingredients: [
         { group: "Crab dip", items: [
@@ -163,14 +162,14 @@ window.PLAN = {
         ]},
         { group: "Gear", items: ["9×9 baking dish"] }
       ],
-      ahead: ["If mixed ahead, cover and refrigerate until ready to bake."],
+      ahead: ["Already mixed and in the 9×9 dish. Keep covered in the refrigerator at 40°F or below until ready to bake."],
       steps: [
         { text: "Preheat the oven to 350°F." },
-        { text: "Mix together the cream cheese, mayonnaise, cheddar, crab meat, lemon juice, hot sauce and Worcestershire sauce." },
-        { text: "Spread in a 9×9 baking dish and sprinkle paprika over the top." },
-        { text: "Bake at 350°F for 30 minutes.", timer: { label: "Bake crab dip", min: 30 } }
+        { text: "Already done: mix together the cream cheese, mayonnaise, cheddar, crab meat, lemon juice, hot sauce and Worcestershire sauce." },
+        { text: "Already in the 9×9 dish. If not already added, sprinkle paprika over the top." },
+        { text: "Bake at 350°F for 30 minutes. From the refrigerator it may take longer; check that it is hot throughout (165°F in the center).", timer: { label: "Bake crab dip — check", min: 30 } }
       ],
-      notes: ["Oven time not scheduled yet — serving time is still to be confirmed."]
+      notes: ["Suggested appetizer slot: start about 2 hours 10 minutes before dinner and check after 30 minutes, on a rack ABOVE the turkey at 350°F only if the pan fits with safe clearance. Place the rack before roasting; do not put the dip below raw poultry.", "Check the dish manufacturer’s guidance before moving a refrigerated dish into a hot oven. If the pan doesn’t fit above the turkey, this slot needs a different plan.", "Serve hot; keep at 140°F or hotter, or refrigerate promptly within 2 hours of taking it out of the oven."]
     },
     {
       id: "baguette", name: "Baguette", color: "#ae7941",
@@ -246,7 +245,7 @@ window.PLAN = {
         { text: "Thursday: bake at 350°F. For the chilled casserole, start covered with foil for 30 minutes, then uncover and keep baking until the center reaches 165°F. The original fresh bake is 25–30 minutes, but a chilled dish can take longer. If it isn't hot enough, keep baking and delay dinner if needed.", timer: { label: "Mac covered — first check", min: 30 } },
         { text: "Broil for a few minutes to brown the top, watching closely. Use a broiler-safe dish; never broil glass unless its manufacturer explicitly permits it.", timer: { label: "Broil mac — watch closely", min: 2 } }
       ],
-      notes: ["The photo does not specify amounts for the salt, pepper, garlic powder or paprika. Its seasoning steps say both ‘all’ and ‘the rest’; splitting the seasoning between those steps is an interpretation.", "The plan assumes the mac fits on an upper rack while corn or stuffing uses the middle rack; check the actual pans and oven before Thanksgiving.", "Use a dish safe for the temperature change and broiler; follow the dish maker’s guidance, especially with refrigerated glass."]
+      notes: ["The photo does not specify amounts for the salt, pepper, garlic powder or paprika. Its seasoning steps say both ‘all’ and ‘the rest’; splitting the seasoning between those steps is an interpretation.", "The plan assumes the mac fits on an upper rack above the corn; check the actual pans and oven before Thanksgiving.", "After baking, cover and keep at 140°F or hotter until the stuffing comes out and the mac can be broiled. Check with a thermometer; reheat to 165°F if it has cooled.", "Use a dish safe for the temperature change and broiler; follow the dish maker’s guidance, especially with refrigerated glass."]
     },
     {
       id: "stuffing", name: "Pepperidge Farm Stuffing", color: "#7a8b3a",
@@ -322,7 +321,7 @@ window.PLAN = {
         "Wednesday noon: mix dough; let it rise on the counter ~5 hr.",
         "Wednesday ~5:30 PM: shape 16 rolls into the pan, cover, fridge overnight.",
         "Thursday: take out to proof 8 hours before dinner; bake 5½ hours before dinner while the oven is free. See the schedule for your dinner time.",
-        "Thursday right before dinner: rewarm about 6 min at 350°F after the mac is broiled."
+        "Thursday right before dinner: rewarm 5–8 min at 350°F after the mac is broiled."
       ],
       steps: [
         { text: "Wednesday 8 AM: feed your starter (equal weights flour and water). It should double and be bubbly by about noon." },
@@ -354,10 +353,7 @@ window.PLAN = {
     { id: "macwedsauce", dish: "mac", day: -1, clock: "10:50", where: "big1", title: "Mac: make the cheese sauce", detail: "Bloom seasonings, make roux, whisk in evaporated milk, cream and half the cheese.", dur: 35 },
     { id: "macwedassemble", dish: "mac", day: -1, clock: "11:25", where: "counter", title: "Mac: assemble and refrigerate unbaked", detail: "Fold in pasta, layer with reserved cheese; refrigerate promptly in a shallow dish, within 2 hours.", dur: 15 },
     { id: "rollmix",  dish: "rolls",    day: -1, clock: "12:00", where: "counter", title: "Mix & knead roll dough, start bulk rise", detail: "~40 min hands-on, then 4–6 hr rise on the counter.", dur: 40 },
-    { id: "cornprep", dish: "corn",     day: -1, clock: "13:00", where: "counter", title: "Mix corn casserole", detail: "Make the cornmeal mix from scratch; combine with corn, sour cream and butter.", dur: 15 },
-    { id: "cornheat", dish: "corn",     day: -1, clock: "13:00", where: "oven", rack: "middle", title: "Preheat oven to 350°F for corn casserole", detail: "Middle rack.", dur: 15 },
-    { id: "cornbake", dish: "corn",     day: -1, clock: "13:15", where: "oven", rack: "middle", title: "Bake corn casserole", detail: "350°F, 35–40 min in an 8×8 or 9×9; check for a set center.", dur: 45, timer: { label: "Corn casserole bake — first check", min: 35 } },
-    { id: "cornchill",dish: "corn",     day: -1, clock: "14:15", where: "fridge", title: "Refrigerate corn casserole", detail: "Cool briefly; refrigerate in a shallow covered container within 2 hours after baking." },
+
     { id: "rollshape",dish: "rolls",    day: -1, clock: "17:30", where: "counter", title: "Shape 16 rolls, cover, fridge overnight", detail: "Into buttered 9×13, 4 × 4.", dur: 20 },
         { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
     { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, no salt, fridge. Thursday: drain, fresh cold water to cook.", dur: 30 },
@@ -369,34 +365,37 @@ window.PLAN = {
     { id: "rollproof",dish: "rolls",    t: -480, dur: 135, where: "counter", title: "Rolls out of fridge to proof", detail: "Somewhere warm until puffy and touching, 2–3 hr.", timer: { label: "Rolls proof", min: 120 } },
     { id: "rollheat", dish: "rolls",    t: -345, dur: 15,  where: "oven", rack: "middle", title: "Preheat oven to 375°F for rolls", detail: "Middle rack. Egg-wash the rolls.", timer: { label: "Preheat 375°F", min: 15 } },
     { id: "rollbake", dish: "rolls",    t: -330, dur: 22,  where: "oven", rack: "middle", title: "Bake rolls", detail: "Deep golden, 190°F inside. Butter the tops, cool, foil over.", timer: { label: "Bake rolls", min: 22 } },
-    { id: "tkprep",   dish: "turkey",   t: -225, dur: 20,  where: "counter", title: "Turkey out of fridge — butter & aromatics", detail: "Butter under the skin, pepper, lemon/onion/herbs in cavity. " },
-    { id: "preheat",  dish: "turkey",   t: -205, dur: 20,  where: "oven", rack: "lower", title: "Preheat oven to 425°F", detail: "One rack at the LOWEST position. Remove the others or move to top.", timer: { label: "Preheat 425°F", min: 20 } },
-    { id: "tk425",    dish: "turkey",   t: -185, dur: 30,  where: "oven", rack: "lower", title: "Turkey in at 425°F", detail: "30 minutes to brown.", timer: { label: "Turkey @ 425°F", min: 30 } },
-    { id: "tk350",    dish: "turkey",   t: -155, dur: 95,  where: "oven", rack: "lower", title: "Drop to 350°F — keep roasting", detail: "Tent the breast with foil if it browns too fast.", timer: { label: "Turkey — first temp check", min: 65 } },
-    { id: "tkcheck",  dish: "turkey",   t: -90,  dur: 0,   where: "oven", title: "Start checking turkey temp", detail: "Breast 160°F, thigh 170–175°F. Check every 10–15 min." },
+    { id: "tkprep",   dish: "turkey",   t: -300, dur: 25,  where: "counter", title: "Turkey out of fridge — butter & aromatics", detail: "Butter under the skin, pepper, lemon/onion/herbs in cavity." },
+    { id: "preheat",  dish: "turkey",   t: -275, dur: 20,  where: "oven", rack: "lower", title: "Preheat oven to 425°F", detail: "Turkey rack lowest. If crab fits above the turkey, set its rack now, with clearance.", timer: { label: "Preheat 425°F", min: 20 } },
+    { id: "tk425",    dish: "turkey",   t: -255, dur: 30,  where: "oven", rack: "lower", title: "Turkey in at 425°F", detail: "30 minutes to brown.", timer: { label: "Turkey @ 425°F", min: 30 } },
+    { id: "tk350",    dish: "turkey",   t: -225, dur: 135, where: "oven", rack: "lower", title: "Drop to 350°F — keep roasting", detail: "Tent the breast with foil if it browns too fast; remove as soon as temperature is reached.", timer: { label: "Turkey — first temp check", min: 95 } },
+    { id: "tkcheck",  dish: "turkey",   t: -130, dur: 0,   where: "oven", title: "Start checking turkey temp", detail: "Breast 160°F, thigh 170–175°F. Check every 10–15 min; pull when ready, even if earlier than planned." },
+    { id: "crabappbake", dish: "crab", t: -130, dur: 40, where: "oven", rack: "upper", title: "Suggested: bake crab dip for an appetizer", detail: "At 350°F, check after 30 min and serve hot, around noon. ONLY use this slot if its 9×9 dish fits ABOVE the turkey with safe clearance; otherwise make a different plan.", timer: { label: "Bake crab dip — check", min: 30 } },
+    { id: "cornfreshprep", dish: "corn", t: -105, dur: 15, where: "counter", title: "Mix fresh corn casserole", detail: "Make homemade cornmeal mix, combine with corn, sour cream and butter; into an 8×8 or 9×9 dish." },
 
     { id: "potboil",  dish: "potatoes", t: -80,  dur: 35,  where: "big1",   title: "Potatoes on to boil", detail: "Cold water start, salted. Boil then strong simmer until tender.", timer: { label: "Potatoes boil + simmer", min: 30 } },
     { id: "stuffmix", dish: "stuffing", t: -75,  dur: 20,  where: "big2",   title: "Make stuffing", detail: "Butter + onion, add broth, fold in stuffing, into buttered dish, foil on.", timer: { label: "Sauté onion", min: 7 } },
-    { id: "tkout",    dish: "turkey",   t: -60,  dur: 45,  where: "counter", title: "Turkey out — rest, tented", detail: "Target: breast 160°F. Rest 30–45 min.", timer: { label: "Turkey rest", min: 40 } },
+    { id: "tkout",    dish: "turkey",   t: -90,  dur: 45,  where: "counter", title: "Turkey out — rest, tented", detail: "Target around noon; pull as soon as breast reaches 160°F and thigh 170–175°F. Rest 30–45 min.", timer: { label: "Turkey rest", min: 40 } },
     { id: "gravycook",dish: "gravy",    t: -55,  dur: 55,  where: "big2", title: "Make gravy, then hold warm", detail: "Separate drippings, make roux, whisk in drippings and low-sodium broth. If turkey is late, start with broth. Taste before salting; hold at 140°F or hotter." },
-    { id: "oven350sides", dish: null,    t: -60,  dur: 0,  where: "oven", title: "Keep oven at 350°F; set two racks", detail: "Confirm the mac fits above the corn and then above the stuffing, with room for airflow." },
-    { id: "macwedbake", dish: "mac",     t: -58,  dur: 50,  where: "oven", rack: "upper", title: "Bake chilled mac at 350°F", detail: "Covered for 30 min, then uncover. Continue until center reaches 165°F; 50 minutes is an estimate, allow longer if needed.", timer: { label: "Mac covered — first check", min: 30 } },
-    { id: "cornovenwarm", dish: "corn", t: -58,  dur: 20,  where: "oven", rack: "middle", title: "Reheat corn casserole, covered", detail: "Whole 8×8 or 9×9 dish at 350°F; do not stir. Check center reaches 165°F; allow longer if needed.", timer: { label: "Corn reheat — check", min: 20 } },
-    { id: "cornhot", dish: "corn",      t: -38,  dur: 38,  where: "counter", title: "Hold corn casserole hot", detail: "Cover and insulate; check it stays 140°F or hotter until serving. If it cools, reheat to 165°F before serving." },
-    { id: "stuffbake",dish: "stuffing", t: -38,  dur: 30,  where: "oven", rack: "middle", title: "Stuffing in at 350°F (covered)", detail: "Covered 20 min, then uncover 10. Check center reaches 165°F.", timer: { label: "Stuffing covered", min: 20 } },
-    { id: "macuncover",dish: "mac",     t: -28,  dur: 0, where: "oven", title: "Uncover the mac & cheese", detail: "After 30 minutes covered, keep baking until center reaches 165°F." },
+    { id: "oven350sides", dish: null,    t: -90,  dur: 0,  where: "oven", title: "Keep oven at 350°F; set two racks", detail: "Confirm the mac and corn pans fit on separate racks with room for airflow." },
+    { id: "macwedbake", dish: "mac",     t: -85,  dur: 50,  where: "oven", rack: "upper", title: "Bake chilled mac at 350°F", detail: "Covered for 30 min, then uncover. Continue until center reaches 165°F; 50 minutes is an estimate, allow longer if needed.", timer: { label: "Mac covered — first check", min: 30 } },
+    { id: "cornfreshbake", dish: "corn", t: -85, dur: 40, where: "oven", rack: "middle", title: "Bake fresh corn casserole", detail: "350°F, 35–40 min in 8×8 or 9×9. Check the center is set; no stirring after baking.", timer: { label: "Corn casserole bake — first check", min: 35 } },
+    { id: "cornfreshhold", dish: "corn", t: -45, dur: 45, where: "counter", title: "Hold corn casserole hot", detail: "Once done, cover and insulate; keep at 140°F or hotter until serving. If it cools, reheat to 165°F." },
+    { id: "stuffbake",dish: "stuffing", t: -45,  dur: 30,  where: "oven", rack: "middle", title: "Stuffing in at 350°F (covered)", detail: "Covered 20 min, then uncover 10. Check center reaches 165°F.", timer: { label: "Stuffing covered", min: 20 } },
+    { id: "macuncover",dish: "mac",     t: -55,  dur: 0, where: "oven", title: "Uncover the mac & cheese", detail: "After 30 minutes covered, keep baking until center reaches 165°F." },
+    { id: "machothold",dish: "mac",     t: -35,  dur: 20, where: "counter", title: "Mac out when hot; hold for broiling", detail: "Check center reaches 165°F; cover and keep at 140°F or hotter while stuffing finishes. Return to oven for broiling." },
     { id: "potmash",  dish: "potatoes", t: -45,  dur: 10,  where: "big1",   title: "Drain & mash potatoes", detail: "Steam dry 2 min, mash, butter + warm cream, salt." },
     { id: "pothold",  dish: "potatoes", t: -35,  dur: 35,  where: "small1", title: "Hold potatoes warm (LOW)", detail: "Lid on. Splash of cream right before serving." },
-    { id: "uncover",  dish: "stuffing", t: -18,  dur: 0,   where: "oven",   title: "Uncover the stuffing", detail: "10 more minutes for a crisp top.", timer: { label: "Stuffing uncovered", min: 10 } },
+    { id: "uncover",  dish: "stuffing", t: -25,  dur: 0,   where: "oven",   title: "Uncover the stuffing", detail: "10 more minutes for a crisp top.", timer: { label: "Stuffing uncovered", min: 10 } },
     { id: "beanwater",dish: "beans",    t: -20,  dur: 20,  where: "small2", title: "Green beans: water on, then steam", detail: "1 inch of water, basket, lid. Beans in once boiling, 5–7 min.", timer: { label: "Steam beans", min: 6 } },
-    { id: "carve",    dish: "turkey",   t: -15,  dur: 15,  where: "counter", title: "Carve the turkey", detail: "Legs, thighs, drums, then breasts whole and sliced." },
-    { id: "sidesout", dish: "stuffing", t: -8,  dur: 0,   where: "oven", title: "Stuffing out; switch oven to broil", detail: "Check stuffing reaches 165°F. Only broil mac once its center reaches 165°F; delay dinner if either needs longer." },
-    { id: "macbroil", dish: "mac",      t: -8,  dur: 2,  where: "oven", rack: "upper", title: "Broil mac & cheese", detail: "After center reaches 165°F, watch closely; broiler-safe dish required. Remove when browned.", timer: { label: "Broil mac — watch closely", min: 2 } },
-    { id: "rollwarm", dish: "rolls",    t: -6,  dur: 6,   where: "oven", rack: "middle", title: "Switch to 350°F; warm rolls (foil on)", detail: "After mac comes out, warm 5–8 min, then turn oven off.", timer: { label: "Rewarm rolls", min: 6 } },
+    { id: "carve",    dish: "turkey",   t: -45,  dur: 15,  where: "counter", title: "Carve the turkey", detail: "After its 30–45 minute rest, carve into a prewarmed covered dish and keep at 140°F or hotter until dinner; check with a thermometer." },
+    { id: "sidesout", dish: "stuffing", t: -15,  dur: 0,   where: "oven", title: "Stuffing out; switch oven to broil", detail: "Check stuffing reaches 165°F; hold hot. Return mac to broil only after its center reaches 165°F." },
+    { id: "macbroil", dish: "mac",      t: -15,  dur: 2,  where: "oven", rack: "upper", title: "Broil mac & cheese", detail: "After center reaches 165°F, watch closely; broiler-safe dish required. Remove when browned.", timer: { label: "Broil mac — watch closely", min: 2 } },
+    { id: "rollwarm", dish: "rolls",    t: -13,  dur: 8,   where: "oven", rack: "middle", title: "Switch to 350°F; warm rolls (foil on)", detail: "After mac comes out, warm 5–8 min, then turn oven off.", timer: { label: "Rewarm rolls", min: 6 } },
     { id: "dinner",   dish: null,       t: 0,    dur: 0,   where: "counter", title: "Dinner!", detail: "Happy Thanksgiving." }
   ],
 
-  planB: "The oven schedule is tight: if turkey, corn or chilled mac needs more time, delay dinner rather than rushing. Only share the 350°F oven if the pans physically fit without crowding. Keep corn covered at 140°F or hotter once reheated; if it cools, reheat to 165°F before serving. Turkey needs a rest before carving.",
+  planB: "The crab dip is a suggested slot: use it only if its pan fits safely above the turkey at 350°F; otherwise a different appetizer plan is needed. The mac and corn also need to fit on separate racks. Cooking times and hot-holding are estimates: keep cooked food at 140°F or hotter, and delay dinner if anything needs more time rather than rushing.",
 
   SHOPPING: [
     { group: "Turkey", items: ["11 lb turkey", "Kosher salt (Diamond or Morton)", "Brown sugar", "Black peppercorns", "Lemons ×4", "Garlic (1 head)", "Rosemary, thyme, sage", "Bay leaves", "Onion ×1 (cavity)", "Brining bag", "Foil"] },

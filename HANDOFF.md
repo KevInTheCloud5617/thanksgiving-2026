@@ -26,28 +26,28 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
   - Wed 6 PM: out, drain, pat dry — **no rinse** (Kevin's call; mild brine + USDA says don't rinse raw poultry) — fridge **uncovered** overnight.
   - Thu: 425°F 30 min, then 350°F. Pull at 160°F breast / 170–175°F thigh, rest 30–45 min.
 - **Mashed potatoes:** 5 lb Yukon Gold, butter and a little cream only. Peeled Wed into cold unsalted water in the fridge. Thu: drain, rinse, **fresh cold salted water**, cook, mash, hold on a small burner on LOW.
-- **Mac & cheese:** Tini's recipe from Meg's photo, now prepared Wednesday and refrigerated unbaked. Cavatappi boils for **7 minutes**, then make sauce and assemble with cheese layers. Bake at 350°F Thursday T−58 to T−8 (50 minutes is only an estimate for a chilled casserole); start covered for 30 minutes, uncover, and check center reaches 165°F before broiling T−8 to T−6. Photo doesn't specify seasoning amounts and contradicts itself on whether to add all or only some early; splitting the seasonings is an interpretation. The dish must be safe for broiling and for moving from fridge to oven.
-- **Stuffing:** 2 bags of Pepperidge Farm. Package recipe **per bag: 4 tbsp butter, 1 cup onion, 2 cups chicken broth** (so 1 stick, 2 cups onion, 4 cups broth). No celery. Mixed on big R at T−75, baked at 350°F on the middle rack T−38 to T−8; uncover T−18 and check for 165°F. Kevin's message cut off at "we have 2 bags of…", so the stuffing variety is still unconfirmed.
+- **Mac & cheese:** Tini's recipe from Meg's photo, prepared Wednesday and refrigerated unbaked. Cavatappi boils for **7 minutes**, then make sauce and assemble with cheese layers. Bake at 350°F Thursday T−85 to T−35 (50 minutes is only an estimate for a chilled casserole); start covered for 30 minutes, uncover, check center reaches 165°F, and hold at 140°F or hotter until broiling T−15 to T−13. Photo doesn't specify seasoning amounts and contradicts itself on whether to add all or only some early; splitting the seasonings is an interpretation. The dish must be safe for broiling and for moving from fridge to oven.
+- **Stuffing:** 2 bags of Pepperidge Farm. Package recipe **per bag: 4 tbsp butter, 1 cup onion, 2 cups chicken broth** (so 1 stick, 2 cups onion, 4 cups broth). No celery. Mixed on big R at T−75, baked at 350°F on the middle rack T−45 to T−15; uncover T−25 and check for 165°F. Kevin's message cut off at "we have 2 bags of…", so the stuffing variety is still unconfirmed.
 - **Green beans:** steamed on a small burner at T−20, then butter, salt and lemon.
-- **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. For 1:30 dinner Thu: proof from 5:30 AM, bake 375°F about 22 min at 8 AM. Rewarm under foil at 350°F T−6 after the mac is broiled. Assumes Kevin has an active starter; that hasn't been confirmed.
+- **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. For 1:30 dinner Thu: proof from 5:30 AM, bake 375°F about 22 min at 8 AM. Rewarm under foil at 350°F T−13 after the mac is broiled. Assumes Kevin has an active starter; that hasn't been confirmed.
 - **Gravy:** turkey-drippings gravy; make at T−55 on big right after stuffing leaves that burner, then hold warm (140°F or hotter) through dinner. Use unsalted butter and low/no-sodium broth, add drippings gradually, and salt only after tasting. Drippings may still be salty despite the mild brine.
-- **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Meg corrected the pan: **one batch in an 8×8 or 9×9**, reheated whole in the **oven without stirring**. Wednesday 1 PM prep/preheat, 1:15 bake at 350°F about 35–40 min, refrigerate promptly within 2 hours. Thursday 12:32–12:52 (estimate): heat covered at 350°F until center 165°F, then hold insulated at 140°F or hotter until dinner; if it cools, reheat to 165°F. Reheat time and oven fit remain estimates.
-- **Crab dip:** recipe and shopping list added: 9×9 dish, 350°F for 30 minutes. Serving time is unconfirmed, so no oven slot has been reserved yet. Refrigerate if assembled ahead.
+- **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Meg changed the plan to **mix and bake fresh Thursday**, one batch in an 8×8 or 9×9. Prep 11:45 AM, bake 12:05–12:45 at 350°F (35–40 min), hold covered and insulated at 140°F or hotter until dinner. Do not stir the baked casserole. Oven fit and ability to hold it hot remain unverified.
+- **Crab dip:** Meg already mixed it and placed it in a 9×9 in the fridge. Suggested appetizer bake 11:20–noon at 350°F, checking after 30 min and aiming to serve around 11:50 or noon. **This slot is conditional on the dish fitting on a separate rack above the turkey**, with safe clearance; confirm before relying on it. If not, a different appetizer plan is needed. Keep refrigerated at 40°F or below until baking.
 - **Baguette:** recipe card is a placeholder; recipe is coming. No ingredients or cooking times guessed, and no oven time reserved yet.
 
 ## Thursday oven sequence (dinner 1:30 PM)
 - 7:45 AM: 375°F preheat for rolls; bake 8:00–8:22
-- 10:05 AM: 425°F preheat, lowest rack
-- 10:25 AM: turkey in at 425°F
-- 10:55 AM: down to 350°F
-- About 12:30 PM: turkey out to rest, oven stays at 350°F
-- 12:32 PM: chilled mac (upper rack) and corn casserole (middle rack) into oven at 350°F; verify two pans physically fit with airflow. Mac covered for 30 min then uncovered, estimated 50 min total until 165°F.
-- 12:52 PM: corn out once 165°F, insulated hold at 140°F or hotter; stuffing in, middle rack.
-- 1:02 PM: uncover mac; continue until its center is 165°F.
-- 1:12 PM: uncover stuffing.
-- 1:22 PM: stuffing out when 165°F; broil mac only after center is 165°F (broiler-safe pan).
-- 1:24 PM: mac out, oven back to 350°F, rolls in to rewarm.
-- Plan B: the schedule is tight. If turkey, corn or chilled mac needs more time, or pans do not fit, delay dinner rather than rushing. Timing is estimated, not verified in the physical oven.
+- 8:55 AM: 425°F preheat, turkey rack lowest; if crab fits safely above turkey, set its rack now.
+- 9:15 AM: turkey in at 425°F; 9:45 AM down to 350°F. Target noon out, but pull as soon as temperature is reached.
+- 11:20 AM: **suggested** crab dip in on a rack above the turkey, only if it physically fits safely. Check at 11:50; serve hot when ready.
+- Around noon: turkey out to rest, oven stays at 350°F.
+- 12:05 PM: chilled mac (upper rack) and freshly mixed corn casserole (middle rack) into oven; verify fit with airflow. Mac covered 30 min then uncovered; 50 minutes total is an estimate until center 165°F.
+- 12:45 PM: corn out when done; hold covered at 140°F or hotter. Stuffing in, middle rack. Carve rested turkey and keep it at 140°F or hotter until dinner.
+- 12:55 PM: mac out when center 165°F; hold covered at 140°F or hotter until broiling.
+- 1:05 PM: uncover stuffing.
+- 1:15 PM: stuffing out at 165°F; return mac and broil (broiler-safe pan).
+- 1:17 PM: mac out, oven back to 350°F, rolls in to rewarm 5–8 min.
+- Plan B: rack fit and hot-holding are unverified. If crab cannot safely fit above turkey, it needs another slot; if anything needs more time, delay dinner rather than rushing.
 
 ## Changes done this session
 1. Built and deployed the site.
@@ -59,8 +59,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 7. Thaw steps removed (turkey's already thawed). Meg supplied the mac recipe and later requested Wednesday assembly with a 7-minute pasta boil; Thursday is baking only.
 
 ## Open items
-- [ ] Confirm mac and stuffing pans physically fit simultaneously on their racks and that the mac dish is broiler-safe. The recipe photo does not specify seasoning quantities.
-- [ ] Confirm when crab dip should be served, then fit its 350°F / 30-minute bake into the oven schedule without conflicts.
+- [ ] Confirm crab dip pan fits above the turkey with safe clearance; otherwise find another appetizer slot. Confirm mac and corn pans fit simultaneously, the mac dish is broiler-safe, and the proposed 140°F holds are feasible. The recipe photo does not specify seasoning quantities.
 - [ ] Get the baguette recipe; replace the placeholder, update shopping and fit it into the oven plan without conflicts.
 - [ ] Add baguette ingredient-link mappings when the recipe is supplied; run `node test-ingredient-links.js` after modifying recipes.
 - [ ] Confirm the stuffing variety (message was cut off) and the sourdough starter situation.

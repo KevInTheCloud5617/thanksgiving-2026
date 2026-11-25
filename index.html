@@ -242,7 +242,7 @@ ol.st li .btn{margin-top:8px}
 <div class="amount-pop" id="amountPop" role="dialog" aria-labelledby="amountTitle" aria-live="polite" hidden><div class="amount-top"><h3 id="amountTitle"></h3><button class="amount-close" id="amountClose" type="button" aria-label="Close ingredient amount">×</button></div><ul id="amountItems"></ul><div class="amount-foot">Recipe amounts shown; follow the step for any portion used here.</div></div>
 <div class="alarm" id="alarm"><div class="eyebrow" style="color:#ffe3d2">Timer done</div><h2 id="alarmT"></h2><button class="btn" id="alarmOk">Got it</button></div>
 
-<script src="data.js?v=single-corn-square-pan-1"></script>
+<script src="data.js?v=fresh-corn-crab-app-1"></script>
 <script src="ingredient-links.js?v=1"></script>
 <script>
 (function(){
@@ -582,7 +582,7 @@ $('#setBtn').onclick = () => {
     <p class="muted">Every Thanksgiving Day step shifts with this. Wednesday prep stays where it is.</p>
     <input type="time" id="dt" value="${cur}" style="font:600 32px var(--serif);padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff">
     <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn primary" id="saveDt">Save</button><button class="btn" id="resetDt">Reset to ${fmtT(new Date(P.dinnerDefault))}</button><button class="btn ghost" id="resetAll">Clear all checkmarks</button></div>
-    <p class="muted small" style="margin-top:18px">Turkey goes in about 3 hours before dinner. The brine runs Tue 6 PM → Wed 6 PM whatever time dinner is.</p></div>`;
+    <p class="muted small" style="margin-top:18px">Turkey starts earlier to leave oven time for the sides. The brine runs Tue 6 PM → Wed 6 PM whatever time dinner is.</p></div>`;
   $('#sheet').classList.add('open');
   $('#closeR').onclick = closeRecipe;
   $('#saveDt').onclick = () => { const [h,m] = $('#dt').value.split(':').map(Number); const d = new Date(P.dinnerDefault); d.setHours(h,m,0,0);
