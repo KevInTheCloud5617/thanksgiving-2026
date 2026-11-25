@@ -11,6 +11,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
   - Day-of events: `t` = minutes relative to dinner (negative = before).
   - Ahead events: `day` (relative to Thanksgiving) + `clock` "HH:MM", fixed times.
   - `where`: oven | big1 | big2 | small1 | small2 | counter | fridge; oven events need a `rack`: upper | middle | lower.
+- `ingredient-links.js` — curated dish/step-specific links from ingredient words to the relevant ingredient-list entries. Tapping a linked word in a recipe step opens a small amount popup without leaving the instructions. References point to ingredient group/item indices, so quantities remain sourced from `data.js`; generic or unspecified amounts are not invented. When steps, ingredient ordering or recipes change, update these mappings and run `node test-ingredient-links.js`. Give any new recipe its own mappings. Bump the `ingredient-links.js?v=...` token in `index.html` whenever this mapping changes.
 - Preview any moment: `?at=2026-11-26T14:20` (e.g. `…/?at=2026-11-26T14:20#kitchen`).
 - Deploy = `git commit && git push` to main. Pages updates in ~30–60 s. Bump the `data.js?v=...` token in `index.html` whenever `data.js` changes so a cached older script cannot be mixed with a newer page. Verify the normal live page and its exact referenced script, not only cache-busting probe URLs; Pages sends a 10-minute cache header. For a fresh page on a device, use a new `?v=...#timeline` URL; do not clear site data, which would erase local checklists/timers.
 
@@ -61,6 +62,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 - [ ] Confirm mac and stuffing pans physically fit simultaneously on their racks and that the mac dish is broiler-safe. The recipe photo does not specify seasoning quantities.
 - [ ] Confirm when crab dip should be served, then fit its 350°F / 30-minute bake into the oven schedule without conflicts.
 - [ ] Get the baguette recipe; replace the placeholder, update shopping and fit it into the oven plan without conflicts.
+- [ ] Add baguette ingredient-link mappings when the recipe is supplied; run `node test-ingredient-links.js` after modifying recipes.
 - [ ] Confirm the stuffing variety (message was cut off) and the sourdough starter situation.
 - [ ] Kevin said he'll add more dishes. For each one, find a burner and oven slot that doesn't overlap (run the overlap check below).
 - [ ] Visual QA: screenshots couldn't be viewed this session (vision tool not configured). Layout was checked through DOM metrics only: no horizontal overflow at 1180×820 or 430×932, recipe sheet and timers work. Get Kevin's eyes on the iPad.

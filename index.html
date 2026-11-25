@@ -151,6 +151,17 @@ ol.st{margin:0;padding:0;list-style:none;counter-reset:s}
 ol.st li{counter-increment:s;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line)}
 ol.st li:before{content:counter(s);position:absolute;left:0;top:11px;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--paper);display:grid;place-items:center;font:600 14px var(--serif)}
 ol.st li .btn{margin-top:8px}
+.ingredient-link{display:inline;border:0;border-bottom:1px dashed currentColor;background:none;padding:0 2px;color:var(--rust);font:inherit;font-weight:650;line-height:inherit;text-align:left;border-radius:2px;touch-action:manipulation}
+.ingredient-link:focus-visible{outline:2px solid var(--rust);outline-offset:3px}
+.amount-hint{font-size:13px;color:var(--muted);margin:0 0 6px}
+.amount-pop{position:fixed;z-index:70;width:min(320px,calc(100vw - 24px));max-height:min(55vh,360px);overflow:auto;background:#fffaf2;border:1px solid #d6bea6;border-radius:16px;box-shadow:0 14px 40px rgba(43,33,26,.24);padding:14px 16px}
+.amount-pop[hidden]{display:none}
+.amount-top{display:flex;align-items:flex-start;gap:12px}
+.amount-top h3{font-size:21px;line-height:1.2;flex:1;overflow-wrap:anywhere}
+.amount-close{flex:none;width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;background:white;font-size:20px;line-height:1}
+.amount-pop ul{margin:10px 0 0;padding-left:20px}
+.amount-pop li{padding:3px 0;overflow-wrap:anywhere}
+.amount-foot{font-size:12px;line-height:1.35;color:var(--muted);margin-top:9px}
 .aheadbox{background:#eef0e2;border-radius:12px;padding:12px 14px;margin-top:14px}
 .aheadbox ul{margin:6px 0 0;padding-left:18px}
 
@@ -228,9 +239,11 @@ ol.st li .btn{margin-top:8px}
 <div class="tbar" id="tbar"></div>
 
 <div class="sheet" id="sheet"><div class="panel" id="panel"></div></div>
+<div class="amount-pop" id="amountPop" role="dialog" aria-labelledby="amountTitle" aria-live="polite" hidden><div class="amount-top"><h3 id="amountTitle"></h3><button class="amount-close" id="amountClose" type="button" aria-label="Close ingredient amount">×</button></div><ul id="amountItems"></ul><div class="amount-foot">Recipe amounts shown; follow the step for any portion used here.</div></div>
 <div class="alarm" id="alarm"><div class="eyebrow" style="color:#ffe3d2">Timer done</div><h2 id="alarmT"></h2><button class="btn" id="alarmOk">Got it</button></div>
 
 <script src="data.js?v=single-corn-square-pan-1"></script>
+<script src="ingredient-links.js?v=1"></script>
 <script>
 (function(){
 const P = window.PLAN;
@@ -416,12 +429,77 @@ function updateKitchen(){
 function renderKitchen(){ if (!kBuilt || !document.getElementById('scrub')) buildKitchen(); updateKitchen(); }
 
 // ================= RECIPES =================
+// Match only curated, step-specific ingredient phrases; longer overlapping
+// phrases win (e.g. "creamed corn" rather than "corn"). Unknown recipes stay
+// readable and never receive guessed amounts.
+function renderStepIngredients(d, stepIndex, text){
+  const defs = (window.RECIPE_INGREDIENT_LINKS?.[d.id] || {})[stepIndex] || [];
+  const matches = [], lower = text.toLowerCase();
+  defs.forEach(([term, refs]) => {
+    const needle = term.toLowerCase(); let at = 0;
+    while ((at = lower.indexOf(needle, at)) !== -1){
+      const end = at + needle.length;
+      if (!/[a-z0-9]/i.test(text[at-1] || '') && !/[a-z0-9]/i.test(text[end] || ''))
+        matches.push({at,end,refs:Array.isArray(refs)?refs:[refs]});
+      at = end;
+    }
+  });
+  matches.sort((a,b)=>a.at-b.at || b.end-a.end);
+  let html='', pos=0;
+  matches.forEach(m => {
+    if (m.at < pos) return;
+    const label=text.slice(m.at,m.end);
+    html += esc(text.slice(pos,m.at)) + `<button type="button" class="ingredient-link" data-amount-dish="${esc(d.id)}" data-amount-ref="${esc(m.refs.join(','))}" aria-label="Show amount for ${esc(label)}" aria-controls="amountPop" aria-expanded="false">${esc(label)}</button>`;
+    pos=m.end;
+  });
+  return html + esc(text.slice(pos));
+}
+const amountPop = $('#amountPop');
+let amountTrigger = null;
+function closeAmount(restoreFocus=false){
+  if (amountTrigger){ amountTrigger.setAttribute('aria-expanded','false'); if (restoreFocus && amountTrigger.isConnected) amountTrigger.focus(); }
+  amountTrigger=null; amountPop.hidden=true;
+}
+function positionAmount(){
+  if (!amountTrigger || amountPop.hidden) return;
+  if (!amountTrigger.isConnected){ closeAmount(); return; }
+  const r=amountTrigger.getBoundingClientRect(), panel=$('#panel').getBoundingClientRect();
+  if (r.bottom < panel.top || r.top > panel.bottom){ closeAmount(); return; }
+  const p=amountPop.getBoundingClientRect(), gap=10;
+  const left=Math.max(12,Math.min(innerWidth-p.width-12,r.left + r.width/2-p.width/2));
+  let top=r.bottom+gap;
+  if (top+p.height>innerHeight-12) top=r.top-p.height-gap;
+  top=Math.max(12,Math.min(innerHeight-p.height-12,top));
+  amountPop.style.left=left+'px'; amountPop.style.top=top+'px';
+}
+function showAmount(trigger){
+  if (trigger===amountTrigger && !amountPop.hidden){ closeAmount(); return; }
+  closeAmount();
+  const dish=dishById[trigger.dataset.amountDish]; if (!dish) return;
+  const refs=trigger.dataset.amountRef.split(',');
+  const entries=refs.map(ref=>{const [g,i]=ref.split('.').map(Number); const group=dish.ingredients[g]; return group && !group.hidden ? group.items[i] : null;}).filter(Boolean);
+  if (!entries.length) return;
+  $('#amountTitle').textContent=trigger.textContent;
+  $('#amountItems').innerHTML=entries.map(item=>`<li>${esc(item)}</li>`).join('');
+  amountTrigger=trigger; trigger.setAttribute('aria-expanded','true'); amountPop.hidden=false;
+  positionAmount();
+}
+document.addEventListener('click', e => {
+  const b=e.target.closest('[data-amount-ref]');
+  if (b){ showAmount(b); return; }
+  if (!e.target.closest('#amountPop')) closeAmount();
+});
+$('#amountClose').addEventListener('click',()=>closeAmount(true));
+$('#panel').addEventListener('scroll',positionAmount,{passive:true});
+window.addEventListener('resize',positionAmount);
+document.addEventListener('keydown',e=>{if(e.key==='Escape' && !amountPop.hidden){e.preventDefault();closeAmount(true);}});
 function renderRecipes(){
   $('#v-recipes').innerHTML = `<div class="rgrid">${P.DISHES.map(d=>`<button class="rcard" data-recipe="${d.id}"><div class="sw" style="background:${d.color}"></div><div class="b"><h3>${esc(d.name)}</h3><p class="muted" style="margin:6px 0 10px">${esc(d.summary)}</p><div class="facts"><span class="pill where">${esc(d.yield)}</span><span class="pill where">${esc(d.totalTime)}</span></div></div></button>`).join('')}</div>`;
 }
 let ingDone = new Set(LS.get('ing', []));
 function openRecipe(id){
   const d = dishById[id]; if (!d) return;
+  closeAmount();
   if (location.hash !== '#recipe/'+id) history.pushState(null,'','#recipe/'+id);
   const evs = sorted().filter(e=>e.dish===id);
   $('#panel').innerHTML = `<div class="phead"><div style="width:8px;align-self:stretch;border-radius:4px;background:${d.color}"></div><div style="flex:1"><h2>${esc(d.name)}</h2><div class="muted">${esc(d.summary)}</div><div class="facts"><span class="pill where">${esc(d.yield)}</span><span class="pill where">Active ${esc(d.activeTime)}</span><span class="pill where">${esc(d.totalTime)}</span></div></div><button class="btn sm" id="closeR">Close</button></div>
@@ -429,16 +507,16 @@ function openRecipe(id){
     <div class="ing">${d.ingredients.map((g,gi)=>g.hidden?'':`<h4>${esc(g.group)}</h4><ul class="cl">${g.items.map((it,ii)=>{const k=`${id}${d.ingredientVersion?'.'+d.ingredientVersion:''}.${gi}.${ii}`;return `<li class="${ingDone.has(k)?'on':''}" data-ing="${k}"><div class="bx">${ingDone.has(k)?'✓':''}</div><span>${esc(it)}</span></li>`;}).join('')}</ul>`).join('')}
       ${d.ahead.length?`<div class="aheadbox"><div class="eyebrow" style="color:var(--olive)">Make ahead</div><ul>${d.ahead.map(a=>`<li>${esc(a)}</li>`).join('')}</ul></div>`:''}
       <h4>When (with your dinner time)</h4><ul class="cl">${evs.map(e=>`<li style="cursor:default"><b style="min-width:110px;font-variant-numeric:tabular-nums">${fmtDay(startOf(e)).split(',')[0].slice(0,3)} ${fmtT(startOf(e))}</b><span>${esc(e.title)}</span></li>`).join('')}</ul></div>
-    <div class="steps"><h4>Steps</h4><ol class="st">${d.steps.map(s=>`<li>${esc(s.text)}${s.timer?`<div><button class="btn sm" data-timer="${esc(s.timer.label)}|${s.timer.min}">Start ${s.timer.min} min timer</button></div>`:''}</li>`).join('')}</ol>
+    <div class="steps"><h4>Steps</h4>${window.RECIPE_INGREDIENT_LINKS?.[id]?'<p class="amount-hint">Tap an underlined ingredient to see its amount.</p>':''}<ol class="st">${d.steps.map((s,si)=>`<li>${renderStepIngredients(d,si,s.text)}${s.timer?`<div><button class="btn sm" data-timer="${esc(s.timer.label)}|${s.timer.min}">Start ${s.timer.min} min timer</button></div>`:''}</li>`).join('')}</ol>
       ${d.notes.length?`<h4>Notes</h4><ul style="padding-left:18px;margin:0">${d.notes.map(x=>`<li style="margin:6px 0">${esc(x)}</li>`).join('')}</ul>`:''}</div>
   </div></div>`;
   $('#sheet').classList.add('open'); $('#panel').scrollTop = 0;
   $('#closeR').onclick = closeRecipe;
 }
-function closeRecipe(){ $('#sheet').classList.remove('open'); if (location.hash.startsWith('#recipe')) history.replaceState(null,'','#'+tab); }
+function closeRecipe(){ closeAmount(); $('#sheet').classList.remove('open'); if (location.hash.startsWith('#recipe')) history.replaceState(null,'','#'+tab); }
 $('#sheet').addEventListener('click', e => { if (e.target.id==='sheet') closeRecipe(); });
 $('#panel').addEventListener('click', e => { const li = e.target.closest('[data-ing]'); if (!li) return; const k=li.dataset.ing; ingDone.has(k)?ingDone.delete(k):ingDone.add(k); LS.set('ing',[...ingDone]); li.classList.toggle('on'); li.querySelector('.bx').textContent = ingDone.has(k)?'✓':''; });
-window.addEventListener('popstate', () => { const m = location.hash.match(/^#recipe\/(\w+)/); if (m) openRecipe(m[1]); else $('#sheet').classList.remove('open'); });
+window.addEventListener('popstate', () => { const m = location.hash.match(/^#recipe\/(\w+)/); if (m) openRecipe(m[1]); else { closeAmount(); $('#sheet').classList.remove('open'); } });
 
 // ================= AHEAD =================
 function renderAhead(){
