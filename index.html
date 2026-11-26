@@ -242,7 +242,7 @@ ol.st li .btn{margin-top:8px}
 <div class="amount-pop" id="amountPop" role="dialog" aria-labelledby="amountTitle" aria-live="polite" hidden><div class="amount-top"><h3 id="amountTitle"></h3><button class="amount-close" id="amountClose" type="button" aria-label="Close ingredient amount">×</button></div><ul id="amountItems"></ul><div class="amount-foot">Recipe amounts shown; follow the step for any portion used here.</div></div>
 <div class="alarm" id="alarm"><div class="eyebrow" style="color:#ffe3d2">Timer done</div><h2 id="alarmT"></h2><button class="btn" id="alarmOk">Got it</button></div>
 
-<script src="data.js?v=purchased-baguette-1"></script>
+<script src="data.js?v=dinner-early-no-rolls-1"></script>
 <script src="ingredient-links.js?v=1"></script>
 <script>
 (function(){
@@ -253,10 +253,10 @@ const LS = {
   get(k, d){ try{ const v = localStorage.getItem('tg26.'+k); return v==null?d:JSON.parse(v);}catch(e){return d;} },
   set(k, v){ localStorage.setItem('tg26.'+k, JSON.stringify(v)); }
 };
-// Reapply the agreed time once, even if an old cached plan was saved by revision 1.
-if (LS.get('dinnerPlanRevision', 0) < 2){
-  LS.set('dinner', '2026-11-26T13:30');
-  LS.set('dinnerPlanRevision', 2);
+// Apply the latest agreed dinner time once on each device; later edits persist.
+if (LS.get('dinnerPlanRevision', 0) < 3){
+  LS.set('dinner', '2026-11-26T13:10');
+  LS.set('dinnerPlanRevision', 3);
 }
 const dishById = Object.fromEntries(P.DISHES.map(d => [d.id, d]));
 const colorOf = e => e.dish ? dishById[e.dish].color : '#6b5a4a';
@@ -523,7 +523,7 @@ function renderAhead(){
   const D = dinner();
   const ahead = sorted().filter(e => e.t == null);
   $('#v-ahead').innerHTML = `<div class="card"><h2 style="font-size:24px">Do-ahead checklist</h2><p class="muted" style="margin:4px 0 0">Everything that can be done before Thursday, so the day-of is mostly oven shuffling.</p>
-    <div style="margin-top:10px">${ahead.map(e=>`<div class="mini ${done.has(e.id)?'done':''}"><div class="tm">${fmtDay(startOf(e)).split(',')[0].slice(0,3)}<div class="muted small">${fmtT(startOf(e))}</div></div><div style="flex:1"><div class="ti" style="${done.has(e.id)?'text-decoration:line-through;opacity:.5':''}">${esc(e.title)}</div><div class="muted small">${esc(e.detail||'')}</div><div style="margin-top:6px">${recipeBtn(e)}</div></div>${checkBtn(e.id)}</div>`).join('')}</div></div>
+    <div style="margin-top:10px">${ahead.length ? ahead.map(e=>`<div class="mini ${done.has(e.id)?'done':''}"><div class="tm">${fmtDay(startOf(e)).split(',')[0].slice(0,3)}<div class="muted small">${fmtT(startOf(e))}</div></div><div style="flex:1"><div class="ti" style="${done.has(e.id)?'text-decoration:line-through;opacity:.5':''}">${esc(e.title)}</div><div class="muted small">${esc(e.detail||'')}</div><div style="margin-top:6px">${recipeBtn(e)}</div></div>${checkBtn(e.id)}</div>`).join('') : '<p class="muted">No earlier timeline tasks left.</p>'}</div></div>
   <div class="rgrid" style="margin-top:14px">${P.DISHES.map(d=>`<div class="card" style="border-top:5px solid ${d.color}"><h3 style="font-size:18px">${esc(d.name)}</h3><ul style="padding-left:18px;margin:8px 0 0">${d.ahead.map(a=>`<li style="margin:4px 0">${esc(a)}</li>`).join('')}</ul></div>`).join('')}</div>`;
 }
 
@@ -582,7 +582,7 @@ $('#setBtn').onclick = () => {
     <p class="muted">Every Thanksgiving Day step shifts with this. Wednesday prep stays where it is.</p>
     <input type="time" id="dt" value="${cur}" style="font:600 32px var(--serif);padding:10px 14px;border-radius:12px;border:1px solid var(--line);background:#fff">
     <div style="display:flex;gap:8px;margin-top:14px;flex-wrap:wrap"><button class="btn primary" id="saveDt">Save</button><button class="btn" id="resetDt">Reset to ${fmtT(new Date(P.dinnerDefault))}</button><button class="btn ghost" id="resetAll">Clear all checkmarks</button></div>
-    <p class="muted small" style="margin-top:18px">Turkey starts earlier to leave oven time for the sides. The brine runs Tue 6 PM → Wed 6 PM whatever time dinner is.</p></div>`;
+    <p class="muted small" style="margin-top:18px">The turkey is already roasting. Use the thermometer rather than the clock to decide when it is done.</p></div>`;
   $('#sheet').classList.add('open');
   $('#closeR').onclick = closeRecipe;
   $('#saveDt').onclick = () => { const [h,m] = $('#dt').value.split(':').map(Number); const d = new Date(P.dinnerDefault); d.setHours(h,m,0,0);

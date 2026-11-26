@@ -2,7 +2,7 @@
 
 **Live site:** https://kevinthecloud5617.github.io/thanksgiving-2026/
 **Repo:** `~/projects/thanksgiving-2026` → GitHub `KevInTheCloud5617/thanksgiving-2026` (PUBLIC, so GitHub Pages works on the free plan; it holds only recipes, nothing personal)
-**Dinner:** Thu Nov 26, 2026, 1:30 PM by default (changeable in the app; every Thursday step shifts with it). Per-device migration revision 2 explicitly sets 1:30 once, including devices where revision 1 saved an old cached 4 PM default; later local edits persist. Checklists and timers are untouched.
+**Dinner:** Thu Nov 26, 2026, **1:10 PM**: Kevin confirmed the turkey is running 20 minutes ahead. Revision 3 applies 1:10 once per device; later manual changes persist, and checklists/timers are untouched. The active turkey's original planned start was retained rather than moving its history; its estimated end and remaining events are 20 minutes earlier.
 
 ## What it is
 A static, dependency-free kitchen site for an iPad on the counter and Kevin's phone.
@@ -29,24 +29,22 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 - **Mac & cheese:** Tini's recipe from Meg's photo, prepared Wednesday and refrigerated unbaked. Cavatappi boils for **7 minutes**, then make sauce and assemble with cheese layers. Bake at 350°F Thursday T−85 to T−35 (50 minutes is only an estimate for a chilled casserole); start covered for 30 minutes, uncover, check center reaches 165°F, and hold at 140°F or hotter until broiling T−15 to T−13. Photo doesn't specify seasoning amounts and contradicts itself on whether to add all or only some early; splitting the seasonings is an interpretation. The dish must be safe for broiling and for moving from fridge to oven.
 - **Stuffing:** 2 bags of Pepperidge Farm. Package recipe **per bag: 4 tbsp butter, 1 cup onion, 2 cups chicken broth** (so 1 stick, 2 cups onion, 4 cups broth). No celery. Mixed on big R at T−75, baked at 350°F on the middle rack T−45 to T−15; uncover T−25 and check for 165°F. Kevin's message cut off at "we have 2 bags of…", so the stuffing variety is still unconfirmed.
 - **Green beans:** steamed on a small burner at T−20, then butter, salt and lemon.
-- **Sourdough rolls:** 16 soft enriched rolls in a 9×13. Wed: feed starter 8 AM, mix at noon, shape and refrigerate at 5:30 PM. For 1:30 dinner Thu: proof from 5:30 AM, bake 375°F about 22 min at 8 AM. Rewarm under foil at 350°F T−13 after the mac is broiled. Assumes Kevin has an active starter; that hasn't been confirmed.
+- **Sourdough rolls:** Kevin says the rolls are already good to go. All roll events, including warming, were removed from the remaining timeline; the recipe is retained for reference.
 - **Gravy:** turkey-drippings gravy; make at T−55 on big right after stuffing leaves that burner, then hold warm (140°F or hotter) through dinner. Use unsalted butter and low/no-sodium broth, add drippings gradually, and salt only after tasting. Drippings may still be salty despite the mild brine.
-- **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Meg changed the plan to **mix and bake fresh Thursday**, one batch in an 8×8 or 9×9. Prep 11:45 AM, bake 12:05–12:45 at 350°F (35–40 min), hold covered and insulated at 140°F or hotter until dinner. Do not stir the baked casserole. Oven fit and ability to hold it hot remain unverified.
-- **Crab dip:** Meg already mixed it and placed it in a 9×9 in the fridge. Suggested appetizer bake 11:20–noon at 350°F, checking after 30 min and aiming to serve around 11:50 or noon. **This slot is conditional on the dish fitting on a separate rack above the turkey**, with safe clearance; confirm before relying on it. If not, a different appetizer plan is needed. Keep refrigerated at 40°F or below until baking.
+- **Corn casserole:** Food Charlatan's recipe with her suggested homemade cornmeal mix (which the author says she hasn't tested), not Jiffy. Meg changed the plan to **mix and bake fresh Thursday**, one batch in an 8×8 or 9×9. Prep 11:25 AM, bake 11:45–12:25 at 350°F (35–40 min), hold covered and insulated at 140°F or hotter until dinner. Do not stir the baked casserole. Oven fit and ability to hold it hot remain unverified.
+- **Crab dip:** Meg already mixed it and placed it in a 9×9 in the fridge. Suggested appetizer bake 11:00–11:40 at 350°F, checking after 30 min and serving when hot. **This slot is conditional on the dish fitting on a separate rack above the turkey**, with safe clearance; confirm before relying on it. If not, a different appetizer plan is needed. Keep refrigerated at 40°F or below until baking.
 - **Baguette:** already purchased; slice when ready to serve. No recipe, shopping ingredients or oven time needed.
 
-## Thursday oven sequence (dinner 1:30 PM)
-- 7:45 AM: 375°F preheat for rolls; bake 8:00–8:22
-- 8:55 AM: 425°F preheat, turkey rack lowest; if crab fits safely above turkey, set its rack now.
-- 9:15 AM: turkey in at 425°F; 9:45 AM down to 350°F. Target noon out, but pull as soon as temperature is reached.
-- 11:20 AM: **suggested** crab dip in on a rack above the turkey, only if it physically fits safely. Check at 11:50; serve hot when ready.
-- Around noon: turkey out to rest, oven stays at 350°F.
-- 12:05 PM: chilled mac (upper rack) and freshly mixed corn casserole (middle rack) into oven; verify fit with airflow. Mac covered 30 min then uncovered; 50 minutes total is an estimate until center 165°F.
-- 12:45 PM: corn out when done; hold covered at 140°F or hotter. Stuffing in, middle rack. Carve rested turkey and keep it at 140°F or hotter until dinner.
-- 12:55 PM: mac out when center 165°F; hold covered at 140°F or hotter until broiling.
-- 1:05 PM: uncover stuffing.
-- 1:15 PM: stuffing out at 165°F; return mac and broil (broiler-safe pan).
-- 1:17 PM: mac out, oven back to 350°F, rolls in to rewarm 5–8 min.
+## Remaining Thursday sequence (dinner 1:10 PM)
+- Turkey is already roasting; start checking around 11:00 AM, remove as soon as it reaches the planned temperatures (estimated out 11:40). Clock is not a doneness test.
+- 11:00 AM: **suggested** crab dip on a rack above the turkey, only if it physically fits safely. Check at 11:30; serve hot when ready.
+- 11:25 AM: mix the corn casserole.
+- 11:45 AM: chilled mac (upper rack) and freshly mixed corn (middle rack) in at 350°F; physical fit is unverified. Mac covered 30 min then uncovered; 50 min total is an estimate until center 165°F.
+- 12:25 PM: corn out when done; hold covered at 140°F or hotter. Stuffing in, middle rack. Carve rested turkey and keep at 140°F or hotter until dinner.
+- 12:35 PM: mac out when center 165°F; hold covered at 140°F or hotter until broiling.
+- 12:45 PM: uncover stuffing.
+- 12:55 PM: stuffing out at 165°F; return mac and broil in a broiler-safe pan, then turn oven off.
+- Rolls are already ready, so no additional roll task or oven slot. Earlier timeline events were removed at Kevin's request; the recipe texts remain available.
 - Plan B: rack fit and hot-holding are unverified. If crab cannot safely fit above turkey, it needs another slot; if anything needs more time, delay dinner rather than rushing.
 
 ## Changes done this session
@@ -61,7 +59,7 @@ A static, dependency-free kitchen site for an iPad on the counter and Kevin's ph
 ## Open items
 - [ ] Confirm crab dip pan fits above the turkey with safe clearance; otherwise find another appetizer slot. Confirm mac and corn pans fit simultaneously, the mac dish is broiler-safe, and the proposed 140°F holds are feasible. The recipe photo does not specify seasoning quantities.
 
-- [ ] Confirm the stuffing variety (message was cut off) and the sourdough starter situation.
+- [ ] Confirm the stuffing variety (message was cut off).
 - [ ] Kevin said he'll add more dishes. For each one, find a burner and oven slot that doesn't overlap (run the overlap check below).
 - [ ] Visual QA: screenshots couldn't be viewed this session (vision tool not configured). Layout was checked through DOM metrics only: no horizontal overflow at 1180×820 or 430×932, recipe sheet and timers work. Get Kevin's eyes on the iPad.
 

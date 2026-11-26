@@ -9,20 +9,14 @@
 
 window.PLAN = {
   title: "Thanksgiving 2026",
-  dinnerDefault: "2026-11-26T13:30",
+  dinnerDefault: "2026-11-26T13:10",
 
   // Oven temperature over the day (t = minutes from dinner)
   ovenTemps: [
-    { t: -345, temp: 375, label: "Rolls — preheat" },
-    { t: -330, temp: 375, label: "Baking rolls" },
-    { t: -305, temp: 0, label: "Off" },
-    { t: -275, temp: 425, label: "Preheating" },
-    { t: -255, temp: 425, label: "Turkey blast" },
-    { t: -225, temp: 350, label: "Turkey roast" },
+    { t: -205, temp: 350, label: "Turkey roast" },
     { t: -90,  temp: 350, label: "Sides" },
     { t: -15,  temp: "Broil", label: "Finishing mac & cheese" },
-    { t: -13,  temp: 350, label: "Rewarming rolls" },
-    { t: -5,   temp: 0,   label: "Off" }
+    { t: -13,  temp: 0,   label: "Off after mac" }
   ],
 
   burners: {
@@ -297,7 +291,7 @@ window.PLAN = {
     },
     {
       id: "rolls", name: "Sourdough Dinner Rolls", color: "#8a5a3c",
-      summary: "Soft, buttery pull-apart rolls. Dough Wednesday, cold rise overnight, baked Thursday morning before the turkey.",
+      summary: "Soft, buttery pull-apart rolls. Already finished; no more roll tasks scheduled.",
       yield: "16 rolls (one 9×13)", activeTime: "40 min", totalTime: "~24 hr, mostly hands-off",
       ingredients: [
         { group: "Dough", items: [
@@ -316,13 +310,7 @@ window.PLAN = {
         ]},
         { group: "Gear", items: ["Kitchen scale", "Buttered 9×13 pan", "Plastic wrap or a lid"] }
       ],
-      ahead: [
-        "Wednesday 8 AM: feed the starter so it peaks around noon.",
-        "Wednesday noon: mix dough; let it rise on the counter ~5 hr.",
-        "Wednesday ~5:30 PM: shape 16 rolls into the pan, cover, fridge overnight.",
-        "Thursday: take out to proof 8 hours before dinner; bake 5½ hours before dinner while the oven is free. See the schedule for your dinner time.",
-        "Thursday right before dinner: rewarm 5–8 min at 350°F after the mac is broiled."
-      ],
+      ahead: ["Already finished; no more roll tasks scheduled."],
       steps: [
         { text: "Wednesday 8 AM: feed your starter (equal weights flour and water). It should double and be bubbly by about noon." },
         { text: "Noon: mix starter, milk, egg and honey. Add flour, mix to a shaggy dough. Rest 20 minutes.", timer: { label: "Rolls dough rest", min: 20 } },
@@ -333,49 +321,26 @@ window.PLAN = {
         { text: "Preheat to 375°F, middle rack. Brush rolls with egg wash.", timer: { label: "Preheat 375°F", min: 15 } },
         { text: "Bake until deep golden and 190°F inside.", timer: { label: "Bake rolls", min: 22 } },
         { text: "Brush with melted butter, flaky salt if you like. Cool in the pan, then cover loosely with foil." },
-        { text: "Dinner: after the mac is broiled, switch the oven back to 350°F and warm the foil-covered rolls 5–8 minutes, then turn the oven off.", timer: { label: "Rewarm rolls", min: 6 } }
+        { text: "The rolls are already ready for this meal; no warming is scheduled." }
       ],
       notes: [
-        "Starter sluggish? Give the bulk rise more time rather than rushing it. Dough should feel airy, not dense.",
-        "If the rolls are behind schedule, check the timeline: they need to be out before the turkey preheat."
+        "Rolls are already finished for this meal; these instructions are kept for reference."
       ]
     }
   ],
 
   // ----- EVENTS -----
   EVENTS: [
-    // Ahead of time (fixed clock times)
-    { id: "shop",     dish: null,       day: -3, clock: "12:00", where: "counter", title: "Final shopping + clear fridge space", detail: "Before brining Tuesday. Room for the brine bag/bucket and potatoes in water." },
-    { id: "brine",    dish: "turkey",   day: -2, clock: "10:00", where: "big1",    title: "Make brine, then chill it", detail: "Dissolve salt & aromatics in ½ gal hot water, add 1½ gal cold. Fridge until cold.", dur: 20 },
-    { id: "starter",  dish: "rolls",    day: -1, clock: "08:00", where: "counter", title: "Feed sourdough starter", detail: "So it peaks around noon." },
-    { id: "macwedshred", dish: "mac", day: -1, clock: "10:00", where: "counter", title: "Mac: shred & divide cheeses", detail: "Mix mozzarella, Colby Jack and cheddar; divide in half for sauce and layers.", dur: 20 },
-    { id: "macwedpasta", dish: "mac", day: -1, clock: "10:25", where: "big2", title: "Mac: boil cavatappi for 7 minutes", detail: "Bring salted water to a boil, then cook pasta 7 minutes, stirring every 2. Start the timer from the recipe when pasta goes in; drain.", dur: 25 },
-    { id: "macwedsauce", dish: "mac", day: -1, clock: "10:50", where: "big1", title: "Mac: make the cheese sauce", detail: "Bloom seasonings, make roux, whisk in evaporated milk, cream and half the cheese.", dur: 35 },
-    { id: "macwedassemble", dish: "mac", day: -1, clock: "11:25", where: "counter", title: "Mac: assemble and refrigerate unbaked", detail: "Fold in pasta, layer with reserved cheese; refrigerate promptly in a shallow dish, within 2 hours.", dur: 15 },
-    { id: "rollmix",  dish: "rolls",    day: -1, clock: "12:00", where: "counter", title: "Mix & knead roll dough, start bulk rise", detail: "~40 min hands-on, then 4–6 hr rise on the counter.", dur: 40 },
-
-    { id: "rollshape",dish: "rolls",    day: -1, clock: "17:30", where: "counter", title: "Shape 16 rolls, cover, fridge overnight", detail: "Into buttered 9×13, 4 × 4.", dur: 20 },
-        { id: "vegprep",  dish: "stuffing", day: -1, clock: "15:00", where: "counter", title: "Chop onion; trim green beans", detail: "Bag them separately in the fridge.", dur: 30 },
-    { id: "potprep",  dish: "potatoes", day: -1, clock: "15:30", where: "counter", title: "Peel & cut potatoes, cover with cold water", detail: "2-inch chunks, fully submerged, no salt, fridge. Thursday: drain, fresh cold water to cook.", dur: 30 },
-    { id: "dishes",   dish: null,       day: -1, clock: "16:00", where: "counter", title: "Set out pans, dishes, serving bowls, thermometer", detail: "Roasting pan + rack, 9×13 for stuffing, steamer basket, carving board & knife.", dur: 15 },
-    { id: "brinein",  dish: "turkey",   day: -2, clock: "18:00", where: "fridge",  title: "Turkey into the brine", detail: "Fully submerged, breast-down. 24 hours." },
-    { id: "brineout", dish: "turkey",   day: -1, clock: "18:00", where: "fridge",  title: "Turkey out of brine — drain, pat dry (no rinse)", detail: "Fridge overnight on a rack over a sheet pan, UNCOVERED, to dry the skin." },
-
-    // Day-of (relative to dinner)
-    { id: "rollproof",dish: "rolls",    t: -480, dur: 135, where: "counter", title: "Rolls out of fridge to proof", detail: "Somewhere warm until puffy and touching, 2–3 hr.", timer: { label: "Rolls proof", min: 120 } },
-    { id: "rollheat", dish: "rolls",    t: -345, dur: 15,  where: "oven", rack: "middle", title: "Preheat oven to 375°F for rolls", detail: "Middle rack. Egg-wash the rolls.", timer: { label: "Preheat 375°F", min: 15 } },
-    { id: "rollbake", dish: "rolls",    t: -330, dur: 22,  where: "oven", rack: "middle", title: "Bake rolls", detail: "Deep golden, 190°F inside. Butter the tops, cool, foil over.", timer: { label: "Bake rolls", min: 22 } },
-    { id: "tkprep",   dish: "turkey",   t: -300, dur: 25,  where: "counter", title: "Turkey out of fridge — butter & aromatics", detail: "Butter under the skin, pepper, lemon/onion/herbs in cavity." },
-    { id: "preheat",  dish: "turkey",   t: -275, dur: 20,  where: "oven", rack: "lower", title: "Preheat oven to 425°F", detail: "Turkey rack lowest. If crab fits above the turkey, set its rack now, with clearance.", timer: { label: "Preheat 425°F", min: 20 } },
-    { id: "tk425",    dish: "turkey",   t: -255, dur: 30,  where: "oven", rack: "lower", title: "Turkey in at 425°F", detail: "30 minutes to brown.", timer: { label: "Turkey @ 425°F", min: 30 } },
-    { id: "tk350",    dish: "turkey",   t: -225, dur: 135, where: "oven", rack: "lower", title: "Drop to 350°F — keep roasting", detail: "Tent the breast with foil if it browns too fast; remove as soon as temperature is reached.", timer: { label: "Turkey — first temp check", min: 95 } },
+    // Earlier events and completed rolls removed on Thanksgiving morning.
+    // Keep the active roast's original planned start, but end it 20 min earlier.
+    { id: "turkeyroasting", dish: "turkey", t: -205, dur: 115, where: "oven", rack: "lower", title: "Turkey roasting at 350°F", detail: "20 minutes ahead of the original plan. Check its temperature; pull when ready, even if earlier than estimated." },
     { id: "tkcheck",  dish: "turkey",   t: -130, dur: 0,   where: "oven", title: "Start checking turkey temp", detail: "Breast 160°F, thigh 170–175°F. Check every 10–15 min; pull when ready, even if earlier than planned." },
-    { id: "crabappbake", dish: "crab", t: -130, dur: 40, where: "oven", rack: "upper", title: "Suggested: bake crab dip for an appetizer", detail: "At 350°F, check after 30 min and serve hot, around noon. ONLY use this slot if its 9×9 dish fits ABOVE the turkey with safe clearance; otherwise make a different plan.", timer: { label: "Bake crab dip — check", min: 30 } },
+    { id: "crabappbake", dish: "crab", t: -130, dur: 40, where: "oven", rack: "upper", title: "Suggested: bake crab dip for an appetizer", detail: "At 350°F, check after 30 min and serve hot when ready. ONLY use this slot if its 9×9 dish fits ABOVE the turkey with safe clearance; otherwise make a different plan.", timer: { label: "Bake crab dip — check", min: 30 } },
     { id: "cornfreshprep", dish: "corn", t: -105, dur: 15, where: "counter", title: "Mix fresh corn casserole", detail: "Make homemade cornmeal mix, combine with corn, sour cream and butter; into an 8×8 or 9×9 dish." },
 
     { id: "potboil",  dish: "potatoes", t: -80,  dur: 35,  where: "big1",   title: "Potatoes on to boil", detail: "Cold water start, salted. Boil then strong simmer until tender.", timer: { label: "Potatoes boil + simmer", min: 30 } },
     { id: "stuffmix", dish: "stuffing", t: -75,  dur: 20,  where: "big2",   title: "Make stuffing", detail: "Butter + onion, add broth, fold in stuffing, into buttered dish, foil on.", timer: { label: "Sauté onion", min: 7 } },
-    { id: "tkout",    dish: "turkey",   t: -90,  dur: 45,  where: "counter", title: "Turkey out — rest, tented", detail: "Target around noon; pull as soon as breast reaches 160°F and thigh 170–175°F. Rest 30–45 min.", timer: { label: "Turkey rest", min: 40 } },
+    { id: "tkout",    dish: "turkey",   t: -90,  dur: 45,  where: "counter", title: "Turkey out — rest, tented", detail: "Estimated time only: pull as soon as breast reaches 160°F and thigh 170–175°F. Rest 30–45 min.", timer: { label: "Turkey rest", min: 40 } },
     { id: "gravycook",dish: "gravy",    t: -55,  dur: 55,  where: "big2", title: "Make gravy, then hold warm", detail: "Separate drippings, make roux, whisk in drippings and low-sodium broth. If turkey is late, start with broth. Taste before salting; hold at 140°F or hotter." },
     { id: "oven350sides", dish: null,    t: -90,  dur: 0,  where: "oven", title: "Keep oven at 350°F; set two racks", detail: "Confirm the mac and corn pans fit on separate racks with room for airflow." },
     { id: "macwedbake", dish: "mac",     t: -85,  dur: 50,  where: "oven", rack: "upper", title: "Bake chilled mac at 350°F", detail: "Covered for 30 min, then uncover. Continue until center reaches 165°F; 50 minutes is an estimate, allow longer if needed.", timer: { label: "Mac covered — first check", min: 30 } },
@@ -390,8 +355,8 @@ window.PLAN = {
     { id: "beanwater",dish: "beans",    t: -20,  dur: 20,  where: "small2", title: "Green beans: water on, then steam", detail: "1 inch of water, basket, lid. Beans in once boiling, 5–7 min.", timer: { label: "Steam beans", min: 6 } },
     { id: "carve",    dish: "turkey",   t: -45,  dur: 15,  where: "counter", title: "Carve the turkey", detail: "After its 30–45 minute rest, carve into a prewarmed covered dish and keep at 140°F or hotter until dinner; check with a thermometer." },
     { id: "sidesout", dish: "stuffing", t: -15,  dur: 0,   where: "oven", title: "Stuffing out; switch oven to broil", detail: "Check stuffing reaches 165°F; hold hot. Return mac to broil only after its center reaches 165°F." },
-    { id: "macbroil", dish: "mac",      t: -15,  dur: 2,  where: "oven", rack: "upper", title: "Broil mac & cheese", detail: "After center reaches 165°F, watch closely; broiler-safe dish required. Remove when browned.", timer: { label: "Broil mac — watch closely", min: 2 } },
-    { id: "rollwarm", dish: "rolls",    t: -13,  dur: 8,   where: "oven", rack: "middle", title: "Switch to 350°F; warm rolls (foil on)", detail: "After mac comes out, warm 5–8 min, then turn oven off.", timer: { label: "Rewarm rolls", min: 6 } },
+    { id: "macbroil", dish: "mac",      t: -15,  dur: 2,  where: "oven", rack: "upper", title: "Broil mac & cheese", detail: "After center reaches 165°F, watch closely; broiler-safe dish required. Remove when browned, then turn the oven off.", timer: { label: "Broil mac — watch closely", min: 2 } },
+
     { id: "dinner",   dish: null,       t: 0,    dur: 0,   where: "counter", title: "Dinner!", detail: "Happy Thanksgiving." }
   ],
 
